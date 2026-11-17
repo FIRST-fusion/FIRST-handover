@@ -1,0 +1,69 @@
+ 
+ DCON START => 
+ __________________________________________
+ Forming the equilibirum
+   Equilibrium: /study/runs/freep80_high256/INP1, Type: chease
+   Jac_type = hamada, power_bp = 0, power_b = 0, power_r = 0
+   psilow  = 1.000E-04
+   psihigh = 9.900E-01
+ Diagnosing Grad-Shafranov solution
+ Evaluating Mercier criterion
+ Evaluating ballooning criterion
+   q0 =  4.370E+00, qmin =  4.370E+00, qmax =  1.812E+01, q95 =  1.483E+01
+   sas_flag = F, dmlim =  5.000E-01, qlim =  1.812E+01, psilim =  9.900E-01
+   betat =  3.716E-01, betan =  7.267E+00, betap1 =  1.624E+00
+   nn =    3, mlow =  -16, mhigh =   78, mpert =   95, mband =   94
+ Fourier analysis of metric tensor components
+ Computing F, G, and K Matrices
+ Starting integration of ODE's
+   psi = 1.000E-04, q =  4.371
+   psi = 2.785E-02, q =  4.667
+   psi = 5.493E-02, q =  5.000
+   psi = 7.809E-02, q =  5.333
+   psi = 9.799E-02, q =  5.667
+   psi = 1.203E-01, q =  6.000
+   psi = 1.492E-01, q =  6.333
+   psi = 1.858E-01, q =  6.667
+   psi = 2.337E-01, q =  7.000
+   psi = 3.112E-01, q =  7.333
+   psi = 5.071E-01, q =  7.667
+   psi = 6.152E-01, q =  8.000
+   psi = 6.730E-01, q =  8.333
+   psi = 7.138E-01, q =  8.667
+   psi = 7.455E-01, q =  9.000
+   psi = 7.716E-01, q =  9.333
+   psi = 7.936E-01, q =  9.667
+   psi = 8.126E-01, q = 10.000
+   psi = 8.293E-01, q = 10.333
+   psi = 8.441E-01, q = 10.667
+   psi = 8.573E-01, q = 11.000
+   psi = 8.693E-01, q = 11.333
+   psi = 8.802E-01, q = 11.667
+   psi = 8.901E-01, q = 12.000
+   psi = 8.993E-01, q = 12.333
+   psi = 9.077E-01, q = 12.667
+   psi = 9.155E-01, q = 13.000
+   psi = 9.228E-01, q = 13.333
+   psi = 9.296E-01, q = 13.667
+   psi = 9.359E-01, q = 14.000
+   psi = 9.418E-01, q = 14.333
+   psi = 9.474E-01, q = 14.667
+   psi = 9.526E-01, q = 15.000
+   psi = 9.576E-01, q = 15.333
+   psi = 9.623E-01, q = 15.667
+   psi = 9.667E-01, q = 16.000
+   psi = 9.709E-01, q = 16.333
+   psi = 9.748E-01, q = 16.667
+   psi = 9.786E-01, q = 17.000
+   psi = 9.822E-01, q = 17.333
+   psi = 9.856E-01, q = 17.667
+   psi = 9.889E-01, q = 18.000
+   psi = 9.900E-01, q = 18.118
+ Computing free boundary energies
+   > Vacuum code overriding r 1.00E+00 from vac.in, to be 0
+ Energies: plasma = -1.640E+00, vacuum =  2.048E+00, real =  4.078E-01, imaginary =  2.463E-04
+ All free-boundary modes stable for nn =  3.
+ Total cpu time =  7 minutes, 17 seconds
+ Total wall time =  7 minutes, 17 seconds
+ PROGRAM STOP => Normal termination.
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL

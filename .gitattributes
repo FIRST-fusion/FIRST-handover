@@ -6,3 +6,5 @@ runtime/*.in -text -whitespace
 *.py text eol=lf
 *.json text eol=lf
 *.yml text eol=lf
+# Historical inputs/evidence must retain the fetched bytes (including JSON).
+research-inputs/** -text -whitespace

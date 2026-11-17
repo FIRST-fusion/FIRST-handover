@@ -1,0 +1,474 @@
+{
+  "phase": "VMEC_LOCAL_NOT_PASSED",
+  "source_refinement_phase": "REFINED_LOCAL_PASSED",
+  "scientific_status": "NOT_VERIFIED_STABLE",
+  "finite_n": "NOT_RUN",
+  "scope": "VMEC2049 cross-check of NS320/NPSI1024/NTNOVA1024/9phase source with dense full-LCFS local gates passed; finite-n and broader convergence remain required",
+  "source": "p6_s033_c050_fine_exact320",
+  "vmec_case": "vmec_p6_s033_c050_fine_exact320_2049",
+  "vmec_summary": {
+    "name": "vmec_p6_s033_c050_fine_exact320_2049",
+    "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine_exact320",
+    "configuration": {
+      "R0": 0.45,
+      "a": 0.375,
+      "B0": 1.0,
+      "config": "aspect12",
+      "phases": 9
+    },
+    "ns": 2049,
+    "mpol": 48,
+    "rc": 0,
+    "seconds": 1346.462747335434,
+    "valid": true,
+    "force_limit": 1e-09,
+    "command": [
+      "docker",
+      "exec",
+      "-e",
+      "OMP_NUM_THREADS=1",
+      "-e",
+      "OPENBLAS_NUM_THREADS=1",
+      "-w",
+      "/campaign/runs/vmec_p6_s033_c050_fine_exact320_2049",
+      "plasma_aspect12_validation_20261027",
+      "timeout",
+      "2400",
+      "/source/Stellarator-Tools/build/_deps/parvmec-build/xvmec",
+      "input.test"
+    ],
+    "expected_current_A": 1016510.1111886405,
+    "phiedge_input_Wb_signed": -1.52060352510927,
+    "ier_flag": 0.0,
+    "betatotal": 0.09209062360713735,
+    "ctor": 1016496.789478942,
+    "fsqr": 9.99885379639889e-12,
+    "fsqz": 1.2191466605877053e-13,
+    "fsql": 1.60457268370621e-14,
+    "current_relative_difference": 1.3105339092822632e-05,
+    "dcon_interface_files": [
+      "dcon_test.txt"
+    ],
+    "dcon_ready": true,
+    "bootstrap_audit": {
+      "case": "vmec_p6_s033_c050_fine_exact320_2049",
+      "method": "Independent VMEC Fourier/Jacobian flux averages + collisionless Hirshman Eq4 equal pe=pi and g=.5; toroidal auxiliary subtraction",
+      "fbs_total_hirshman": 0.9928707512415073,
+      "Iaux_A": 7246.858474404563,
+      "Itotal_A": 1016496.789478942,
+      "fc_min": 0.16191024641660479,
+      "fc_max": 0.8261436866929602,
+      "ntheta": 1024,
+      "nlambda": 96,
+      "sign_transform": -1.0,
+      "beta_vac": 0.15187525957727782,
+      "Rgeometric": 0.44999999999999796
+    },
+    "fbs_total_hirshman": 0.9928707512415073,
+    "beta_vac": 0.15187525957727782,
+    "beta_N": 5.602892496165531
+  },
+  "current_and_bootstrap_consistent": true,
+  "vmec_local_checks": [
+    {
+      "local": {
+        "case": "vmec_p6_s033_c050_fine_exact320_2049",
+        "template_case": "vmec_aspect12_from320_1025",
+        "source_directory": "dcon_n1_w0.05_g512_s41_scaled_eqcomplete",
+        "grid": 1024,
+        "mtheta": 1024,
+        "psihigh": 0.999,
+        "classic": false,
+        "command": [
+          "docker",
+          "exec",
+          "-e",
+          "OPENBLAS_CORETYPE=HASWELL",
+          "-e",
+          "OMP_NUM_THREADS=1",
+          "-e",
+          "OPENBLAS_NUM_THREADS=1",
+          "-w",
+          "/campaign/reports/balloon_resolution_audit/vmec_p6_s033_c050_fine_exact320_2049_g1024_edge0.999_classic0",
+          "plasma_aspect12_validation_20261027",
+          "timeout",
+          "1200",
+          "/study/first-20260912/vendor/GPEC_fourier/bin/dcon"
+        ],
+        "driver_sha256": "1a58af1de10f6b754f385af7d03a2e6e1a657ed63a955539fb2a8acbf7aaa76c",
+        "binary_sha256": "aef3e828eb1ab6e22d36cac4d7fdfc5f6ece4e5c164b7cfdb0f902f849851866",
+        "started_unix": 1793097539.3613317,
+        "input_sha256": {
+          "equil.in": "ec2896fc896691cffd88bbfbdc7ca1bd555f7735d9f3606348ebfbc68e2bcf2b",
+          "dcon.in": "dd3733048ca0eb711ab9ef27f961ab30a8dd7e12fa8c1498f7c345ce0410e797",
+          "vac.in": "ed8ea4315b82424c70e1ea893d15d010a32d4c4561cc1b74b2fcefc1473b28c5",
+          "wall_geo.in": "592603c482eac4e0938d9181d7fffd547c33698b3a4decb9fd1515922a501ac1"
+        },
+        "scope": "Local ballooning theta0=0 and Mercier only; finite-n matrix/ODE/vacuum disabled",
+        "rc": 0,
+        "seconds": 21.531533002853394,
+        "normal_termination": true,
+        "finite_n_computed": false,
+        "ballooning": "unknown",
+        "local_integration_complete": false,
+        "surfaces": 1015,
+        "zero_crossing_surfaces": 0,
+        "flagged_surface_rows": [],
+        "ca1_min": -53478.99219032218,
+        "di_max": -0.2500173382399027,
+        "mercier": "stable"
+      },
+      "full_mercier": {
+        "directory": "/home/ouvic/aspect12-validation-20261027/reports/balloon_resolution_audit/vmec_p6_s033_c050_fine_exact320_2049_g1024_edge0.999_classic0",
+        "dcon_out_sha256": "b69df454f43e2c65455e3759090b4e7a98002104069f23e629fee7cecf89e4b6",
+        "expected_rows": 1025,
+        "read_rows": 1025,
+        "complete_full_profile": true,
+        "mercier_full_profile": "unstable",
+        "di_max_full": 16.86,
+        "mercier_positive_rows": [
+          {
+            "index": 8,
+            "psi": 0.0002504,
+            "q": 2.754,
+            "di": 4.979
+          },
+          {
+            "index": 9,
+            "psi": 0.0002904,
+            "q": 2.754,
+            "di": 13.33
+          },
+          {
+            "index": 10,
+            "psi": 0.000335,
+            "q": 2.754,
+            "di": 16.66
+          },
+          {
+            "index": 11,
+            "psi": 0.0003844,
+            "q": 2.755,
+            "di": 16.86
+          },
+          {
+            "index": 12,
+            "psi": 0.0004384,
+            "q": 2.755,
+            "di": 15.22
+          },
+          {
+            "index": 13,
+            "psi": 0.0004972,
+            "q": 2.755,
+            "di": 12.6
+          },
+          {
+            "index": 14,
+            "psi": 0.0005606,
+            "q": 2.756,
+            "di": 9.549
+          },
+          {
+            "index": 15,
+            "psi": 0.0006288,
+            "q": 2.756,
+            "di": 6.412
+          },
+          {
+            "index": 16,
+            "psi": 0.0007016,
+            "q": 2.757,
+            "di": 3.386
+          },
+          {
+            "index": 17,
+            "psi": 0.0007791,
+            "q": 2.757,
+            "di": 0.5846
+          }
+        ],
+        "parse_errors": [],
+        "legacy_integrated_only_mercier": "stable",
+        "ballooning_complete_unchanged": false,
+        "scope": "All printed equilibrium Mercier rows, not only bal_int rows; raw output and acceptance criteria unchanged."
+      },
+      "passed": false
+    },
+    {
+      "local": {
+        "case": "vmec_p6_s033_c050_fine_exact320_2049",
+        "template_case": "vmec_aspect12_from320_1025",
+        "source_directory": "dcon_n1_w0.05_g512_s41_scaled_eqcomplete",
+        "grid": 1536,
+        "mtheta": 1536,
+        "psihigh": 0.999,
+        "classic": false,
+        "command": [
+          "docker",
+          "exec",
+          "-e",
+          "OPENBLAS_CORETYPE=HASWELL",
+          "-e",
+          "OMP_NUM_THREADS=1",
+          "-e",
+          "OPENBLAS_NUM_THREADS=1",
+          "-w",
+          "/campaign/reports/balloon_resolution_audit/vmec_p6_s033_c050_fine_exact320_2049_g1536_edge0.999_classic0",
+          "plasma_aspect12_validation_20261027",
+          "timeout",
+          "1200",
+          "/study/first-20260912/vendor/GPEC_fourier/bin/dcon"
+        ],
+        "driver_sha256": "1a58af1de10f6b754f385af7d03a2e6e1a657ed63a955539fb2a8acbf7aaa76c",
+        "binary_sha256": "aef3e828eb1ab6e22d36cac4d7fdfc5f6ece4e5c164b7cfdb0f902f849851866",
+        "started_unix": 1793097560.919494,
+        "input_sha256": {
+          "equil.in": "4300dfcf9d1af21819777e70c7d001d1819283b8627ea107ee28f676e281efc3",
+          "dcon.in": "dd3733048ca0eb711ab9ef27f961ab30a8dd7e12fa8c1498f7c345ce0410e797",
+          "vac.in": "ed8ea4315b82424c70e1ea893d15d010a32d4c4561cc1b74b2fcefc1473b28c5",
+          "wall_geo.in": "592603c482eac4e0938d9181d7fffd547c33698b3a4decb9fd1515922a501ac1"
+        },
+        "scope": "Local ballooning theta0=0 and Mercier only; finite-n matrix/ODE/vacuum disabled",
+        "rc": 0,
+        "seconds": 47.46572136878967,
+        "normal_termination": true,
+        "finite_n_computed": false,
+        "ballooning": "unknown",
+        "local_integration_complete": false,
+        "surfaces": 1523,
+        "zero_crossing_surfaces": 0,
+        "flagged_surface_rows": [],
+        "ca1_min": -4123200.884416936,
+        "di_max": -0.2500173382399011,
+        "mercier": "stable"
+      },
+      "full_mercier": {
+        "directory": "/home/ouvic/aspect12-validation-20261027/reports/balloon_resolution_audit/vmec_p6_s033_c050_fine_exact320_2049_g1536_edge0.999_classic0",
+        "dcon_out_sha256": "6741d1f9aea500d636eadabf8d1c51ec7dbb1d8f2dd113d06499ea49c58c85bb",
+        "expected_rows": 1537,
+        "read_rows": 1537,
+        "complete_full_profile": true,
+        "mercier_full_profile": "unstable",
+        "di_max_full": 17.05,
+        "mercier_positive_rows": [
+          {
+            "index": 12,
+            "psi": 0.0002504,
+            "q": 2.754,
+            "di": 4.977
+          },
+          {
+            "index": 13,
+            "psi": 0.0002765,
+            "q": 2.754,
+            "di": 11.22
+          },
+          {
+            "index": 14,
+            "psi": 0.0003047,
+            "q": 2.754,
+            "di": 14.89
+          },
+          {
+            "index": 15,
+            "psi": 0.000335,
+            "q": 2.754,
+            "di": 16.66
+          },
+          {
+            "index": 16,
+            "psi": 0.0003674,
+            "q": 2.755,
+            "di": 17.05
+          },
+          {
+            "index": 17,
+            "psi": 0.0004019,
+            "q": 2.755,
+            "di": 16.47
+          },
+          {
+            "index": 18,
+            "psi": 0.0004384,
+            "q": 2.755,
+            "di": 15.22
+          },
+          {
+            "index": 19,
+            "psi": 0.0004771,
+            "q": 2.755,
+            "di": 13.54
+          },
+          {
+            "index": 20,
+            "psi": 0.0005178,
+            "q": 2.755,
+            "di": 11.61
+          },
+          {
+            "index": 21,
+            "psi": 0.0005606,
+            "q": 2.756,
+            "di": 9.549
+          },
+          {
+            "index": 22,
+            "psi": 0.0006055,
+            "q": 2.756,
+            "di": 7.452
+          },
+          {
+            "index": 23,
+            "psi": 0.0006525,
+            "q": 2.756,
+            "di": 5.383
+          },
+          {
+            "index": 24,
+            "psi": 0.0007016,
+            "q": 2.757,
+            "di": 3.386
+          },
+          {
+            "index": 25,
+            "psi": 0.0007528,
+            "q": 2.757,
+            "di": 1.489
+          }
+        ],
+        "parse_errors": [],
+        "legacy_integrated_only_mercier": "stable",
+        "ballooning_complete_unchanged": false,
+        "scope": "All printed equilibrium Mercier rows, not only bal_int rows; raw output and acceptance criteria unchanged."
+      },
+      "passed": false
+    },
+    {
+      "local": {
+        "case": "vmec_p6_s033_c050_fine_exact320_2049",
+        "template_case": "vmec_aspect12_from320_1025",
+        "source_directory": "dcon_n1_w0.05_g512_s41_scaled_eqcomplete",
+        "grid": 1024,
+        "mtheta": 1024,
+        "psihigh": 1.0,
+        "classic": false,
+        "command": [
+          "docker",
+          "exec",
+          "-e",
+          "OPENBLAS_CORETYPE=HASWELL",
+          "-e",
+          "OMP_NUM_THREADS=1",
+          "-e",
+          "OPENBLAS_NUM_THREADS=1",
+          "-w",
+          "/campaign/reports/balloon_resolution_audit/vmec_p6_s033_c050_fine_exact320_2049_g1024_edge1.0_classic0",
+          "plasma_aspect12_validation_20261027",
+          "timeout",
+          "1200",
+          "/study/first-20260912/vendor/GPEC_fourier/bin/dcon"
+        ],
+        "driver_sha256": "1a58af1de10f6b754f385af7d03a2e6e1a657ed63a955539fb2a8acbf7aaa76c",
+        "binary_sha256": "aef3e828eb1ab6e22d36cac4d7fdfc5f6ece4e5c164b7cfdb0f902f849851866",
+        "started_unix": 1793097608.4206562,
+        "input_sha256": {
+          "equil.in": "ab2ac26afa1f99692c661090ac34325ee4cbd44a40daaa9638191bc84b6e5264",
+          "dcon.in": "dd3733048ca0eb711ab9ef27f961ab30a8dd7e12fa8c1498f7c345ce0410e797",
+          "vac.in": "ed8ea4315b82424c70e1ea893d15d010a32d4c4561cc1b74b2fcefc1473b28c5",
+          "wall_geo.in": "592603c482eac4e0938d9181d7fffd547c33698b3a4decb9fd1515922a501ac1"
+        },
+        "scope": "Local ballooning theta0=0 and Mercier only; finite-n matrix/ODE/vacuum disabled",
+        "rc": 0,
+        "seconds": 21.53763508796692,
+        "normal_termination": true,
+        "finite_n_computed": false,
+        "ballooning": "unknown",
+        "local_integration_complete": false,
+        "surfaces": 1015,
+        "zero_crossing_surfaces": 0,
+        "flagged_surface_rows": [],
+        "ca1_min": -420469.1495733253,
+        "di_max": -0.2499999496777794,
+        "mercier": "stable"
+      },
+      "full_mercier": {
+        "directory": "/home/ouvic/aspect12-validation-20261027/reports/balloon_resolution_audit/vmec_p6_s033_c050_fine_exact320_2049_g1024_edge1.0_classic0",
+        "dcon_out_sha256": "756f094f8dd80fa47d9a568c370d568e8ffda9d65aae9b0ea82fa4b35c993b41",
+        "expected_rows": 1025,
+        "read_rows": 1025,
+        "complete_full_profile": true,
+        "mercier_full_profile": "unstable",
+        "di_max_full": 16.86,
+        "mercier_positive_rows": [
+          {
+            "index": 8,
+            "psi": 0.0002506,
+            "q": 2.754,
+            "di": 5.026
+          },
+          {
+            "index": 9,
+            "psi": 0.0002906,
+            "q": 2.754,
+            "di": 13.36
+          },
+          {
+            "index": 10,
+            "psi": 0.0003353,
+            "q": 2.754,
+            "di": 16.67
+          },
+          {
+            "index": 11,
+            "psi": 0.0003847,
+            "q": 2.755,
+            "di": 16.86
+          },
+          {
+            "index": 12,
+            "psi": 0.0004388,
+            "q": 2.755,
+            "di": 15.2
+          },
+          {
+            "index": 13,
+            "psi": 0.0004976,
+            "q": 2.755,
+            "di": 12.58
+          },
+          {
+            "index": 14,
+            "psi": 0.0005611,
+            "q": 2.756,
+            "di": 9.527
+          },
+          {
+            "index": 15,
+            "psi": 0.0006293,
+            "q": 2.756,
+            "di": 6.388
+          },
+          {
+            "index": 16,
+            "psi": 0.0007022,
+            "q": 2.757,
+            "di": 3.363
+          },
+          {
+            "index": 17,
+            "psi": 0.0007798,
+            "q": 2.757,
+            "di": 0.5619
+          }
+        ],
+        "parse_errors": [],
+        "legacy_integrated_only_mercier": "stable",
+        "ballooning_complete_unchanged": false,
+        "scope": "All printed equilibrium Mercier rows, not only bal_int rows; raw output and acceptance criteria unchanged."
+      },
+      "passed": false
+    }
+  ],
+  "updated_at": "2026-10-27T10:40:29.978162+00:00"
+}

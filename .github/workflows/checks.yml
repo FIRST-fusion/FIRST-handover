@@ -11,4 +11,6 @@ jobs:
         run: python3 -m unittest discover -s tests -v
       - name: Verify recorded reference artifacts
         run: python3 tools/check_reference.py
+      - name: Verify historical bootstrap research inputs
+        run: python3 tools/check_research_inputs.py
 # No licensed solver or Docker image is downloaded or run on GitHub's infrastructure.

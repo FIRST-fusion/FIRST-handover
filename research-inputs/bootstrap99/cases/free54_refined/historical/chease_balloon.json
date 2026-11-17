@@ -1,0 +1,12 @@
+{
+  "case": "free54_refined",
+  "method": "CHEASE BALOON finite-element negative-eigenvalue count; NBAL1; NBLC0 default1 (theta0=0); NTURN10",
+  "surface_count": 401,
+  "unstable_surface_count": 13,
+  "max_negative_eigenvalues": 1,
+  "ballooning": "unstable",
+  "unstable_rho_range": [
+    0.9732998710315358,
+    0.9883367020649638
+  ]
+}

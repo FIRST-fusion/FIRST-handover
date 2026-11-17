@@ -1,0 +1,278 @@
+{
+  "scientific_status": "NOT_VERIFIED_STABLE",
+  "scope": "Independent raw NetCDF + complete DCON Mercier table + all integrated balloon rows; finite n not run",
+  "native_VMEC": {
+    "raw_file_sha256": "5a6dc6a9f43bb74eb1ac040344c9673444bff7143ce28b8828755c46518f8265",
+    "force_and_current": {
+      "fsqr": 9.99885379639889e-12,
+      "fsqz": 1.2191466605877053e-13,
+      "fsql": 1.60457268370621e-14,
+      "ier_flag": 0.0,
+      "ctor": 1016496.789478942
+    },
+    "raw_equilibrium_gate": true,
+    "A_from_Fourier_boundary": 1.2000000000000017,
+    "R0_m": 0.44999999999999796,
+    "a_m": 0.3749999999999978,
+    "kappa": 2.400000528811865,
+    "coordinate": "chi / chi_edge = normalized poloidal flux; native VMEC full mesh",
+    "first_six_psi_pol_N": [
+      0.0,
+      0.002614710331667804,
+      0.0052132949898693205,
+      0.007794563759121429,
+      0.010357206827981693,
+      0.012899792353509725
+    ],
+    "native_DMERC_interior_min": 0.00040764797175733765,
+    "native_DMERC_nonpositive_interior_points": 0,
+    "native_DMERC_note": "Retained native quantity and sign; not treated as the DCON di or as a stability override."
+  },
+  "local_checks": [
+    {
+      "solver": "CHEASE",
+      "grid": 768,
+      "edge": 1.0,
+      "classic": false,
+      "dcon_out_sha256": "5fae2b6db4b922f5c26e6093ec9fefca5f61ad7a55397c446e1c62d6413bb4f9",
+      "expected": 769,
+      "mercier_read": 769,
+      "positive_DI_rows": 0,
+      "di_max": -0.25,
+      "ballooning_integrated": 769,
+      "missing_indices": [],
+      "missing_exactly_positive_DI": true,
+      "ballooning_zero_crossings_on_integrated_rows": 0,
+      "normal_rc0": true,
+      "floating_flags": [
+        "IEEE_DENORMAL",
+        "IEEE_UNDERFLOW_FLAG"
+      ],
+      "raw_local_gate": true
+    },
+    {
+      "solver": "CHEASE",
+      "grid": 1536,
+      "edge": 1.0,
+      "classic": false,
+      "dcon_out_sha256": "67eae4e5d91cc1bfe37d39e11c43150bfc1ef8f16bbb2d0124c409394c121965",
+      "expected": 1537,
+      "mercier_read": 1537,
+      "positive_DI_rows": 0,
+      "di_max": -0.25,
+      "ballooning_integrated": 1537,
+      "missing_indices": [],
+      "missing_exactly_positive_DI": true,
+      "ballooning_zero_crossings_on_integrated_rows": 0,
+      "normal_rc0": true,
+      "floating_flags": [
+        "IEEE_DENORMAL",
+        "IEEE_UNDERFLOW_FLAG"
+      ],
+      "raw_local_gate": true
+    },
+    {
+      "solver": "VMEC",
+      "grid": 1024,
+      "edge": 0.999,
+      "classic": false,
+      "dcon_out_sha256": "b69df454f43e2c65455e3759090b4e7a98002104069f23e629fee7cecf89e4b6",
+      "expected": 1025,
+      "mercier_read": 1025,
+      "positive_DI_rows": 10,
+      "di_max": 16.86,
+      "ballooning_integrated": 1015,
+      "missing_indices": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "missing_exactly_positive_DI": true,
+      "ballooning_zero_crossings_on_integrated_rows": 0,
+      "normal_rc0": true,
+      "floating_flags": [
+        "IEEE_DENORMAL",
+        "IEEE_DIVIDE_BY_ZERO",
+        "IEEE_UNDERFLOW_FLAG"
+      ],
+      "raw_local_gate": false,
+      "positive_psi_range": [
+        0.0002504,
+        0.0007791
+      ],
+      "native_VMEC_points_in_positive_range": 0,
+      "pocket_below_first_native_nonaxis_point": true
+    },
+    {
+      "solver": "VMEC",
+      "grid": 1536,
+      "edge": 0.999,
+      "classic": false,
+      "dcon_out_sha256": "6741d1f9aea500d636eadabf8d1c51ec7dbb1d8f2dd113d06499ea49c58c85bb",
+      "expected": 1537,
+      "mercier_read": 1537,
+      "positive_DI_rows": 14,
+      "di_max": 17.05,
+      "ballooning_integrated": 1523,
+      "missing_indices": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "missing_exactly_positive_DI": true,
+      "ballooning_zero_crossings_on_integrated_rows": 0,
+      "normal_rc0": true,
+      "floating_flags": [
+        "IEEE_DENORMAL",
+        "IEEE_DIVIDE_BY_ZERO",
+        "IEEE_UNDERFLOW_FLAG"
+      ],
+      "raw_local_gate": false,
+      "positive_psi_range": [
+        0.0002504,
+        0.0007528
+      ],
+      "native_VMEC_points_in_positive_range": 0,
+      "pocket_below_first_native_nonaxis_point": true
+    },
+    {
+      "solver": "VMEC",
+      "grid": 1024,
+      "edge": 1.0,
+      "classic": false,
+      "dcon_out_sha256": "756f094f8dd80fa47d9a568c370d568e8ffda9d65aae9b0ea82fa4b35c993b41",
+      "expected": 1025,
+      "mercier_read": 1025,
+      "positive_DI_rows": 10,
+      "di_max": 16.86,
+      "ballooning_integrated": 1015,
+      "missing_indices": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "missing_exactly_positive_DI": true,
+      "ballooning_zero_crossings_on_integrated_rows": 0,
+      "normal_rc0": true,
+      "floating_flags": [
+        "IEEE_DENORMAL",
+        "IEEE_DIVIDE_BY_ZERO",
+        "IEEE_UNDERFLOW_FLAG"
+      ],
+      "raw_local_gate": false,
+      "positive_psi_range": [
+        0.0002506,
+        0.0007798
+      ],
+      "native_VMEC_points_in_positive_range": 0,
+      "pocket_below_first_native_nonaxis_point": true
+    },
+    {
+      "solver": "VMEC",
+      "grid": 1024,
+      "edge": 1.0,
+      "classic": true,
+      "dcon_out_sha256": "d27cf74491ce1747516bc478f4ee0a469ceb10d21699ae1a0d0470f1bfbaaee1",
+      "expected": 1025,
+      "mercier_read": 1025,
+      "positive_DI_rows": 10,
+      "di_max": 16.86,
+      "ballooning_integrated": 1015,
+      "missing_indices": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "missing_exactly_positive_DI": true,
+      "ballooning_zero_crossings_on_integrated_rows": 0,
+      "normal_rc0": true,
+      "floating_flags": [
+        "IEEE_DENORMAL",
+        "IEEE_DIVIDE_BY_ZERO",
+        "IEEE_UNDERFLOW_FLAG"
+      ],
+      "raw_local_gate": false,
+      "positive_psi_range": [
+        0.0002506,
+        0.0007798
+      ],
+      "native_VMEC_points_in_positive_range": 0,
+      "pocket_below_first_native_nonaxis_point": true
+    },
+    {
+      "solver": "VMEC",
+      "grid": 1536,
+      "edge": 1.0,
+      "classic": true,
+      "dcon_out_sha256": "b732af8e061439c37338da3ccbe1f0dc6a996f5cc9d171fe0361b3fde6dff648",
+      "expected": 1537,
+      "mercier_read": 1537,
+      "positive_DI_rows": 14,
+      "di_max": 17.05,
+      "ballooning_integrated": 1523,
+      "missing_indices": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "missing_exactly_positive_DI": true,
+      "ballooning_zero_crossings_on_integrated_rows": 0,
+      "normal_rc0": true,
+      "floating_flags": [
+        "IEEE_DENORMAL",
+        "IEEE_DIVIDE_BY_ZERO",
+        "IEEE_UNDERFLOW_FLAG"
+      ],
+      "raw_local_gate": false,
+      "positive_psi_range": [
+        0.0002506,
+        0.0007534
+      ],
+      "native_VMEC_points_in_positive_range": 0,
+      "pocket_below_first_native_nonaxis_point": true
+    }
+  ]
+}

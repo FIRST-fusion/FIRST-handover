@@ -1,0 +1,15 @@
+{
+  "pressure_model": "polynomial_times_one_minus_lambda_psiN",
+  "edge_taper_strength": 1.0,
+  "pressure_C": 263.5559131134355,
+  "seed_axis": 0.33,
+  "pressure_power": 6,
+  "pressure_core_fraction": 0.002,
+  "input_profile_points": 1001,
+  "current_mixing": "fixed_old_geometry_jpar",
+  "seed_center": 0.05,
+  "seed_width": 0.03,
+  "seed_formula": "seed(x)=0.33*0.5*(1-tanh((x-0.05)/0.03)); x=psi_pol_N",
+  "pressure_formula": "pprime(x)=-C*(0.002+0.998*x**6-x**7)*(1-1.0*x); x=psi_pol_N",
+  "reason": "Reduce edge pressure-gradient amplitude (and, only at lambda=1, change its vanishing order); different physical branch, not a numeric correction."
+}

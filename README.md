@@ -9,6 +9,7 @@
 - [老師目標、目前缺口與第一週交接驗收](docs/PROJECT.md)
 - [授權與使用範圍](NOTICE.md)
 - [本次實跑驗收紀錄](evidence/ACCEPTANCE.md)
+- [約 99% bootstrap：14 組歷史研究輸入、restart 與結果](research-inputs/bootstrap99/README.md)
 
 ## 四個可執行範例
 
@@ -22,6 +23,8 @@
 參考輸出由本次 **2026-11-18 真正執行平衡 solver 與 DCON** 產生；不是拿舊日誌冒充新執行。每條路徑均從其自身輸入開始，不依賴先跑另一條路徑。
 
 ## 最短上手（已在 FIRST clone 後）
+
+另收錄 **[14 組高 bootstrap 研究輸入](research-inputs/bootstrap99/README.md)**（A=1.4／A=1.2，fBS 約 99.16%–99.63%），含 CHEASE restart、配對 VMEC 與歷史證據。它們不是上表四個新實跑範例，尚未註冊到教學 runner；高解析度 binary、時間及穩定性限制另有說明。本次新增封裝沒有啟動參數搜尋。
 
 ```sh
 python3 tools/run_case.py --preflight

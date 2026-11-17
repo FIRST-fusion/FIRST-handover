@@ -1,0 +1,62 @@
+{
+  "name": "vmec_p6_s033_c050_fine_exact320_2049",
+  "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine_exact320",
+  "configuration": {
+    "R0": 0.45,
+    "a": 0.375,
+    "B0": 1.0,
+    "config": "aspect12",
+    "phases": 9
+  },
+  "ns": 2049,
+  "mpol": 48,
+  "rc": 0,
+  "seconds": 1346.462747335434,
+  "valid": true,
+  "force_limit": 1e-09,
+  "command": [
+    "docker",
+    "exec",
+    "-e",
+    "OMP_NUM_THREADS=1",
+    "-e",
+    "OPENBLAS_NUM_THREADS=1",
+    "-w",
+    "/campaign/runs/vmec_p6_s033_c050_fine_exact320_2049",
+    "plasma_aspect12_validation_20261027",
+    "timeout",
+    "2400",
+    "/source/Stellarator-Tools/build/_deps/parvmec-build/xvmec",
+    "input.test"
+  ],
+  "expected_current_A": 1016510.1111886405,
+  "phiedge_input_Wb_signed": -1.52060352510927,
+  "ier_flag": 0.0,
+  "betatotal": 0.09209062360713735,
+  "ctor": 1016496.789478942,
+  "fsqr": 9.99885379639889e-12,
+  "fsqz": 1.2191466605877053e-13,
+  "fsql": 1.60457268370621e-14,
+  "current_relative_difference": 1.3105339092822632e-05,
+  "dcon_interface_files": [
+    "dcon_test.txt"
+  ],
+  "dcon_ready": true,
+  "bootstrap_audit": {
+    "case": "vmec_p6_s033_c050_fine_exact320_2049",
+    "method": "Independent VMEC Fourier/Jacobian flux averages + collisionless Hirshman Eq4 equal pe=pi and g=.5; toroidal auxiliary subtraction",
+    "fbs_total_hirshman": 0.9928707512415073,
+    "Iaux_A": 7246.858474404563,
+    "Itotal_A": 1016496.789478942,
+    "fc_min": 0.16191024641660479,
+    "fc_max": 0.8261436866929602,
+    "ntheta": 1024,
+    "nlambda": 96,
+    "sign_transform": -1.0,
+    "beta_vac": 0.15187525957727782,
+    "Rgeometric": 0.44999999999999796
+  },
+  "fbs_total_hirshman": 0.9928707512415073,
+  "beta_vac": 0.15187525957727782,
+  "beta_N": 5.602892496165531
+}

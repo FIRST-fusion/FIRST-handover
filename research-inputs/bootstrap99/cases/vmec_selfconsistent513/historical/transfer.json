@@ -1,0 +1,7 @@
+{
+  "source": "free54_refined",
+  "phiedge": -5.886746406355499,
+  "expected_current_A": 4376169.219839068,
+  "coordinate": "s_tor=integral q dpsi / total; source rho=sqrt(psiN)",
+  "mode": "prescribe iota and pressure; compare output current, not force it"
+}

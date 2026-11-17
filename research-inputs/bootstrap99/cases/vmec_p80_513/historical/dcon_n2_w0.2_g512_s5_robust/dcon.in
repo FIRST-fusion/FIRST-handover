@@ -1,0 +1,36 @@
+&dcon_control
+ sas_flag=f, kin_flag=f, con_flag=f, mer_flag=t
+	bal_flag=t
+	mat_flag=t
+	ode_flag=t
+	vac_flag=t
+
+	nn=2
+	delta_mlow=12
+	delta_mhigh=12
+	delta_mband=0
+	sing_start=0
+
+	mthvac=1024
+	thmax0=1
+
+	tol_nr=1e-8
+	tol_r=1e-8
+	crossover=1e-2
+
+	singfac_min=1e-3
+	ucrit=10
+/
+
+&dcon_output
+ netcdf_out=t
+ out_bal1=t
+	crit_break=t
+
+	ahb_flag=f
+	msol_ahb=1
+	mthsurf0=1
+
+	bin_euler=f
+	euler_stride=1
+/

@@ -1,0 +1,11 @@
+{
+  "case": "p6_s033_c050_fine128_024",
+  "method": "CHEASE BALOON finite-element negative-eigenvalue count; NBAL1; NBLC0=1; NTURN=10",
+  "phase_count": 1,
+  "poloidal_turns_each_direction": 10,
+  "surface_count": 1025,
+  "unstable_surface_count": 0,
+  "max_negative_eigenvalues": 0,
+  "ballooning": "stable_on_sampled_surfaces_and_phases",
+  "unstable_rho_range": null
+}

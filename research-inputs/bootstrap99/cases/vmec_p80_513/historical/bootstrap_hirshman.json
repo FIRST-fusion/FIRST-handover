@@ -1,0 +1,14 @@
+{
+  "case": "vmec_p80_513",
+  "method": "Independent VMEC Fourier/Jacobian flux averages + collisionless Hirshman Eq4 equal pe=pi and g=.5; toroidal auxiliary subtraction",
+  "fbs_total_hirshman": 0.9916952468332592,
+  "Iaux_A": 29991.229302713713,
+  "Itotal_A": 3611333.016232623,
+  "fc_min": 0.2284148531584165,
+  "fc_max": 0.7926594997068096,
+  "ntheta": 1024,
+  "nlambda": 96,
+  "sign_transform": -1.0,
+  "beta_vac": 0.3683833453619001,
+  "Rgeometric": 0.9999999999999978
+}

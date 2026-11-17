@@ -1,0 +1,1336 @@
+{
+  "captured_at": "2026-11-17T19:55:52.045270+00:00",
+  "source_host": "ncku-first",
+  "case_count": 14,
+  "cases": [
+    {
+      "case": "freep80_high256",
+      "solver": "chease",
+      "aspect_ratio": 1.4,
+      "fbs_total_hirshman": 0.9916029188592947,
+      "beta_vac": 0.36838307,
+      "ns": 256,
+      "mpol": null,
+      "historical_seconds": 231.9613118171692,
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256",
+      "parent": null,
+      "new_solver_execution": false,
+      "full_stability_certified": false,
+      "fbs_evidence": "historical/summary.json",
+      "closure_relative": 0.0002872228380493115,
+      "closure_field": "closure_max_relative"
+    },
+    {
+      "case": "freep80_high320_phase9",
+      "solver": "chease",
+      "aspect_ratio": 1.4,
+      "fbs_total_hirshman": 0.9916033517661554,
+      "beta_vac": 0.368382702,
+      "ns": 320,
+      "mpol": null,
+      "historical_seconds": 511.8507344722748,
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high320_phase9",
+      "parent": null,
+      "new_solver_execution": false,
+      "full_stability_certified": false,
+      "fbs_evidence": "historical/summary.json",
+      "closure_relative": 0.00028913681548683534,
+      "closure_field": "closure_max_relative"
+    },
+    {
+      "case": "freep90_high256_phase9",
+      "solver": "chease",
+      "aspect_ratio": 1.4,
+      "fbs_total_hirshman": 0.9946515841182075,
+      "beta_vac": 0.447558928,
+      "ns": 256,
+      "mpol": null,
+      "historical_seconds": 223.71044087409973,
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep90_high256_phase9",
+      "parent": null,
+      "new_solver_execution": false,
+      "full_stability_certified": false,
+      "fbs_evidence": "historical/summary.json",
+      "closure_relative": 0.0003407018732334696,
+      "closure_field": "closure_max_relative"
+    },
+    {
+      "case": "freep98_high256_phase9",
+      "solver": "chease",
+      "aspect_ratio": 1.4,
+      "fbs_total_hirshman": 0.9961208393996207,
+      "beta_vac": 0.518478654,
+      "ns": 256,
+      "mpol": null,
+      "historical_seconds": 235.03124904632568,
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep98_high256_phase9",
+      "parent": null,
+      "new_solver_execution": false,
+      "full_stability_certified": false,
+      "fbs_evidence": "historical/summary.json",
+      "closure_relative": 0.0002695354275703188,
+      "closure_field": "closure_max_relative"
+    },
+    {
+      "case": "freep98_high320_phase9",
+      "solver": "chease",
+      "aspect_ratio": 1.4,
+      "fbs_total_hirshman": 0.9961213349867598,
+      "beta_vac": 0.51847821,
+      "ns": 320,
+      "mpol": null,
+      "historical_seconds": 504.61481285095215,
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep98_high320_phase9",
+      "parent": null,
+      "new_solver_execution": false,
+      "full_stability_certified": false,
+      "fbs_evidence": "historical/summary.json",
+      "closure_relative": 0.0002741444044730236,
+      "closure_field": "closure_max_relative"
+    },
+    {
+      "case": "free54_refined",
+      "solver": "chease",
+      "aspect_ratio": 1.4,
+      "fbs_total_hirshman": 0.9961644421226253,
+      "beta_vac": 0.537732347,
+      "ns": 128,
+      "mpol": null,
+      "historical_seconds": 33.19794464111328,
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_refined",
+      "parent": null,
+      "new_solver_execution": false,
+      "full_stability_certified": false,
+      "fbs_evidence": "historical/summary.json",
+      "closure_relative": 0.0003710971733433935,
+      "closure_field": "closure_max_relative"
+    },
+    {
+      "case": "free54_high256",
+      "solver": "chease",
+      "aspect_ratio": 1.4,
+      "fbs_total_hirshman": 0.9961605980498609,
+      "beta_vac": 0.537731013,
+      "ns": 256,
+      "mpol": null,
+      "historical_seconds": 221.33749270439148,
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_high256",
+      "parent": null,
+      "new_solver_execution": false,
+      "full_stability_certified": false,
+      "fbs_evidence": "historical/summary.json",
+      "closure_relative": 0.000410998653920369,
+      "closure_field": "closure_max_relative"
+    },
+    {
+      "case": "free54_high320",
+      "solver": "chease",
+      "aspect_ratio": 1.4,
+      "fbs_total_hirshman": 0.9961611217840385,
+      "beta_vac": 0.537730554,
+      "ns": 320,
+      "mpol": null,
+      "historical_seconds": 490.8810338973999,
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_high320",
+      "parent": null,
+      "new_solver_execution": false,
+      "full_stability_certified": false,
+      "fbs_evidence": "historical/summary.json",
+      "closure_relative": 0.0005284870043524664,
+      "closure_field": "closure_max_relative"
+    },
+    {
+      "case": "vmec_p80_513",
+      "solver": "vmec",
+      "aspect_ratio": 1.4,
+      "fbs_total_hirshman": 0.9916952468332592,
+      "beta_vac": 0.3683833453619001,
+      "ns": 513,
+      "mpol": 32,
+      "historical_seconds": 107.72688221931458,
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513",
+      "parent": "freep80_high256",
+      "new_solver_execution": false,
+      "full_stability_certified": false,
+      "fbs_evidence": "historical/bootstrap_hirshman.json",
+      "closure_relative": null,
+      "closure_field": null
+    },
+    {
+      "case": "vmec_p98_513",
+      "solver": "vmec",
+      "aspect_ratio": 1.4,
+      "fbs_total_hirshman": 0.9962114041968383,
+      "beta_vac": 0.5184788532280792,
+      "ns": 513,
+      "mpol": 32,
+      "historical_seconds": 103.41522192955017,
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p98_513",
+      "parent": "freep98_high256_phase9",
+      "new_solver_execution": false,
+      "full_stability_certified": false,
+      "fbs_evidence": "historical/bootstrap_hirshman.json",
+      "closure_relative": null,
+      "closure_field": null
+    },
+    {
+      "case": "vmec_selfconsistent513",
+      "solver": "vmec",
+      "aspect_ratio": 1.4,
+      "fbs_total_hirshman": 0.9962538088617257,
+      "beta_vac": 0.5377344513596444,
+      "ns": 513,
+      "mpol": 32,
+      "historical_seconds": 114.44978880882263,
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_selfconsistent513",
+      "parent": "free54_refined",
+      "new_solver_execution": false,
+      "full_stability_certified": false,
+      "fbs_evidence": "historical/bootstrap_hirshman.json",
+      "closure_relative": null,
+      "closure_field": null
+    },
+    {
+      "case": "p6_s033_c050_fine128_024",
+      "solver": "chease",
+      "aspect_ratio": 1.2,
+      "fbs_total_hirshman": 0.9929058854360555,
+      "beta_vac": 0.1518746,
+      "ns": 128,
+      "mpol": null,
+      "historical_seconds": 47.596577405929565,
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine128_024",
+      "parent": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine128_023",
+      "new_solver_execution": false,
+      "full_stability_certified": false,
+      "fbs_evidence": "historical/summary.json",
+      "closure_relative": 0.00034132441256585057,
+      "closure_field": "closure_fixed_seed"
+    },
+    {
+      "case": "p6_s033_c050_fine_exact320",
+      "solver": "chease",
+      "aspect_ratio": 1.2,
+      "fbs_total_hirshman": 0.9928857809614291,
+      "beta_vac": 0.151874583,
+      "ns": 320,
+      "mpol": null,
+      "historical_seconds": 617.8436801433563,
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine_exact320",
+      "parent": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine128_024",
+      "new_solver_execution": false,
+      "full_stability_certified": false,
+      "fbs_evidence": "historical/summary.json",
+      "closure_relative": 0.00034208591635764634,
+      "closure_field": "closure_fixed_seed"
+    },
+    {
+      "case": "vmec_p6_s033_c050_fine_exact320_2049",
+      "solver": "vmec",
+      "aspect_ratio": 1.2,
+      "fbs_total_hirshman": 0.9928707512415073,
+      "beta_vac": 0.15187525957727782,
+      "ns": 2049,
+      "mpol": 48,
+      "historical_seconds": 1346.462747335434,
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/vmec_p6_s033_c050_fine_exact320_2049",
+      "parent": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine_exact320",
+      "new_solver_execution": false,
+      "full_stability_certified": false,
+      "fbs_evidence": "historical/bootstrap_hirshman.json",
+      "closure_relative": null,
+      "closure_field": null
+    }
+  ],
+  "files": [
+    {
+      "path": "cases/freep80_high256/inputs/namelist",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/namelist",
+      "role": "solver_input",
+      "bytes": 551,
+      "sha256": "14e27c66598c6f86bb5cbcc312b4275f166ebc1a72f21832852d8d4542e7bb43",
+      "source_mtime_ns": 1789086058733223584
+    },
+    {
+      "path": "cases/freep80_high256/inputs/EXPEQ",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/EXPEQ",
+      "role": "solver_input",
+      "bytes": 49107,
+      "sha256": "1900867c67255c3882e5268fc4a6ae23934f29b80361a684a22f05cf7362756e",
+      "source_mtime_ns": 1789086058733223584
+    },
+    {
+      "path": "cases/freep80_high256/inputs/NIN",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/NIN",
+      "role": "solver_input",
+      "bytes": 189028,
+      "sha256": "8ea495d85fbe1a22d3bb0307717cb88c64bd5ba3d3330aaaf17f497e008694e3",
+      "source_mtime_ns": 1789062007849820811
+    },
+    {
+      "path": "cases/freep80_high256/historical/summary.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/summary.json",
+      "role": "historical_evidence",
+      "bytes": 624,
+      "sha256": "7cebc3d893f9c2c80850d9420247e85b5ef6c84c361af4a8be325cbf4acf2d07",
+      "source_mtime_ns": 1789086290705272309
+    },
+    {
+      "path": "cases/freep80_high256/historical/run.log",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/run.log",
+      "role": "historical_evidence",
+      "bytes": 266303,
+      "sha256": "26eb67ead20a164d1610fd018db7c7bc9595e7e6ae40b6fb4ffdaccbb6beaa04",
+      "source_mtime_ns": 1789086290535274491
+    },
+    {
+      "path": "cases/freep80_high256/historical/chease_balloon.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/chease_balloon.json",
+      "role": "historical_evidence",
+      "bytes": 319,
+      "sha256": "f3c63f97ec8da7e058eadb758b3296dcf0d16b9f9a01625284ea15ec193138ea",
+      "source_mtime_ns": 1789086290731271975
+    },
+    {
+      "path": "cases/freep80_high256/historical/linliu_profiles.dat",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/linliu_profiles.dat",
+      "role": "historical_evidence",
+      "bytes": 231432,
+      "sha256": "4140ea77c2ff3bd4a7fe558e86c9245a7fb78c147fa5a5deef0d216766bb7e32",
+      "source_mtime_ns": 1789086288641298805
+    },
+    {
+      "path": "cases/freep80_high256/historical/dcon_n1_w0.2_g512_s5_robust/equil.in",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/dcon_n1_w0.2_g512_s5_robust/equil.in",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 363,
+      "sha256": "fbd15a1c472d076d958ea5594ae66fb90d76c3ebc47565f2717497908b130c4b",
+      "source_mtime_ns": 1789086395988916180
+    },
+    {
+      "path": "cases/freep80_high256/historical/dcon_n1_w0.2_g512_s5_robust/dcon.in",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/dcon_n1_w0.2_g512_s5_robust/dcon.in",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 397,
+      "sha256": "978967ab813e36c79013b036c41ee022e15e2021820cce5b8838a92ac17c67b6",
+      "source_mtime_ns": 1789086395988916180
+    },
+    {
+      "path": "cases/freep80_high256/historical/dcon_n1_w0.2_g512_s5_robust/vac.in",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/dcon_n1_w0.2_g512_s5_robust/vac.in",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 1491,
+      "sha256": "8d0ed4e89fcff731f3a0d89785b428c00275e0f16b3afa58cc9edeaa5326ab5f",
+      "source_mtime_ns": 1789086395988916180
+    },
+    {
+      "path": "cases/freep80_high256/historical/dcon_n1_w0.2_g512_s5_robust/summary.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/dcon_n1_w0.2_g512_s5_robust/summary.json",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 936,
+      "sha256": "a35f857400e73bbbd8d615787a0e31141349ad3c7cf6ce305a9728d5c7fef229",
+      "source_mtime_ns": 1789086463544041846
+    },
+    {
+      "path": "cases/freep80_high256/historical/dcon_n1_w0.2_g512_s5_robust/run.log",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/dcon_n1_w0.2_g512_s5_robust/run.log",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 1693,
+      "sha256": "903b9739151e09fa0720b94fa026f2dfa0adb7f0193a1564a19be020e969f37c",
+      "source_mtime_ns": 1789086463330044620
+    },
+    {
+      "path": "cases/freep80_high256/historical/dcon_n2_w0.2_g512_s5_robust/equil.in",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/dcon_n2_w0.2_g512_s5_robust/equil.in",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 363,
+      "sha256": "fbd15a1c472d076d958ea5594ae66fb90d76c3ebc47565f2717497908b130c4b",
+      "source_mtime_ns": 1789086463869037633
+    },
+    {
+      "path": "cases/freep80_high256/historical/dcon_n2_w0.2_g512_s5_robust/dcon.in",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/dcon_n2_w0.2_g512_s5_robust/dcon.in",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 397,
+      "sha256": "c10573950433b39fb781261e782378cfe628b66a1050e0ef2f6d77409d7528ba",
+      "source_mtime_ns": 1789086463869037633
+    },
+    {
+      "path": "cases/freep80_high256/historical/dcon_n2_w0.2_g512_s5_robust/vac.in",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/dcon_n2_w0.2_g512_s5_robust/vac.in",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 1491,
+      "sha256": "8d0ed4e89fcff731f3a0d89785b428c00275e0f16b3afa58cc9edeaa5326ab5f",
+      "source_mtime_ns": 1789086463869037633
+    },
+    {
+      "path": "cases/freep80_high256/historical/dcon_n2_w0.2_g512_s5_robust/summary.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/dcon_n2_w0.2_g512_s5_robust/summary.json",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 936,
+      "sha256": "0257609359a54457c4c3c12cba4f9e58cd75ab042bd91cc680dbbb4837a2c330",
+      "source_mtime_ns": 1789086654495556479
+    },
+    {
+      "path": "cases/freep80_high256/historical/dcon_n2_w0.2_g512_s5_robust/run.log",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/dcon_n2_w0.2_g512_s5_robust/run.log",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 2127,
+      "sha256": "65058f2ab337fd173e6e6e4d7646aa723bb542197f9a72a675738fa2223b8e10",
+      "source_mtime_ns": 1789086654452557041
+    },
+    {
+      "path": "cases/freep80_high256/historical/dcon_n3_w0.2_g512_s5_robust/equil.in",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/dcon_n3_w0.2_g512_s5_robust/equil.in",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 363,
+      "sha256": "fbd15a1c472d076d958ea5594ae66fb90d76c3ebc47565f2717497908b130c4b",
+      "source_mtime_ns": 1789086654826552156
+    },
+    {
+      "path": "cases/freep80_high256/historical/dcon_n3_w0.2_g512_s5_robust/dcon.in",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/dcon_n3_w0.2_g512_s5_robust/dcon.in",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 397,
+      "sha256": "2d8b8c64c230a1c9944d95eb3b3e1c2d1e30830b747fc753fbc108b5cac36a70",
+      "source_mtime_ns": 1789086654826552156
+    },
+    {
+      "path": "cases/freep80_high256/historical/dcon_n3_w0.2_g512_s5_robust/vac.in",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/dcon_n3_w0.2_g512_s5_robust/vac.in",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 1491,
+      "sha256": "8d0ed4e89fcff731f3a0d89785b428c00275e0f16b3afa58cc9edeaa5326ab5f",
+      "source_mtime_ns": 1789086654826552156
+    },
+    {
+      "path": "cases/freep80_high256/historical/dcon_n3_w0.2_g512_s5_robust/summary.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/dcon_n3_w0.2_g512_s5_robust/summary.json",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 937,
+      "sha256": "6622367c261bdd24a07a6c402d25282535510c215dac5f0a0613aceddec63fad",
+      "source_mtime_ns": 1789087092554803966
+    },
+    {
+      "path": "cases/freep80_high256/historical/dcon_n3_w0.2_g512_s5_robust/run.log",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high256/dcon_n3_w0.2_g512_s5_robust/run.log",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 2530,
+      "sha256": "7d9d581c35e88316785cbe5918c44986a7005c33a97f9fa825dc796ffb341246",
+      "source_mtime_ns": 1789087092468805100
+    },
+    {
+      "path": "cases/freep80_high320_phase9/inputs/namelist",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high320_phase9/namelist",
+      "role": "solver_input",
+      "bytes": 571,
+      "sha256": "1cc93b4784a167b73d108b0799fcb6c957ceac8ea8f086e37b7dd92cf02b61a6",
+      "source_mtime_ns": 1789086396059915262
+    },
+    {
+      "path": "cases/freep80_high320_phase9/inputs/EXPEQ",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high320_phase9/EXPEQ",
+      "role": "solver_input",
+      "bytes": 49107,
+      "sha256": "1900867c67255c3882e5268fc4a6ae23934f29b80361a684a22f05cf7362756e",
+      "source_mtime_ns": 1789086396058915276
+    },
+    {
+      "path": "cases/freep80_high320_phase9/inputs/NIN",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high320_phase9/NIN",
+      "role": "solver_input",
+      "bytes": 189028,
+      "sha256": "8ea495d85fbe1a22d3bb0307717cb88c64bd5ba3d3330aaaf17f497e008694e3",
+      "source_mtime_ns": 1789062007849820811
+    },
+    {
+      "path": "cases/freep80_high320_phase9/historical/summary.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high320_phase9/summary.json",
+      "role": "historical_evidence",
+      "bytes": 636,
+      "sha256": "cbd9741a7fd520a919afca2e75d1f6bf685dec7592fcd105e80fc4c76b0508c5",
+      "source_mtime_ns": 1789086907926234834
+    },
+    {
+      "path": "cases/freep80_high320_phase9/historical/run.log",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high320_phase9/run.log",
+      "role": "historical_evidence",
+      "bytes": 324073,
+      "sha256": "ee4122b3c1a7b54a597d5fb599ca7fa08dfb7a3b987cac9e2c6c74c98994595d",
+      "source_mtime_ns": 1789086907724237490
+    },
+    {
+      "path": "cases/freep80_high320_phase9/historical/chease_balloon.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high320_phase9/chease_balloon.json",
+      "role": "historical_evidence",
+      "bytes": 368,
+      "sha256": "85421b271f61925c6369e623ba9f8bbf305fa1d75cbdda418b5a906787938e79",
+      "source_mtime_ns": 1789086907956234440
+    },
+    {
+      "path": "cases/freep80_high320_phase9/historical/linliu_profiles.dat",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep80_high320_phase9/linliu_profiles.dat",
+      "role": "historical_evidence",
+      "bytes": 289160,
+      "sha256": "caa22e2b6ed5955e6c11ebe4b8e3d829f5837cfe9fab5724a1e02fd935339fb2",
+      "source_mtime_ns": 1789086904043285874
+    },
+    {
+      "path": "cases/freep90_high256_phase9/inputs/namelist",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep90_high256_phase9/namelist",
+      "role": "solver_input",
+      "bytes": 571,
+      "sha256": "0b58ce6085de9a13a171381cd5782481df41c66726e624b2ef209f20fc1b718c",
+      "source_mtime_ns": 1789087381261881158
+    },
+    {
+      "path": "cases/freep90_high256_phase9/inputs/EXPEQ",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep90_high256_phase9/EXPEQ",
+      "role": "solver_input",
+      "bytes": 49108,
+      "sha256": "c0d40246f1c7632bfad8350903bd9fa20d99f66fe7c00eb608a6b7599d7cb9e6",
+      "source_mtime_ns": 1789087381261881158
+    },
+    {
+      "path": "cases/freep90_high256_phase9/inputs/NIN",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep90_high256_phase9/NIN",
+      "role": "solver_input",
+      "bytes": 189028,
+      "sha256": "5fb36a994da92e51fcc0747fd941b2de06d162ee2294924cbf63950a1b4c39bf",
+      "source_mtime_ns": 1789061699298063148
+    },
+    {
+      "path": "cases/freep90_high256_phase9/historical/summary.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep90_high256_phase9/summary.json",
+      "role": "historical_evidence",
+      "bytes": 630,
+      "sha256": "0c68b93bbbabe07b73491aa8f955f24d7b4999f0c194b2de2a922ba0ddd457f7",
+      "source_mtime_ns": 1789087604983822243
+    },
+    {
+      "path": "cases/freep90_high256_phase9/historical/run.log",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep90_high256_phase9/run.log",
+      "role": "historical_evidence",
+      "bytes": 266629,
+      "sha256": "fcd388f3740867d4373a014a32dd6590538649019b67ec36bad1340f41cca262",
+      "source_mtime_ns": 1789087604809824612
+    },
+    {
+      "path": "cases/freep90_high256_phase9/historical/chease_balloon.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep90_high256_phase9/chease_balloon.json",
+      "role": "historical_evidence",
+      "bytes": 368,
+      "sha256": "8fd603c191081e789b2a5e7d524a43c835bc5e35350ce311e6c6e35028f16a5a",
+      "source_mtime_ns": 1789087605009821890
+    },
+    {
+      "path": "cases/freep90_high256_phase9/historical/linliu_profiles.dat",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep90_high256_phase9/linliu_profiles.dat",
+      "role": "historical_evidence",
+      "bytes": 231432,
+      "sha256": "61d37190f9ffc421e247ba8bd45382b4d5de1071470f03d236263da59cb35e59",
+      "source_mtime_ns": 1789087602553855323
+    },
+    {
+      "path": "cases/freep98_high256_phase9/inputs/namelist",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep98_high256_phase9/namelist",
+      "role": "solver_input",
+      "bytes": 571,
+      "sha256": "0b58ce6085de9a13a171381cd5782481df41c66726e624b2ef209f20fc1b718c",
+      "source_mtime_ns": 1789086663798434954
+    },
+    {
+      "path": "cases/freep98_high256_phase9/inputs/EXPEQ",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep98_high256_phase9/EXPEQ",
+      "role": "solver_input",
+      "bytes": 49107,
+      "sha256": "980db8c0db19d35b7b5d47be405fc15f8ce04eb24812d606124b54090bce6f2f",
+      "source_mtime_ns": 1789086663798434954
+    },
+    {
+      "path": "cases/freep98_high256_phase9/inputs/NIN",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep98_high256_phase9/NIN",
+      "role": "solver_input",
+      "bytes": 189028,
+      "sha256": "d99a1c932479a9bb906f0c8b752bf833ee4a0638ecb7d2835def2a760015d837",
+      "source_mtime_ns": 1789086596528312872
+    },
+    {
+      "path": "cases/freep98_high256_phase9/historical/summary.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep98_high256_phase9/summary.json",
+      "role": "historical_evidence",
+      "bytes": 636,
+      "sha256": "352049b9c8ffe98b4e6db93e82f6d5bafaec68f89aa12cccdabad9e705459eae",
+      "source_mtime_ns": 1789086898841354246
+    },
+    {
+      "path": "cases/freep98_high256_phase9/historical/run.log",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep98_high256_phase9/run.log",
+      "role": "historical_evidence",
+      "bytes": 266849,
+      "sha256": "ebc59b9db705ecfff6a82e96c14cebd47de14d4655cba6e8caeca02d54210950",
+      "source_mtime_ns": 1789086898621357138
+    },
+    {
+      "path": "cases/freep98_high256_phase9/historical/chease_balloon.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep98_high256_phase9/chease_balloon.json",
+      "role": "historical_evidence",
+      "bytes": 368,
+      "sha256": "f2660d819e590fdee07852a2601c3ddea1da102bce3894430aeaa4786604e254",
+      "source_mtime_ns": 1789086898867353905
+    },
+    {
+      "path": "cases/freep98_high256_phase9/historical/linliu_profiles.dat",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep98_high256_phase9/linliu_profiles.dat",
+      "role": "historical_evidence",
+      "bytes": 231432,
+      "sha256": "5a348d9b0df46d831fc2bdd7b782174c359adac6e6567cfbece1efc523f006fa",
+      "source_mtime_ns": 1789086896345387050
+    },
+    {
+      "path": "cases/freep98_high320_phase9/inputs/namelist",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep98_high320_phase9/namelist",
+      "role": "solver_input",
+      "bytes": 571,
+      "sha256": "1cc93b4784a167b73d108b0799fcb6c957ceac8ea8f086e37b7dd92cf02b61a6",
+      "source_mtime_ns": 1789087022281730049
+    },
+    {
+      "path": "cases/freep98_high320_phase9/inputs/EXPEQ",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep98_high320_phase9/EXPEQ",
+      "role": "solver_input",
+      "bytes": 49107,
+      "sha256": "980db8c0db19d35b7b5d47be405fc15f8ce04eb24812d606124b54090bce6f2f",
+      "source_mtime_ns": 1789087022280730063
+    },
+    {
+      "path": "cases/freep98_high320_phase9/inputs/NIN",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep98_high320_phase9/NIN",
+      "role": "solver_input",
+      "bytes": 189028,
+      "sha256": "d99a1c932479a9bb906f0c8b752bf833ee4a0638ecb7d2835def2a760015d837",
+      "source_mtime_ns": 1789086596528312872
+    },
+    {
+      "path": "cases/freep98_high320_phase9/historical/summary.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep98_high320_phase9/summary.json",
+      "role": "historical_evidence",
+      "bytes": 633,
+      "sha256": "b741d5db4e51885190b1ef4d39c9ce0e4c7b4667bfbd089de1594556a46e6e49",
+      "source_mtime_ns": 1789087526910886491
+    },
+    {
+      "path": "cases/freep98_high320_phase9/historical/run.log",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep98_high320_phase9/run.log",
+      "role": "historical_evidence",
+      "bytes": 324293,
+      "sha256": "9907aa596ca530adb3b286d147f72198be9ea3b044c2d67a32656a131a8ae72f",
+      "source_mtime_ns": 1789087526674889713
+    },
+    {
+      "path": "cases/freep98_high320_phase9/historical/chease_balloon.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep98_high320_phase9/chease_balloon.json",
+      "role": "historical_evidence",
+      "bytes": 368,
+      "sha256": "4c24d4a0c17ea96e2c8ddcc623d7d838082ebfde5efd05f95bf7955c696361c3",
+      "source_mtime_ns": 1789087526940886082
+    },
+    {
+      "path": "cases/freep98_high320_phase9/historical/linliu_profiles.dat",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/freep98_high320_phase9/linliu_profiles.dat",
+      "role": "historical_evidence",
+      "bytes": 289160,
+      "sha256": "ac49381beaf0b61f6525f43e8504f92b3ede3166b01e8c095db842e89f585df7",
+      "source_mtime_ns": 1789087523110938371
+    },
+    {
+      "path": "cases/free54_refined/inputs/namelist",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_refined/namelist",
+      "role": "solver_input",
+      "bytes": 551,
+      "sha256": "6b5af629ed03bd3f22b5f13befcae93c0893713d38d212edfb6b9af15626233c",
+      "source_mtime_ns": 1789061544394201933
+    },
+    {
+      "path": "cases/free54_refined/inputs/EXPEQ",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_refined/EXPEQ",
+      "role": "solver_input",
+      "bytes": 49107,
+      "sha256": "d5976577e085e23286cd4d35988d2ef63d0faf46bcdf19e34faf8393c0bd483f",
+      "source_mtime_ns": 1789061544394201933
+    },
+    {
+      "path": "cases/free54_refined/inputs/NIN",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_refined/NIN",
+      "role": "solver_input",
+      "bytes": 189028,
+      "sha256": "a9301f6e1309b28b40d3f5ab261725e17d18573a888afaf45bba2e9d6ec109e4",
+      "source_mtime_ns": 1789061477845123359
+    },
+    {
+      "path": "cases/free54_refined/historical/summary.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_refined/summary.json",
+      "role": "historical_evidence",
+      "bytes": 622,
+      "sha256": "f6759cd65b542d4cab7df5b2da988c5e14cf23b67771f16fdc06f589064b4882",
+      "source_mtime_ns": 1789061577610742647
+    },
+    {
+      "path": "cases/free54_refined/historical/run.log",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_refined/run.log",
+      "role": "historical_evidence",
+      "bytes": 216507,
+      "sha256": "d0df26a2ac8e889baffaf5735e88bf4f404c36916b6016574739076bd96c7212",
+      "source_mtime_ns": 1789061577520743891
+    },
+    {
+      "path": "cases/free54_refined/historical/chease_balloon.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_refined/chease_balloon.json",
+      "role": "historical_evidence",
+      "bytes": 338,
+      "sha256": "1250dc71e0f55510d677ce1eff8e7066083afd05d8e3fe2c81d0fd27d9115570",
+      "source_mtime_ns": 1789085055312867961
+    },
+    {
+      "path": "cases/free54_refined/historical/linliu_profiles.dat",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_refined/linliu_profiles.dat",
+      "role": "historical_evidence",
+      "bytes": 180920,
+      "sha256": "5f5832ae1e74446e0c7f3ca4f94e2102da4169a7ee3c15f9c3943c4fb1e89abb",
+      "source_mtime_ns": 1789061576519757726
+    },
+    {
+      "path": "cases/free54_high256/inputs/namelist",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_high256/namelist",
+      "role": "solver_input",
+      "bytes": 551,
+      "sha256": "14e27c66598c6f86bb5cbcc312b4275f166ebc1a72f21832852d8d4542e7bb43",
+      "source_mtime_ns": 1789085152525535523
+    },
+    {
+      "path": "cases/free54_high256/inputs/EXPEQ",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_high256/EXPEQ",
+      "role": "solver_input",
+      "bytes": 49107,
+      "sha256": "d4db9b02bc19c1399905ac58fdf8136e8de4174b5ef92a2568b65135a8fee52b",
+      "source_mtime_ns": 1789085152525535523
+    },
+    {
+      "path": "cases/free54_high256/inputs/NIN",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_high256/NIN",
+      "role": "solver_input",
+      "bytes": 1100324,
+      "sha256": "da8db346bba583f2278d02700eb653f527bd93cc364c0d69e56fed327a02dda9",
+      "source_mtime_ns": 1789062277919119814
+    },
+    {
+      "path": "cases/free54_high256/historical/summary.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_high256/summary.json",
+      "role": "historical_evidence",
+      "bytes": 627,
+      "sha256": "4e5e1b4a52986eac66628ebdfcceea66857b8fdd66f0b948aa1399a64ca62b06",
+      "source_mtime_ns": 1789085373874324423
+    },
+    {
+      "path": "cases/free54_high256/historical/run.log",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_high256/run.log",
+      "role": "historical_evidence",
+      "bytes": 266303,
+      "sha256": "3447c1240820d210f2cd6ee9bb01448248bd5aa2a67c7d7c635d756d526215fe",
+      "source_mtime_ns": 1789085373704326233
+    },
+    {
+      "path": "cases/free54_high256/historical/chease_balloon.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_high256/chease_balloon.json",
+      "role": "historical_evidence",
+      "bytes": 337,
+      "sha256": "dee679b14842a04edf3a3dc9d6a0a2c41315d0d1a44293a79694ff3de50df2a0",
+      "source_mtime_ns": 1789085373901324135
+    },
+    {
+      "path": "cases/free54_high256/historical/linliu_profiles.dat",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_high256/linliu_profiles.dat",
+      "role": "historical_evidence",
+      "bytes": 231432,
+      "sha256": "081fc0674a9cb2afa99aa7a146423ea5db8450de243ea1bfee5820af617b098e",
+      "source_mtime_ns": 1789085371823346254
+    },
+    {
+      "path": "cases/free54_high320/inputs/namelist",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_high320/namelist",
+      "role": "solver_input",
+      "bytes": 551,
+      "sha256": "b49db96f6c6b6f188b2e75060dd16857c554b4e0cfa17f75b4bdc2d3326c5652",
+      "source_mtime_ns": 1789085732292242907
+    },
+    {
+      "path": "cases/free54_high320/inputs/EXPEQ",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_high320/EXPEQ",
+      "role": "solver_input",
+      "bytes": 49107,
+      "sha256": "d4db9b02bc19c1399905ac58fdf8136e8de4174b5ef92a2568b65135a8fee52b",
+      "source_mtime_ns": 1789085732292242907
+    },
+    {
+      "path": "cases/free54_high320/inputs/NIN",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_high320/NIN",
+      "role": "solver_input",
+      "bytes": 1100324,
+      "sha256": "da8db346bba583f2278d02700eb653f527bd93cc364c0d69e56fed327a02dda9",
+      "source_mtime_ns": 1789062277919119814
+    },
+    {
+      "path": "cases/free54_high320/historical/summary.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_high320/summary.json",
+      "role": "historical_evidence",
+      "bytes": 623,
+      "sha256": "a600c7e9de4400379758747977da0d67fedf521894188ac877f9836d30dbfa47",
+      "source_mtime_ns": 1789086223188137097
+    },
+    {
+      "path": "cases/free54_high320/historical/run.log",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_high320/run.log",
+      "role": "historical_evidence",
+      "bytes": 323747,
+      "sha256": "4b63fe7bf32e83f7143e3bddd25cb22bc2b0bfa27168aaf1a815c303851d9d76",
+      "source_mtime_ns": 1789086223003139461
+    },
+    {
+      "path": "cases/free54_high320/historical/chease_balloon.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_high320/chease_balloon.json",
+      "role": "historical_evidence",
+      "bytes": 338,
+      "sha256": "f6fa9a42afcd846b08f986ace0d05d42cf18ef5d2d8b81ea9e7f001134489fe2",
+      "source_mtime_ns": 1789086223218136714
+    },
+    {
+      "path": "cases/free54_high320/historical/linliu_profiles.dat",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/free54_high320/linliu_profiles.dat",
+      "role": "historical_evidence",
+      "bytes": 289160,
+      "sha256": "12f011434a587092a8ff504add72181b625519d5ef1956e8160988481bfdaee0",
+      "source_mtime_ns": 1789086220041177301
+    },
+    {
+      "path": "cases/vmec_p80_513/inputs/input.test",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/input.test",
+      "role": "solver_input",
+      "bytes": 31679,
+      "sha256": "9d8a2bc8ca8c647a55f5a9d8e2408b44c14b67a008f62662a4f861c9bc414cd1",
+      "source_mtime_ns": 1789086420574598326
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/summary.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/summary.json",
+      "role": "historical_evidence",
+      "bytes": 315,
+      "sha256": "d113e530c72d450e9c46af6d4e5b51dcdbe5ef4dc9667f9613f44ef191877d44",
+      "source_mtime_ns": 1789086528307201025
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/run.log",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/run.log",
+      "role": "historical_evidence",
+      "bytes": 3206,
+      "sha256": "0826412ef32f03b38034fd3915eaa1e236b6b44fb8b445eda93598d00fd10ee1",
+      "source_mtime_ns": 1789086528240201896
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/bootstrap_hirshman.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/bootstrap_hirshman.json",
+      "role": "historical_evidence",
+      "bytes": 477,
+      "sha256": "e8194915405e6e947e809aaaacb57f271002eef7eddfda6adab51b5328ea43a5",
+      "source_mtime_ns": 1789086529012191859
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/bootstrap_hirshman.dat",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/bootstrap_hirshman.dat",
+      "role": "historical_evidence",
+      "bytes": 102967,
+      "sha256": "6913859647f9126b6a659fb891295ee193fbdd627ade326183e15ea6a95de9c9",
+      "source_mtime_ns": 1789086529011191872
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/transfer.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/transfer.json",
+      "role": "historical_evidence",
+      "bytes": 261,
+      "sha256": "eed65318caef6275c29fd5e7b765c9ba03168d016eb0422e838769bbc8adbb18",
+      "source_mtime_ns": 1789086420574598326
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/dcon_n1_w0.2_g512_s5_robust/equil.in",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/dcon_n1_w0.2_g512_s5_robust/equil.in",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 367,
+      "sha256": "c3764850ae7b84f9a332cd08149575f299794d105073cdd74ac391d41c0d5791",
+      "source_mtime_ns": 1789086663539438337
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/dcon_n1_w0.2_g512_s5_robust/dcon.in",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/dcon_n1_w0.2_g512_s5_robust/dcon.in",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 397,
+      "sha256": "978967ab813e36c79013b036c41ee022e15e2021820cce5b8838a92ac17c67b6",
+      "source_mtime_ns": 1789086663539438337
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/dcon_n1_w0.2_g512_s5_robust/vac.in",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/dcon_n1_w0.2_g512_s5_robust/vac.in",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 1491,
+      "sha256": "8d0ed4e89fcff731f3a0d89785b428c00275e0f16b3afa58cc9edeaa5326ab5f",
+      "source_mtime_ns": 1789086663539438337
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/dcon_n1_w0.2_g512_s5_robust/summary.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/dcon_n1_w0.2_g512_s5_robust/summary.json",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 927,
+      "sha256": "2582dac0d971d4dde7da012e06104972ba2c6d4d909f50b9f202826a606d27fc",
+      "source_mtime_ns": 1789086726113620027
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/dcon_n1_w0.2_g512_s5_robust/run.log",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/dcon_n1_w0.2_g512_s5_robust/run.log",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 1717,
+      "sha256": "b391fab3336b49b6aaa2b09b6aa3004405960668bf75af8dab6c99914b2ea01a",
+      "source_mtime_ns": 1789086725915622618
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/dcon_n2_w0.2_g512_s5_robust/equil.in",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/dcon_n2_w0.2_g512_s5_robust/equil.in",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 367,
+      "sha256": "c3764850ae7b84f9a332cd08149575f299794d105073cdd74ac391d41c0d5791",
+      "source_mtime_ns": 1789086726226618547
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/dcon_n2_w0.2_g512_s5_robust/dcon.in",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/dcon_n2_w0.2_g512_s5_robust/dcon.in",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 397,
+      "sha256": "c10573950433b39fb781261e782378cfe628b66a1050e0ef2f6d77409d7528ba",
+      "source_mtime_ns": 1789086726226618547
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/dcon_n2_w0.2_g512_s5_robust/vac.in",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/dcon_n2_w0.2_g512_s5_robust/vac.in",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 1491,
+      "sha256": "8d0ed4e89fcff731f3a0d89785b428c00275e0f16b3afa58cc9edeaa5326ab5f",
+      "source_mtime_ns": 1789086726226618547
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/dcon_n2_w0.2_g512_s5_robust/summary.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/dcon_n2_w0.2_g512_s5_robust/summary.json",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 930,
+      "sha256": "1ae25d29e407edf42761f627152447e92fdfbc85d17e8eb5dc03d20c14752f29",
+      "source_mtime_ns": 1789086903562292197
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/dcon_n2_w0.2_g512_s5_robust/run.log",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/dcon_n2_w0.2_g512_s5_robust/run.log",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 2151,
+      "sha256": "8104d32866062f0a8c39c4cbb21453ff779fee548339c8250fd3121d3fdddab4",
+      "source_mtime_ns": 1789086903524292696
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/dcon_n3_w0.2_g512_s5_robust/equil.in",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/dcon_n3_w0.2_g512_s5_robust/equil.in",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 367,
+      "sha256": "c3764850ae7b84f9a332cd08149575f299794d105073cdd74ac391d41c0d5791",
+      "source_mtime_ns": 1789086904112284967
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/dcon_n3_w0.2_g512_s5_robust/dcon.in",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/dcon_n3_w0.2_g512_s5_robust/dcon.in",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 397,
+      "sha256": "2d8b8c64c230a1c9944d95eb3b3e1c2d1e30830b747fc753fbc108b5cac36a70",
+      "source_mtime_ns": 1789086904112284967
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/dcon_n3_w0.2_g512_s5_robust/vac.in",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/dcon_n3_w0.2_g512_s5_robust/vac.in",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 1491,
+      "sha256": "8d0ed4e89fcff731f3a0d89785b428c00275e0f16b3afa58cc9edeaa5326ab5f",
+      "source_mtime_ns": 1789086904112284967
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/dcon_n3_w0.2_g512_s5_robust/summary.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/dcon_n3_w0.2_g512_s5_robust/summary.json",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 929,
+      "sha256": "b8428ce99b345a290e3d714520fd5aff5d7d09c6ee7fdc7df9b65e5dccada034",
+      "source_mtime_ns": 1789087317217762842
+    },
+    {
+      "path": "cases/vmec_p80_513/historical/dcon_n3_w0.2_g512_s5_robust/run.log",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p80_513/dcon_n3_w0.2_g512_s5_robust/run.log",
+      "role": "historical_dcon_controls_and_evidence",
+      "bytes": 2554,
+      "sha256": "13faf772ade37d239ff57349449f9abb136083284617f3e850f7122fdb0153ad",
+      "source_mtime_ns": 1789087317138763931
+    },
+    {
+      "path": "cases/vmec_p98_513/inputs/input.test",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p98_513/input.test",
+      "role": "solver_input",
+      "bytes": 31743,
+      "sha256": "f12fdf77ef9afa4cc42dedc686cc983862278323d8f846e6c0b2a2e48a2e8887",
+      "source_mtime_ns": 1789087023316716417
+    },
+    {
+      "path": "cases/vmec_p98_513/historical/summary.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p98_513/summary.json",
+      "role": "historical_evidence",
+      "bytes": 320,
+      "sha256": "96dd3453bff7bf1f12e353f759f30ede7bd91c4b372b387dd7243ff0928e357b",
+      "source_mtime_ns": 1789087126737353171
+    },
+    {
+      "path": "cases/vmec_p98_513/historical/run.log",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p98_513/run.log",
+      "role": "historical_evidence",
+      "bytes": 3275,
+      "sha256": "8ae20822e2cd3a12e14483d934eedaa7d05c5fe7ef60ad63105932ebf74117bc",
+      "source_mtime_ns": 1789087126669354067
+    },
+    {
+      "path": "cases/vmec_p98_513/historical/bootstrap_hirshman.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p98_513/bootstrap_hirshman.json",
+      "role": "historical_evidence",
+      "bytes": 479,
+      "sha256": "fc52c35facc7b82d43a19c4bd4178f7f8b75fe3fceb96f5e8ddcbe78759b995e",
+      "source_mtime_ns": 1789087127246346456
+    },
+    {
+      "path": "cases/vmec_p98_513/historical/bootstrap_hirshman.dat",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p98_513/bootstrap_hirshman.dat",
+      "role": "historical_evidence",
+      "bytes": 102967,
+      "sha256": "82527abfa9985ce8009fa4f0e484b77fa65d2f66733c6bf778c73bbc1923805b",
+      "source_mtime_ns": 1789087127246346456
+    },
+    {
+      "path": "cases/vmec_p98_513/historical/transfer.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_p98_513/transfer.json",
+      "role": "historical_evidence",
+      "bytes": 268,
+      "sha256": "b7c62e24089ba4119b15f8d42578f76deb9938fae7af21aa283769f14b430309",
+      "source_mtime_ns": 1789087023316716417
+    },
+    {
+      "path": "cases/vmec_selfconsistent513/inputs/input.test",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_selfconsistent513/input.test",
+      "role": "solver_input",
+      "bytes": 31659,
+      "sha256": "b489112fdcccec38cc1708312871b181f2ab7638f3214db10220d3277b4cf403",
+      "source_mtime_ns": 1789062096392606481
+    },
+    {
+      "path": "cases/vmec_selfconsistent513/historical/summary.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_selfconsistent513/summary.json",
+      "role": "historical_evidence",
+      "bytes": 321,
+      "sha256": "a4b13dd88502a08cba1c14dfe600c35fc305cfa8b3787ab3fd398cbd1ddef94d",
+      "source_mtime_ns": 1789062210847038213
+    },
+    {
+      "path": "cases/vmec_selfconsistent513/historical/run.log",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_selfconsistent513/run.log",
+      "role": "historical_evidence",
+      "bytes": 3413,
+      "sha256": "516f407fa76f63cfaa6d05bca5bd08fb63421c1e499d53a9d8148ba90f27912c",
+      "source_mtime_ns": 1789062210782039104
+    },
+    {
+      "path": "cases/vmec_selfconsistent513/historical/bootstrap_hirshman.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_selfconsistent513/bootstrap_hirshman.json",
+      "role": "historical_evidence",
+      "bytes": 488,
+      "sha256": "521acd757451a138fc9c290ac07a86d3e54b5575f847975f0696108e7fa071ff",
+      "source_mtime_ns": 1789062272391195491
+    },
+    {
+      "path": "cases/vmec_selfconsistent513/historical/bootstrap_hirshman_high.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_selfconsistent513/bootstrap_hirshman_high.json",
+      "role": "historical_evidence",
+      "bytes": 487,
+      "sha256": "c64fd2fe91650cce64abd09730ed49b680d3eb066e08e24ad87111586a34a4c7",
+      "source_mtime_ns": 1789062273630178529
+    },
+    {
+      "path": "cases/vmec_selfconsistent513/historical/bootstrap_hirshman.dat",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_selfconsistent513/bootstrap_hirshman.dat",
+      "role": "historical_evidence",
+      "bytes": 102968,
+      "sha256": "bb8c92a37bc643f87240745e254266b67afa0d763120f7e5f36b4c26998a4a0c",
+      "source_mtime_ns": 1789062272391195491
+    },
+    {
+      "path": "cases/vmec_selfconsistent513/historical/transfer.json",
+      "source": "/home/ouvic/linliu-reproduction-20260911/runs/vmec_selfconsistent513/transfer.json",
+      "role": "historical_evidence",
+      "bytes": 259,
+      "sha256": "c4521e3e5ed21293d7e986ec057bb61346ba50d23dea2ebaa692fda22723b2f8",
+      "source_mtime_ns": 1789062096392606481
+    },
+    {
+      "path": "cases/p6_s033_c050_fine128_024/inputs/namelist",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine128_024/namelist",
+      "role": "solver_input",
+      "bytes": 618,
+      "sha256": "330e928ae12f694c9950d19bc17901b843119c1f4774232249925890e60d6f6b",
+      "source_mtime_ns": 1793095182592142909
+    },
+    {
+      "path": "cases/p6_s033_c050_fine128_024/inputs/EXPEQ",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine128_024/EXPEQ",
+      "role": "solver_input",
+      "bytes": 93966,
+      "sha256": "4a723387ab8e832b792ab42ab318e10ca95c4774d2b85a261d24aa9b5caf8f8f",
+      "source_mtime_ns": 1793095182569143252
+    },
+    {
+      "path": "cases/p6_s033_c050_fine128_024/inputs/NIN",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine128_024/NIN",
+      "role": "solver_input",
+      "bytes": 622276,
+      "sha256": "757cb1ab9f7e33e94c9c5e459d57128e07349ff1c81bf139a42aa098f54fbb8f",
+      "source_mtime_ns": 1793095165517398080
+    },
+    {
+      "path": "cases/p6_s033_c050_fine128_024/historical/summary.json",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine128_024/summary.json",
+      "role": "historical_evidence",
+      "bytes": 2353,
+      "sha256": "4dc9d610d471b827f2ca9ea946037768df7dc91e31e16bba2ed3f9c5a02f8bf1",
+      "source_mtime_ns": 1793095230262434655
+    },
+    {
+      "path": "cases/p6_s033_c050_fine128_024/historical/run.log",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine128_024/run.log",
+      "role": "historical_evidence",
+      "bytes": 504315,
+      "sha256": "0d1c4a41810f622734e16c7f40c4a342c6384d64817e42b8e7c8dcbd925bc7b7",
+      "source_mtime_ns": 1793095230055437717
+    },
+    {
+      "path": "cases/p6_s033_c050_fine128_024/historical/chease_balloon.json",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine128_024/chease_balloon.json",
+      "role": "historical_evidence",
+      "bytes": 371,
+      "sha256": "e04bdb60c08829287339ce72de9b45dce6719cbbfa7b770154c39fd1c995ee3a",
+      "source_mtime_ns": 1793095230283434344
+    },
+    {
+      "path": "cases/p6_s033_c050_fine128_024/historical/linliu_profiles.dat",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine128_024/linliu_profiles.dat",
+      "role": "historical_evidence",
+      "bytes": 462344,
+      "sha256": "533a1b1519a5d493812b2aa1160e6a9ff728acb6135bcf0e08c2e8dc86021b49",
+      "source_mtime_ns": 1793095224411521267
+    },
+    {
+      "path": "cases/p6_s033_c050_fine128_024/historical/pressure_model.json",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine128_024/pressure_model.json",
+      "role": "historical_evidence",
+      "bytes": 653,
+      "sha256": "a9bafd37911416f2c93721761a129d7356b0397ce9355574ff67cb6479956396",
+      "source_mtime_ns": 1793095230262434655
+    },
+    {
+      "path": "cases/p6_s033_c050_fine_exact320/inputs/namelist",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine_exact320/namelist",
+      "role": "solver_input",
+      "bytes": 619,
+      "sha256": "0be31982525128bd5a78ac4f4939135c990c2e7eba75c60de483ba01f25e2124",
+      "source_mtime_ns": 1793095420972653141
+    },
+    {
+      "path": "cases/p6_s033_c050_fine_exact320/inputs/EXPEQ",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine_exact320/EXPEQ",
+      "role": "solver_input",
+      "bytes": 93966,
+      "sha256": "4a723387ab8e832b792ab42ab318e10ca95c4774d2b85a261d24aa9b5caf8f8f",
+      "source_mtime_ns": 1793095420947653501
+    },
+    {
+      "path": "cases/p6_s033_c050_fine_exact320/inputs/NIN",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine_exact320/NIN",
+      "role": "solver_input",
+      "bytes": 622276,
+      "sha256": "ed35d7c7f1702771406c2fe5ebf267434960eee61465dea8c2a51435c6e8f8d1",
+      "source_mtime_ns": 1793095213235686947
+    },
+    {
+      "path": "cases/p6_s033_c050_fine_exact320/historical/summary.json",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine_exact320/summary.json",
+      "role": "historical_evidence",
+      "bytes": 2355,
+      "sha256": "98b552fb148b14cd568ca3c8acdb37085e99c62d7929d4c024bb228e6f64239b",
+      "source_mtime_ns": 1793096038892984032
+    },
+    {
+      "path": "cases/p6_s033_c050_fine_exact320/historical/run.log",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine_exact320/run.log",
+      "role": "historical_evidence",
+      "bytes": 507031,
+      "sha256": "82b1c3c8405ab0083637844df4238ab51c7471ae8a5e939f24fd9ed05ea67ba6",
+      "source_mtime_ns": 1793096038599988070
+    },
+    {
+      "path": "cases/p6_s033_c050_fine_exact320/historical/chease_balloon.json",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine_exact320/chease_balloon.json",
+      "role": "historical_evidence",
+      "bytes": 373,
+      "sha256": "c0e2b9a77f6af0283a5b9cf9d087a58e882159302a4cd5dbcd6e60075f1fe834",
+      "source_mtime_ns": 1793096038913983742
+    },
+    {
+      "path": "cases/p6_s033_c050_fine_exact320/historical/linliu_profiles.dat",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine_exact320/linliu_profiles.dat",
+      "role": "historical_evidence",
+      "bytes": 462344,
+      "sha256": "2e5d28e55871463712ed85040cfad62bd7c4a0fdaa702a3e4fb9825dc7688444",
+      "source_mtime_ns": 1793096029494113588
+    },
+    {
+      "path": "cases/p6_s033_c050_fine_exact320/historical/pressure_model.json",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine_exact320/pressure_model.json",
+      "role": "historical_evidence",
+      "bytes": 653,
+      "sha256": "a9bafd37911416f2c93721761a129d7356b0397ce9355574ff67cb6479956396",
+      "source_mtime_ns": 1793096038892984032
+    },
+    {
+      "path": "cases/p6_s033_c050_fine_exact320/historical/resolution_control.json",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine_exact320/resolution_control.json",
+      "role": "historical_evidence",
+      "bytes": 329,
+      "sha256": "4781be98d00debf734e31c24ede60facfd06aa368cbff028ac01f089d2eab054",
+      "source_mtime_ns": 1793096038892984032
+    },
+    {
+      "path": "cases/vmec_p6_s033_c050_fine_exact320_2049/inputs/input.test",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/vmec_p6_s033_c050_fine_exact320_2049/input.test",
+      "role": "solver_input",
+      "bytes": 152331,
+      "sha256": "da745b008b2ac2d4669343e362a5bad48c15eea786b90e58940f262a5a2f1c44",
+      "source_mtime_ns": 1793096187118946378
+    },
+    {
+      "path": "cases/vmec_p6_s033_c050_fine_exact320_2049/historical/summary.json",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/vmec_p6_s033_c050_fine_exact320_2049/summary.json",
+      "role": "historical_evidence",
+      "bytes": 1777,
+      "sha256": "f7ec7f0972d828c815d347534b21e49f9f525c3327d6f2ae2e255dbfac1f31cf",
+      "source_mtime_ns": 1793097539313595281
+    },
+    {
+      "path": "cases/vmec_p6_s033_c050_fine_exact320_2049/historical/run.log",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/vmec_p6_s033_c050_fine_exact320_2049/run.log",
+      "role": "historical_evidence",
+      "bytes": 5545,
+      "sha256": "8ff492098246a68fa8da06470f5b9fb22611f4e6ae7027a0f35468d9408ef0f4",
+      "source_mtime_ns": 1793097533516673657
+    },
+    {
+      "path": "cases/vmec_p6_s033_c050_fine_exact320_2049/historical/bootstrap_hirshman.json",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/vmec_p6_s033_c050_fine_exact320_2049/bootstrap_hirshman.json",
+      "role": "historical_evidence",
+      "bytes": 503,
+      "sha256": "338a227742414a4aa0f0661c8a7912fd741db2ba14b3fb15f270f2312f0ce16a",
+      "source_mtime_ns": 1793097539313595281
+    },
+    {
+      "path": "cases/vmec_p6_s033_c050_fine_exact320_2049/historical/bootstrap_hirshman.dat",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/vmec_p6_s033_c050_fine_exact320_2049/bootstrap_hirshman.dat",
+      "role": "historical_evidence",
+      "bytes": 411717,
+      "sha256": "df1e15b11adc862dd2afb7e4abf2e2835938e397b90a3b5758447c2f694a70cf",
+      "source_mtime_ns": 1793097539312595294
+    },
+    {
+      "path": "cases/vmec_p6_s033_c050_fine_exact320_2049/historical/transfer.json",
+      "source": "/home/ouvic/aspect12-validation-20261027/runs/vmec_p6_s033_c050_fine_exact320_2049/transfer.json",
+      "role": "historical_evidence",
+      "bytes": 4643,
+      "sha256": "4497d3b5e844af8239ac9e4cf82e24a468cd9404cb2fc9a62d56cab56bf5a136",
+      "source_mtime_ns": 1793096187120946351
+    },
+    {
+      "path": "source-reports/linliu-results.txt",
+      "source": "/Users/kane/.openclaw/workspace/projects/linliu-reproduction-20260911/reports/RESULTS.md",
+      "role": "historical-source-report",
+      "bytes": 7618,
+      "sha256": "83020ef52375db8fbbdc40647a640c7d8873fc0892bb31d960ac5dc6185a607f",
+      "source_mtime_ns": 1789088199000000000
+    },
+    {
+      "path": "source-reports/linliu-numerical-tables.txt",
+      "source": "/Users/kane/.openclaw/workspace/projects/linliu-reproduction-20260911/reports/NUMERICAL_TABLES.md",
+      "role": "historical-source-report",
+      "bytes": 3710,
+      "sha256": "2e621696dc639e7608699fa6ce362a17663154bb6547fc95da545940381fd248",
+      "source_mtime_ns": 1789088517000000000
+    },
+    {
+      "path": "source-reports/linliu-selected-results.json",
+      "source": "/Users/kane/.openclaw/workspace/projects/linliu-reproduction-20260911/reports/selected_results.json",
+      "role": "historical-source-report",
+      "bytes": 10039,
+      "sha256": "9f0abcbc049bee2b7721b2afa0e0fea4f2cd93303b0d0919385020d816e56795",
+      "source_mtime_ns": 1789088516000000000
+    },
+    {
+      "path": "source-reports/linliu-reproduction-manifest.json",
+      "source": "/Users/kane/.openclaw/workspace/projects/linliu-reproduction-20260911/reports/reproduction_manifest.json",
+      "role": "historical-source-report",
+      "bytes": 2889,
+      "sha256": "ff2268f4f9ad17adfa1799cbd28aa0b3e42eb3ea3865d834939063e391fa8630",
+      "source_mtime_ns": 1789088517000000000
+    },
+    {
+      "path": "source-reports/aspect12-historical-readme.txt",
+      "source": "/Users/kane/.openclaw/workspace-plasma/projects/aspect12-stability-20261027/README.md",
+      "role": "historical-source-report",
+      "bytes": 6711,
+      "sha256": "07759e1b9c4cd0e136e447a474572f31995f04346a342eefb0b1609870d9afa2",
+      "source_mtime_ns": 1793172456735318103
+    },
+    {
+      "path": "source-reports/aspect12-independent-audit.json",
+      "source": "/Users/kane/.openclaw/workspace-plasma/projects/aspect12-stability-20261027/evidence/cross_independent_audit.json",
+      "role": "historical-source-report",
+      "bytes": 7224,
+      "sha256": "f90ffc34a556cad97b009b74665414f7b67e9f4cbd0c396b2c284315261e5519",
+      "source_mtime_ns": 1793098002736080313
+    },
+    {
+      "path": "source-reports/aspect12-refinement.json",
+      "source": "/Users/kane/.openclaw/workspace-plasma/projects/aspect12-stability-20261027/validation/evidence/refinement_complete/refinement_result.json",
+      "role": "historical-source-report",
+      "bytes": 8654,
+      "sha256": "5c4a3f073d020195f964eef2ab10467ba4669fb7d7c88e0c080e53c61b8bb003",
+      "source_mtime_ns": 1793096238836671333
+    },
+    {
+      "path": "source-reports/aspect12-cross-state.json",
+      "source": "/Users/kane/.openclaw/workspace-plasma/projects/aspect12-stability-20261027/validation/evidence/cross_complete/cross_state.json",
+      "role": "historical-source-report",
+      "bytes": 15047,
+      "sha256": "b10e333e8687e17ab54998f8f0e5447a6e724e7ba3ff9330f5bca9621244e382",
+      "source_mtime_ns": 1793097859503334171
+    }
+  ],
+  "scope": "Historical input archive only; no new solver execution or full-stability certification."
+}

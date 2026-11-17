@@ -1,0 +1,9 @@
+{
+  "source": "/home/ouvic/aspect12-validation-20261027/runs/p6_s033_c050_fine128_024",
+  "physical_EXPEQ_unchanged": true,
+  "EXPEQ_sha256": "4a723387ab8e832b792ab42ab318e10ca95c4774d2b85a261d24aa9b5caf8f8f",
+  "restart_source": "converged parent NOUT; numerical initial guess only",
+  "ns": 320,
+  "npsi": 1024,
+  "phases": 9
+}

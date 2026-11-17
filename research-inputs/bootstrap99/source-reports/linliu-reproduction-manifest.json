@@ -1,0 +1,79 @@
+{
+  "platform": "Linux-6.8.0-107-generic-x86_64-with-glibc2.35",
+  "gfortran": {
+    "rc": 0,
+    "stdout": "GNU Fortran (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+  },
+  "python": "3.10.12",
+  "GPEC_commit": {
+    "rc": 0,
+    "stdout": "e68d7ac22f7d5c3fa1be921aaa395571c48a51a9"
+  },
+  "VMEC_source_commit": {
+    "rc": 0,
+    "stdout": "421bee1f25a79e094df092b2b6aaa26a5f330f82"
+  },
+  "files": {
+    "src/chease_original.f": {
+      "bytes": 974694,
+      "sha256": "978ca8026b3774b2c2e6cddd07196b337a06a7c0dfb9c223a45713d9dde9b9bd"
+    },
+    "src/chease_linliu.f": {
+      "bytes": 947706,
+      "sha256": "5e6248cfed05615bd8d6c5f0a8e23e899b06439943810a641a14ea11d182afb8"
+    },
+    "src/chease_linliu.x": {
+      "bytes": 2185880,
+      "sha256": "1b76c798afe1c715360de4a84163eaeb6f0b1df1849b321fbe875c1e17ec0617"
+    },
+    "src_highres/COMDIM.inc": {
+      "bytes": 7541,
+      "sha256": "6cf9ac28a98c6e2d99c217159cd4e71e0bae49b0c74bc4c2526a2f666debd8f4"
+    },
+    "src_highres/chease_linliu.x": {
+      "bytes": 2224232,
+      "sha256": "6c69f71a88605b9d6963a5f474316393018648a183dcfbf20c7c227eecbd221b"
+    },
+    "reference/GPEC/bin/dcon": {
+      "bytes": 4349840,
+      "sha256": "ddf2ed28559b1b3570de8bdbe1bfb7f11bd842c0b536ac1d015c59558b08fef3"
+    },
+    "reference/GPEC_balnorm/bin/dcon": {
+      "bytes": 4355264,
+      "sha256": "8647117100daaba0369f30248f2aef632433fda36ff04a229e811f3fbeaff3a3"
+    },
+    "reference/GPEC_balnorm/balnorm.patch": {
+      "bytes": 2894,
+      "sha256": "fb9d4cd43d87f08ff42fd2bd1db64e83315328edad7c0a3c9a38c1fb43c71255"
+    },
+    "src/source.patch": {
+      "bytes": 1978182,
+      "sha256": "67bb0c453e859826c82edd57571528e5d127e9975dad00cd16133aff85aa83bd"
+    },
+    "src/source_logical.patch": {
+      "bytes": 3851,
+      "sha256": "7a9d1996b1c86ac73aa5f535ef83e1fc808e69af198a65ae125e764e5d442d9d"
+    }
+  },
+  "linliu_20260911_tools": {
+    "rc": 0,
+    "stdout": "sha256:fb45041b0fd94cfff4458f7d019629317c62429c31c77863e9b9587039f975bf"
+  },
+  "linliu_20260911_vmec": {
+    "rc": 0,
+    "stdout": "sha256:018ecc40f0f336be7bc46eba3f86166877701ecda4433dc4a5d75546cfada8d6"
+  },
+  "vmec_binary": {
+    "rc": 0,
+    "stdout": "af9851222f1418b43642d02576fa4067757aada16a546ef9e8129a5745599938  /source/Stellarator-Tools/build/_deps/parvmec-build/xvmec"
+  },
+  "source_diff_note": "Canonical patch includes CRLF-to-LF normalization; source_logical.patch is a review-only line-ending-normalized diff.",
+  "GPEC_container_compiler": "GNU Fortran (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0",
+  "python_packages": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "matplotlib": "3.10.9",
+    "netCDF4": "1.7.4",
+    "f90nml": "1.5"
+  }
+}

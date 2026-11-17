@@ -1,0 +1,11 @@
+{
+  "case": "freep90_high256_phase9",
+  "method": "CHEASE BALOON finite-element negative-eigenvalue count; NBAL1; NBLC0=9; NTURN=10",
+  "phase_count": 9,
+  "poloidal_turns_each_direction": 10,
+  "surface_count": 513,
+  "unstable_surface_count": 0,
+  "max_negative_eigenvalues": 0,
+  "ballooning": "stable_on_sampled_surfaces_and_phases",
+  "unstable_rho_range": null
+}
