@@ -1,0 +1,8 @@
+# Scientific inputs/outputs preserve exact bytes, including Fortran whitespace.
+examples/** -text -whitespace
+reference/** -text -whitespace
+runtime/*.in -text -whitespace
+*.md text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
