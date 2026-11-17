@@ -1,0 +1,55 @@
+{
+  "metrics": {
+    "equilibrium.raxis": {
+      "value": 1.538,
+      "rtol": 0.0005,
+      "atol": 1e-08
+    },
+    "equilibrium.wmhd": {
+      "value": 1.1415,
+      "rtol": 0.0005,
+      "atol": 1e-08
+    },
+    "dcon.q0": {
+      "value": 1.25,
+      "rtol": 0.0005,
+      "atol": 1e-08
+    },
+    "dcon.qmin": {
+      "value": 1.25,
+      "rtol": 0.0005,
+      "atol": 1e-08
+    },
+    "dcon.qa": {
+      "value": 2.0,
+      "rtol": 0.0005,
+      "atol": 1e-08
+    },
+    "dcon.betat": {
+      "value": 0.01175,
+      "rtol": 0.0005,
+      "atol": 1e-08
+    },
+    "dcon.betan": {
+      "value": 0.9089,
+      "rtol": 0.0005,
+      "atol": 1e-08
+    },
+    "dcon.total": {
+      "value": -0.2484,
+      "rtol": 0.0005,
+      "atol": 1e-08
+    }
+  },
+  "labels": {
+    "equilibrium.converged": true,
+    "dcon.reported_fixed": "unknown",
+    "dcon.reported_free": "unstable",
+    "dcon.reported_ballooning": "stable",
+    "dcon.reported_mercier": "stable",
+    "dcon.floating_point_flags": "IEEE_DENORMAL,IEEE_DIVIDE_BY_ZERO,IEEE_UNDERFLOW_FLAG",
+    "input.sha256": "947479c8a5fbf0f3a827bd9266067203ae351703eed9fd9b86880027b5b1988d",
+    "runtime.sha256": "f175f4dcd76166568713edeb3640b594a84543b96135e1d606244c77a39e2174",
+    "controls.sha256": "cb2312d21fe5a13450802afb702349fdfddea4e291357369d2a66636b6661889"
+  }
+}

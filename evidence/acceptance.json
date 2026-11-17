@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-11-17T19:23:19.352249+00:00",
+  "host": "ncku-first",
+  "account": "ouvic",
+  "reference_cases": 4,
+  "independent_replay_cases_passed": 4,
+  "stages_per_case": [
+    "equilibrium",
+    "dcon_n1"
+  ],
+  "python_tests_passed": 19,
+  "reference_files_sha256_passed": 44,
+  "scientific_stability": "NOT_CERTIFIED",
+  "known_warning": "Original DCON floating-point flags retained, finite values are regression evidence only",
+  "source_hashes": {
+    "tools/run_case.py": "1eee4827dc374a4c2d4f86eef94331e223b9fe99082e980b7554a2916e6fa5c1",
+    "tools/compare.py": "e429283c9c23d9ff870e5b6e049d765f70ded7d58873ad0eea94eab16d49f081",
+    "runtime/first.json": "11dab801049bb3b8347738a97e88f2b1e5123f26b5cb04e15475cf01562816f2"
+  },
+  "review_corrections": [
+    "Reject empty metric maps",
+    "Reject unrepresentable integers without crash",
+    "Do not infer fixed-boundary stable from absent message"
+  ],
+  "restricted_sources_binaries_images_uploaded": false,
+  "schedules_modified": false,
+  "files_deleted": false
+}

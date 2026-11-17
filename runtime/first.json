@@ -1,0 +1,35 @@
+{
+  "images": {
+    "chease": "sha256:641ae18660a48900fa8ad7340f9fbc2f716b2bf2295ef382344590194400a708",
+    "vmec": "sha256:018ecc40f0f336be7bc46eba3f86166877701ecda4433dc4a5d75546cfada8d6",
+    "dcon": "sha256:018ecc40f0f336be7bc46eba3f86166877701ecda4433dc4a5d75546cfada8d6"
+  },
+  "binaries": {
+    "chease": "/home/ouvic/linliu-reproduction-20260911/src/chease_linliu.x",
+    "vmec": "/home/ouvic/workspace/ESTCombo/Stellarator-Tools/build/_deps/parvmec-build/xvmec",
+    "dcon": "/home/ouvic/workspace/ESTCombo/DCON/rundir/Linux/dcon"
+  },
+  "cases": {
+    "chease_c50": {
+      "solver": "chease",
+      "residual_limit": 1e-10
+    },
+    "chease_c51": {
+      "solver": "chease",
+      "residual_limit": 1e-10
+    },
+    "vmec_smooth": {
+      "solver": "vmec",
+      "residual_limit": 1e-13
+    },
+    "vmec_lowbeta": {
+      "solver": "vmec",
+      "residual_limit": 1e-12
+    }
+  },
+  "binary_sha256": {
+    "chease": "1b76c798afe1c715360de4a84163eaeb6f0b1df1849b321fbe875c1e17ec0617",
+    "vmec": "af9851222f1418b43642d02576fa4067757aada16a546ef9e8129a5745599938",
+    "dcon": "13ab832975cd66b44321f004c39991206d2433515088160c6af55c444594bc00"
+  }
+}

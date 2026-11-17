@@ -1,0 +1,266 @@
+[
+  {
+    "path": "reference/chease_c50/summary.json",
+    "sha256": "53db2061ef1d0b7b04796c6e4ce11e58fe8085854e84052e8e058f1514c6be7e",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c50_reference/summary.json",
+    "size": 5390
+  },
+  {
+    "path": "reference/chease_c50/equilibrium/run.log",
+    "sha256": "870db196d3b01a427794df806a8d34357e6c453eb22a2aeccd3c307a126c2211",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c50_reference/equilibrium/run.log",
+    "size": 133556
+  },
+  {
+    "path": "reference/chease_c50/equilibrium/INP1",
+    "sha256": "c9404c0147dcbfa8cfe7da40ae23a35427fbc13bf64a6716e3a0a573e1a0c143",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c50_reference/equilibrium/INP1",
+    "size": 858836
+  },
+  {
+    "path": "reference/chease_c50/equilibrium/linliu_profiles.dat",
+    "sha256": "bd60c2c8d39efd6b3829882a936b61857d40d10ef44a9a7bd0caae315958471e",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c50_reference/equilibrium/linliu_profiles.dat",
+    "size": 90720
+  },
+  {
+    "path": "reference/chease_c50/equilibrium/NOUT",
+    "sha256": "d693728c27b9a48f10a8864e0907f44015d73caecae32a537779c78f5563d09c",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c50_reference/equilibrium/NOUT",
+    "size": 185028
+  },
+  {
+    "path": "reference/chease_c50/dcon/run.log",
+    "sha256": "83f3d22dab47c4a763007d8ec85a0af0997266ee140db1d92d91994a3e1d138d",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c50_reference/dcon/run.log",
+    "size": 1298
+  },
+  {
+    "path": "reference/chease_c50/dcon/dcon.out",
+    "sha256": "07fe0d3e342665d3bc1f7e9f2859c8ad8149b071d22944f3786295ca6e02cb25",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c50_reference/dcon/dcon.out",
+    "size": 167770
+  },
+  {
+    "path": "reference/chease_c50/dcon/crit.out",
+    "sha256": "6c4fb05efca17fb58d9dddac8c95e87e8d4a7555697e226c9aa10d7ba20c55de",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c50_reference/dcon/crit.out",
+    "size": 612992
+  },
+  {
+    "path": "reference/chease_c50/dcon/equil.in",
+    "sha256": "8a4d61f6e393b537dae2eddccd9dac61a6ac4978698e8472285e002296dd2cbb",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c50_reference/dcon/equil.in",
+    "size": 324
+  },
+  {
+    "path": "reference/chease_c50/dcon/dcon.in",
+    "sha256": "1f90ed8773b2bedcbc4c5bfa41944454a9222ddf676735858549ede8c7199118",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c50_reference/dcon/dcon.in",
+    "size": 321
+  },
+  {
+    "path": "reference/chease_c50/dcon/vac.in",
+    "sha256": "7a9a9d9e89b040a514c86e1590d720523bc185646286db5e99a5b2cbcfa4df8e",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c50_reference/dcon/vac.in",
+    "size": 1027
+  },
+  {
+    "path": "reference/chease_c51/summary.json",
+    "sha256": "fc5a5f17742a1a29fbbc3e87bc626514da53b96253f22489a2a810e48cd7200a",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c51_reference/summary.json",
+    "size": 5394
+  },
+  {
+    "path": "reference/chease_c51/equilibrium/run.log",
+    "sha256": "e0902a0099895653e0db8b80a18779d77092c9d41cb714305839fe845714ecb2",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c51_reference/equilibrium/run.log",
+    "size": 133556
+  },
+  {
+    "path": "reference/chease_c51/equilibrium/INP1",
+    "sha256": "8e2f7516ffc77f098eff6449267eb416886eab3841ee3a60d58ae72574b18f72",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c51_reference/equilibrium/INP1",
+    "size": 858836
+  },
+  {
+    "path": "reference/chease_c51/equilibrium/linliu_profiles.dat",
+    "sha256": "9a3877c08175a582e0bf99cee4570b71c35f207041ddc7d9e5c31ec48d9b8fc9",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c51_reference/equilibrium/linliu_profiles.dat",
+    "size": 90720
+  },
+  {
+    "path": "reference/chease_c51/equilibrium/NOUT",
+    "sha256": "bdd918d52d98e2673216ec7f72fd0f32802fa29bbd015be8f2fc351fb7ce35ce",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c51_reference/equilibrium/NOUT",
+    "size": 185028
+  },
+  {
+    "path": "reference/chease_c51/dcon/run.log",
+    "sha256": "fea5bd1e8499f69d0cec8f386fed6882abdc2d9ba80d40eba4aa4d9e1fc507dc",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c51_reference/dcon/run.log",
+    "size": 1298
+  },
+  {
+    "path": "reference/chease_c51/dcon/dcon.out",
+    "sha256": "9985ebc7410f5c8b6590d763e1470540478db63852fdac97116a271b7ded2ccb",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c51_reference/dcon/dcon.out",
+    "size": 167770
+  },
+  {
+    "path": "reference/chease_c51/dcon/crit.out",
+    "sha256": "dba6ed0b3ee25f97a1dff70b74b45969f611f8f67db4e8365b05d2c7e1af98b6",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c51_reference/dcon/crit.out",
+    "size": 606813
+  },
+  {
+    "path": "reference/chease_c51/dcon/equil.in",
+    "sha256": "8a4d61f6e393b537dae2eddccd9dac61a6ac4978698e8472285e002296dd2cbb",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c51_reference/dcon/equil.in",
+    "size": 324
+  },
+  {
+    "path": "reference/chease_c51/dcon/dcon.in",
+    "sha256": "1f90ed8773b2bedcbc4c5bfa41944454a9222ddf676735858549ede8c7199118",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c51_reference/dcon/dcon.in",
+    "size": 321
+  },
+  {
+    "path": "reference/chease_c51/dcon/vac.in",
+    "sha256": "7a9a9d9e89b040a514c86e1590d720523bc185646286db5e99a5b2cbcfa4df8e",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/chease_c51_reference/dcon/vac.in",
+    "size": 1027
+  },
+  {
+    "path": "reference/vmec_lowbeta/summary.json",
+    "sha256": "9e18c645c10d49f3036a090c4c2ca5405c11bbca73a67da6c34dc4aee79efa41",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_lowbeta_reference/summary.json",
+    "size": 5321
+  },
+  {
+    "path": "reference/vmec_lowbeta/equilibrium/run.log",
+    "sha256": "0eef6c4707445019a1d3ff54eb7b6b73cf3d8235c331a40ba6603f2973bd32d2",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_lowbeta_reference/equilibrium/run.log",
+    "size": 2447
+  },
+  {
+    "path": "reference/vmec_lowbeta/equilibrium/wout_test.nc",
+    "sha256": "738ff6957d96e7f46bc2d7c768fbe53fdbda70525eab9feb3bfebdc42b1f75a8",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_lowbeta_reference/equilibrium/wout_test.nc",
+    "size": 162748
+  },
+  {
+    "path": "reference/vmec_lowbeta/equilibrium/threed1.test",
+    "sha256": "9dd5b1e629f0d27cfc7c6c31db2acd33962a91988a49a8af5da47e41116175b6",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_lowbeta_reference/equilibrium/threed1.test",
+    "size": 45441
+  },
+  {
+    "path": "reference/vmec_lowbeta/equilibrium/dcon_test.txt",
+    "sha256": "de750d5938412b80b8e21a6954930bb97f7d8ebd02cb66a20194cd64253790d2",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_lowbeta_reference/equilibrium/dcon_test.txt",
+    "size": 114072
+  },
+  {
+    "path": "reference/vmec_lowbeta/dcon/run.log",
+    "sha256": "b1d73c1ea744803022d81ab23765a5064cae9c64353cd3d2936a89d0a69ebb18",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_lowbeta_reference/dcon/run.log",
+    "size": 1011
+  },
+  {
+    "path": "reference/vmec_lowbeta/dcon/dcon.out",
+    "sha256": "5d8924bcf91dee8527a70aad5edadf75f7fa4a37c22b74169883ed1aba6d7022",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_lowbeta_reference/dcon/dcon.out",
+    "size": 84521
+  },
+  {
+    "path": "reference/vmec_lowbeta/dcon/crit.out",
+    "sha256": "4820c0db9ba936276f990fd6cec416482bde513fe9752f6879d10e14c29e2ef6",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_lowbeta_reference/dcon/crit.out",
+    "size": 84147
+  },
+  {
+    "path": "reference/vmec_lowbeta/dcon/equil.in",
+    "sha256": "ffeef1a7855ba83efcfb5a13e9a2376b6434b8f99b5f45107bb32ccb0a163c3a",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_lowbeta_reference/dcon/equil.in",
+    "size": 331
+  },
+  {
+    "path": "reference/vmec_lowbeta/dcon/dcon.in",
+    "sha256": "1f90ed8773b2bedcbc4c5bfa41944454a9222ddf676735858549ede8c7199118",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_lowbeta_reference/dcon/dcon.in",
+    "size": 321
+  },
+  {
+    "path": "reference/vmec_lowbeta/dcon/vac.in",
+    "sha256": "7a9a9d9e89b040a514c86e1590d720523bc185646286db5e99a5b2cbcfa4df8e",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_lowbeta_reference/dcon/vac.in",
+    "size": 1027
+  },
+  {
+    "path": "reference/vmec_smooth/summary.json",
+    "sha256": "ba4442cb48c82a073dac9bd112ddc50e770df2ad33084ff60778eb441b771648",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_smooth_reference/summary.json",
+    "size": 5361
+  },
+  {
+    "path": "reference/vmec_smooth/equilibrium/run.log",
+    "sha256": "3d10baae70068659a4d47c9751b379dfe98a5d3cbc09dd49e11c23ebaa91393a",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_smooth_reference/equilibrium/run.log",
+    "size": 2516
+  },
+  {
+    "path": "reference/vmec_smooth/equilibrium/wout_test.nc",
+    "sha256": "3d4f356e37e9a2ee1173fa306a292e4f0e834e3537a065257250ef661dd2710d",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_smooth_reference/equilibrium/wout_test.nc",
+    "size": 366476
+  },
+  {
+    "path": "reference/vmec_smooth/equilibrium/threed1.test",
+    "sha256": "94c9ac54c2e33084470132464003c9b10716b171c709c0e8b7aba986e9531723",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_smooth_reference/equilibrium/threed1.test",
+    "size": 77654
+  },
+  {
+    "path": "reference/vmec_smooth/equilibrium/dcon_test.txt",
+    "sha256": "49b027d59694fce10fb7549ca109d3502738445eadede0d34371d5fada7f08d9",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_smooth_reference/equilibrium/dcon_test.txt",
+    "size": 269136
+  },
+  {
+    "path": "reference/vmec_smooth/dcon/run.log",
+    "sha256": "e45a4b3462647305c957008facb1bac0f598adbf9b0aba15b0eb718de716bacb",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_smooth_reference/dcon/run.log",
+    "size": 1496
+  },
+  {
+    "path": "reference/vmec_smooth/dcon/dcon.out",
+    "sha256": "aac883472aa8d2e54c71731c5ae1f93ee98a182789ad7cc47b8946ae77e29cbb",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_smooth_reference/dcon/dcon.out",
+    "size": 199887
+  },
+  {
+    "path": "reference/vmec_smooth/dcon/crit.out",
+    "sha256": "aeb671d6f756660b908541fa42d8ee11901026768dde21193d140cc9d93a00cd",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_smooth_reference/dcon/crit.out",
+    "size": 654787
+  },
+  {
+    "path": "reference/vmec_smooth/dcon/equil.in",
+    "sha256": "ffeef1a7855ba83efcfb5a13e9a2376b6434b8f99b5f45107bb32ccb0a163c3a",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_smooth_reference/dcon/equil.in",
+    "size": 331
+  },
+  {
+    "path": "reference/vmec_smooth/dcon/dcon.in",
+    "sha256": "1f90ed8773b2bedcbc4c5bfa41944454a9222ddf676735858549ede8c7199118",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_smooth_reference/dcon/dcon.in",
+    "size": 321
+  },
+  {
+    "path": "reference/vmec_smooth/dcon/vac.in",
+    "sha256": "7a9a9d9e89b040a514c86e1590d720523bc185646286db5e99a5b2cbcfa4df8e",
+    "remote_source": "/home/ouvic/first-handover-20261118/runs/vmec_smooth_reference/dcon/vac.in",
+    "size": 1027
+  }
+]

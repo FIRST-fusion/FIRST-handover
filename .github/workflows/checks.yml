@@ -1,0 +1,14 @@
+name: Handover static checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Standard-library tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Verify recorded reference artifacts
+        run: python3 tools/check_reference.py
+# No licensed solver or Docker image is downloaded or run on GitHub's infrastructure.

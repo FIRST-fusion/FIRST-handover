@@ -1,0 +1,42 @@
+[
+  {
+    "case": "chease_c50",
+    "exit_code": 0,
+    "result": {
+      "passed": true,
+      "errors": []
+    },
+    "actual_sha256": "703c1cc5a6128fd253c0879973fdc56fb4ec4d435f7c4ff38acaeb18e4aefe72",
+    "expected_sha256": "3039af7806af6832df917342ec015905e94888ee37aebaed1cd0455883507241"
+  },
+  {
+    "case": "chease_c51",
+    "exit_code": 0,
+    "result": {
+      "passed": true,
+      "errors": []
+    },
+    "actual_sha256": "18a23edb5c9d6aafaaf71b6e6870d74dd719ff6d736fcfcb8ba7e4dc897cd06f",
+    "expected_sha256": "b4b3c44165df10a85e7f31e55099cdd619b806959130022dc6bc27adbd0847dd"
+  },
+  {
+    "case": "vmec_lowbeta",
+    "exit_code": 0,
+    "result": {
+      "passed": true,
+      "errors": []
+    },
+    "actual_sha256": "a5d95dbe851158dced6bdf0d3bd4ec5fefb15ac9dd23684daf4b0c68de3cdf67",
+    "expected_sha256": "16e827707ed098a1684139cc281bb48bb6306f7e401199c4b7b4c3b4d86f86ec"
+  },
+  {
+    "case": "vmec_smooth",
+    "exit_code": 0,
+    "result": {
+      "passed": true,
+      "errors": []
+    },
+    "actual_sha256": "431ee0fc79f194f4db6a0bcdf528907805e2e9487aae56f34d43e5db2cace14a",
+    "expected_sha256": "8fd039c032a1df8eeef4b683c1e116d9ed3175b4651f64a05f05d75212051a9c"
+  }
+]

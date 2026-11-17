@@ -1,0 +1,171 @@
+{
+  "case": "chease_c50",
+  "valid": true,
+  "metrics": {
+    "equilibrium.residual": 7.07985e-11,
+    "equilibrium.beta_vac": 0.5261615,
+    "equilibrium.current_normalized": 5.50000453,
+    "dcon.q0": 4.264,
+    "dcon.qmin": 4.264,
+    "dcon.qa": 15.57,
+    "dcon.betat": 0.5305,
+    "dcon.betan": 8.566,
+    "dcon.total": 0.167
+  },
+  "labels": {
+    "equilibrium.converged": true,
+    "dcon.reported_fixed": "unknown",
+    "dcon.reported_free": "stable",
+    "dcon.reported_ballooning": "unstable",
+    "dcon.reported_mercier": "stable",
+    "dcon.floating_point_flags": "IEEE_DENORMAL,IEEE_OVERFLOW_FLAG,IEEE_UNDERFLOW_FLAG",
+    "input.sha256": "044974e409a90df860e5417850cdf5c2644386d26f12f3c7ecee1b4cdb191e67",
+    "runtime.sha256": "f175f4dcd76166568713edeb3640b594a84543b96135e1d606244c77a39e2174",
+    "controls.sha256": "c1fc396cb0d850ccce9c91ce12e117e1b9944e8609a9a8200d140ab2d296eeb2"
+  },
+  "warnings": [
+    "DCON floating-point flags: IEEE_DENORMAL,IEEE_OVERFLOW_FLAG,IEEE_UNDERFLOW_FLAG; diagnostic classification is not scientifically certified"
+  ],
+  "scientific_acceptance": "NOT_CERTIFIED: workflow regression only",
+  "stages": [
+    {
+      "stage": "chease",
+      "container": "first-handover-chease-20261118031809-1951550",
+      "exit_code": 0,
+      "seconds": 15.034234285354614,
+      "command": [
+        "docker",
+        "run",
+        "--name",
+        "first-handover-chease-20261118031809-1951550",
+        "--label",
+        "org.first.handover=true",
+        "--network",
+        "none",
+        "--read-only",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--cpus",
+        "2",
+        "--memory",
+        "8g",
+        "--pids-limit",
+        "256",
+        "--user",
+        "1004:1004",
+        "--tmpfs",
+        "/tmp:rw,nosuid,size=256m",
+        "-e",
+        "OMP_NUM_THREADS=1",
+        "-e",
+        "OPENBLAS_NUM_THREADS=1",
+        "-e",
+        "HOME=/tmp",
+        "--mount",
+        "type=bind,src=/home/ouvic/first-handover-20261118/runs/chease_c50_replay/equilibrium,dst=/work",
+        "--mount",
+        "type=bind,src=/home/ouvic/linliu-reproduction-20260911/src/chease_linliu.x,dst=/opt/solver,readonly",
+        "-w",
+        "/work",
+        "--entrypoint",
+        "/bin/bash",
+        "sha256:641ae18660a48900fa8ad7340f9fbc2f716b2bf2295ef382344590194400a708",
+        "-c",
+        "exec timeout 300 /opt/solver < namelist"
+      ]
+    },
+    {
+      "stage": "dcon",
+      "container": "first-handover-dcon-20261118031824-1951550",
+      "exit_code": 0,
+      "seconds": 11.149084568023682,
+      "command": [
+        "docker",
+        "run",
+        "--name",
+        "first-handover-dcon-20261118031824-1951550",
+        "--label",
+        "org.first.handover=true",
+        "--network",
+        "none",
+        "--read-only",
+        "--cap-drop",
+        "ALL",
+        "--security-opt",
+        "no-new-privileges",
+        "--cpus",
+        "2",
+        "--memory",
+        "8g",
+        "--pids-limit",
+        "256",
+        "--user",
+        "1004:1004",
+        "--tmpfs",
+        "/tmp:rw,nosuid,size=256m",
+        "-e",
+        "OMP_NUM_THREADS=1",
+        "-e",
+        "OPENBLAS_NUM_THREADS=1",
+        "-e",
+        "HOME=/tmp",
+        "--mount",
+        "type=bind,src=/home/ouvic/first-handover-20261118/runs/chease_c50_replay/dcon,dst=/work",
+        "--mount",
+        "type=bind,src=/home/ouvic/workspace/ESTCombo/DCON/rundir/Linux/dcon,dst=/opt/solver,readonly",
+        "-w",
+        "/work",
+        "--entrypoint",
+        "/bin/bash",
+        "sha256:018ecc40f0f336be7bc46eba3f86166877701ecda4433dc4a5d75546cfada8d6",
+        "-c",
+        "exec timeout 300 /opt/solver"
+      ]
+    }
+  ],
+  "started_at": "2026-11-17T19:18:09.813083+00:00",
+  "input_sha256": {
+    "namelist": "613e3c7117eefeb72fa96338478c6645452dbf05829c819fba90df3f280e0a6f",
+    "EXPEQ": "b8eb0cfb2d391f15f2865f7c1521244fb8e0294117b022af5bef5b6d223739b4",
+    "NIN": "69f8434e4d90bde2abf143c155a1a1c48863f6d3257c3181236ae0257d1c6254"
+  },
+  "workflow_complete": true,
+  "runtime": {
+    "images": {
+      "chease": "sha256:641ae18660a48900fa8ad7340f9fbc2f716b2bf2295ef382344590194400a708",
+      "vmec": "sha256:018ecc40f0f336be7bc46eba3f86166877701ecda4433dc4a5d75546cfada8d6",
+      "dcon": "sha256:018ecc40f0f336be7bc46eba3f86166877701ecda4433dc4a5d75546cfada8d6"
+    },
+    "binaries": {
+      "chease": "/home/ouvic/linliu-reproduction-20260911/src/chease_linliu.x",
+      "vmec": "/home/ouvic/workspace/ESTCombo/Stellarator-Tools/build/_deps/parvmec-build/xvmec",
+      "dcon": "/home/ouvic/workspace/ESTCombo/DCON/rundir/Linux/dcon"
+    },
+    "cases": {
+      "chease_c50": {
+        "solver": "chease",
+        "residual_limit": 1e-10
+      },
+      "chease_c51": {
+        "solver": "chease",
+        "residual_limit": 1e-10
+      },
+      "vmec_smooth": {
+        "solver": "vmec",
+        "residual_limit": 1e-13
+      },
+      "vmec_lowbeta": {
+        "solver": "vmec",
+        "residual_limit": 1e-12
+      }
+    },
+    "binary_sha256": {
+      "chease": "1b76c798afe1c715360de4a84163eaeb6f0b1df1849b321fbe875c1e17ec0617",
+      "vmec": "af9851222f1418b43642d02576fa4067757aada16a546ef9e8129a5745599938",
+      "dcon": "13ab832975cd66b44321f004c39991206d2433515088160c6af55c444594bc00"
+    }
+  },
+  "finished_at": "2026-11-17T19:18:36.074305+00:00"
+}

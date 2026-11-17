@@ -1,0 +1,22 @@
+ Equilibrium: /work/dcon_test.txt, Type: vmec
+ Jac_type = hamada, power_bp = 0, power_b = 0, power_r = 0
+ Diagnosing Grad-Shafranov solution
+ Evaluating Mercier criterion
+ Evaluating ballooning criterion
+ Fourier analysis of metric tensor components
+ q0 =  1.250E+00, qmin =  1.250E+00, qmax =  1.985E+00, qa =  2.000E+00
+ sas_flag = F, dmlim =  5.000E-01, qlim =  1.985E+00, psilim =  9.900E-01
+ betat =  1.175E-02, betan =  9.089E-01, betaj =  2.019E-01
+ nn =   1, mlow = -12, mhigh =  13, mpert =  26, mband =  25
+ Computing F, G, and K Matrices
+ Starting integration of ODE's
+ psi = 1.000E-04, q =  1.250
+ psi = 9.900E-01, q =  1.985
+ Computing free boundary energies
+ Energies: plasma = -2.626E-01, vacuum =  1.418E-02, total = -2.484E-01
+ Free-boundary mode unstable for nn =  1.
+ Ballooning stable
+ Mercier stable
+ Total cpu time =  1.203E+00 seconds
+ PROGRAM_STOP => Normal termination.
+Note: The following floating-point exceptions are signalling: IEEE_DIVIDE_BY_ZERO IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
