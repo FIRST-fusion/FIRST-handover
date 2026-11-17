@@ -10,6 +10,7 @@
 - [授權與使用範圍](NOTICE.md)
 - [本次實跑驗收紀錄](evidence/ACCEPTANCE.md)
 - [約 99% bootstrap：14 組歷史研究輸入、restart 與結果](research-inputs/bootstrap99/README.md)
+- [在 ouvic 執行高 bootstrap 案例，查看新計算的 fBS](research-inputs/bootstrap99/RUN_ON_OUVIC.md)
 
 ## 四個可執行範例
 

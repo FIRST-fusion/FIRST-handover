@@ -1,0 +1,121 @@
+{
+  "checked_at": "2026-11-17T20:08:13.020459+00:00",
+  "method": "Recompute diagnostics from archived profiles/wout and parse archived logs; NO NEW SOLVER EXECUTION",
+  "solver_executed": false,
+  "passed": true,
+  "cases_checked": 14,
+  "cases": [
+    {
+      "case": "freep80_high256",
+      "solver": "chease",
+      "fbs": 0.9916029188592947,
+      "delta": 0.0,
+      "closure": 0.0002872228380493115,
+      "parser_checked_against_historical_log": true
+    },
+    {
+      "case": "freep80_high320_phase9",
+      "solver": "chease",
+      "fbs": 0.9916033517661554,
+      "delta": 0.0,
+      "closure": 0.00028913681548683534,
+      "parser_checked_against_historical_log": true
+    },
+    {
+      "case": "freep90_high256_phase9",
+      "solver": "chease",
+      "fbs": 0.9946515841182075,
+      "delta": 0.0,
+      "closure": 0.0003407018732334696,
+      "parser_checked_against_historical_log": true
+    },
+    {
+      "case": "freep98_high256_phase9",
+      "solver": "chease",
+      "fbs": 0.9961208393996207,
+      "delta": 0.0,
+      "closure": 0.0002695354275703188,
+      "parser_checked_against_historical_log": true
+    },
+    {
+      "case": "freep98_high320_phase9",
+      "solver": "chease",
+      "fbs": 0.9961213349867598,
+      "delta": 0.0,
+      "closure": 0.0002741444044730236,
+      "parser_checked_against_historical_log": true
+    },
+    {
+      "case": "free54_refined",
+      "solver": "chease",
+      "fbs": 0.9961644421226253,
+      "delta": 0.0,
+      "closure": 0.0003710971733433935,
+      "parser_checked_against_historical_log": true
+    },
+    {
+      "case": "free54_high256",
+      "solver": "chease",
+      "fbs": 0.9961605980498609,
+      "delta": 0.0,
+      "closure": 0.000410998653920369,
+      "parser_checked_against_historical_log": true
+    },
+    {
+      "case": "free54_high320",
+      "solver": "chease",
+      "fbs": 0.9961611217840385,
+      "delta": 0.0,
+      "closure": 0.0005284870043524664,
+      "parser_checked_against_historical_log": true
+    },
+    {
+      "case": "vmec_p80_513",
+      "solver": "vmec",
+      "fbs": 0.9916952468332592,
+      "delta": 0.0,
+      "closure": null,
+      "parser_checked_against_historical_log": true
+    },
+    {
+      "case": "vmec_p98_513",
+      "solver": "vmec",
+      "fbs": 0.9962114041968383,
+      "delta": 0.0,
+      "closure": null,
+      "parser_checked_against_historical_log": true
+    },
+    {
+      "case": "vmec_selfconsistent513",
+      "solver": "vmec",
+      "fbs": 0.9962538088617257,
+      "delta": 0.0,
+      "closure": null,
+      "parser_checked_against_historical_log": true
+    },
+    {
+      "case": "p6_s033_c050_fine128_024",
+      "solver": "chease",
+      "fbs": 0.9929058854360555,
+      "delta": 0.0,
+      "closure": 0.00034132441256585057,
+      "parser_checked_against_historical_log": true
+    },
+    {
+      "case": "p6_s033_c050_fine_exact320",
+      "solver": "chease",
+      "fbs": 0.9928857809614291,
+      "delta": 0.0,
+      "closure": 0.00034208591635764634,
+      "parser_checked_against_historical_log": true
+    },
+    {
+      "case": "vmec_p6_s033_c050_fine_exact320_2049",
+      "solver": "vmec",
+      "fbs": 0.9928707512415073,
+      "delta": 0.0,
+      "closure": null,
+      "parser_checked_against_historical_log": true
+    }
+  ]
+}

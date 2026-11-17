@@ -4,6 +4,8 @@
 
 [回交接首頁](../../README.md) · [完整來源與雜湊](manifest.json) · [執行條件及調參注意](RUNTIME.md)
 
+**[在 ouvic 執行與讀取 bootstrap 比例：可直接使用的命令](RUN_ON_OUVIC.md)**。獨立入口 `tools/run_bootstrap_case.py` 只跑單案例平衡與 bootstrap audit；不含 DCON 或參數搜尋。這與四個入門案例的 `run_case.py` 分開。
+
 ## 先看這兩對
 
 - **A=1.4／較低 β 分支**：[CHEASE p80](cases/freep80_high256/inputs) → [配對 VMEC513](cases/vmec_p80_513/inputs)，fBS 約 99.16%／99.17%。兩者各附歷史 n=1、2、3、壁面 b/a=1.2 的 DCON 設定、日誌及摘要。

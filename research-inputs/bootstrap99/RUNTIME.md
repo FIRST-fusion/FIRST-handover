@@ -2,6 +2,8 @@
 
 這批是歷史輸入封裝，**不是已註冊到 `tools/run_case.py` 的新增範例**。四個入門範例仍使用原本固定 runtime、參考輸出與 300 秒限制，不要為了讀取這批輸入而覆蓋它們。
 
+新增的獨立入口 `tools/run_bootstrap_case.py` 可跑本包固定輸入的**平衡＋bootstrap audit**；詳見 [ouvic 操作步驟](RUN_ON_OUVIC.md)。它不包含 DCON；本輪驗證範圍為環境與歷史後處理，未宣稱新 solver 實跑成功。
+
 ## 與入門範例不同之處
 
 | 項目 | 研究案例所需條件 |
@@ -21,7 +23,7 @@
 1. 先用 [快速開始](../../docs/QUICKSTART.md) 完成一組已驗收的教學流程，確認自己的帳號與容器權限。**ubuntu 的四個入門案例已跑過，不代表這 14 組高解析度研究案例也已在 ubuntu 跑過。**
 2. 將所選案例的整個 `inputs/` 複製到自己的新工作目錄。保留原包不動；CHEASE 必須一起帶 `namelist`、`EXPEQ`、`NIN`，VMEC 帶 `input.test`。
 3. 依上表核對實際可讀的 executable、hash、image 與容量；如果在 ubuntu 使用 highres CHEASE，需另取得該授權 binary 的可讀副本。先前的 ubuntu 教學副本只有標準 CHEASE，不可拿來替代。
-4. 第一輪先不改值，保留 solver stdout、退出狀態、收斂與輸出。容器內 CHEASE 的基本入口為 `/opt/solver < namelist`，VMEC 為 `/opt/solver input.test`；`/opt/solver` 是唯讀掛載的正確 executable，工作目錄需可寫。這是入口說明，不是完整、已驗收的研究 runner。
+4. 第一輪先不改值，保留 solver stdout、退出狀態、收斂與輸出。容器內 CHEASE 的基本入口為 `/opt/solver < namelist`，VMEC 為 `/opt/solver input.test`；`/opt/solver` 是唯讀掛載的正確 executable，工作目錄需可寫。可用新增獨立入口自動執行這一步與 bootstrap 後處理；完整研究穩定性流程仍未包成 runner。
 5. 比對 `historical/summary.json` 的 β、q、電流、解析度及收斂，使用相同 Hirshman 稽核重算 fBS／閉合。歷史摘要不是自動比較用的 `reference/*/expected.json`，不得直接餵給教學 comparator 冒充新通過。
 6. 需要 DCON 時另建各 n／壁面的工作目錄。p80 的三份原設定可作起點，但必須更新 `equil.in` 的平衡輸出路徑、確認 GPEC_balnorm 版本與磁面覆蓋。A=1.2 有限 n 結果不能借用 p80 的輸出。
 7. 再修改自己的副本：CHEASE 數值控制在 `namelist`，壓力／電流／邊界主要在 `EXPEQ`；VMEC 在 `input.test`。改物理剖面後重做 bootstrap 閉合與穩定性，不沿用舊 fBS 或舊穩定標籤。
