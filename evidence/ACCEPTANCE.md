@@ -30,3 +30,7 @@ FIRST `ncku-first` / `ouvic`，隔離根目錄 `/home/ouvic/first-handover-20261
 這是一組可重現的教學／回歸基準，**不是四個已證穩定解**。沒有完成任意 n、全域/局部完整磁面、網格收斂、壁面掃描或 bootstrap 自洽驗證，也沒有修好原版 DCON 的數值警訊。
 
 所有舊研究與失敗輸出保留；本次試跑與驗收容器亦保留為 exited，未執行 rm/prune。
+
+## GitHub 全新取得後再驗證
+
+`clean_checkout.json` 記錄從 GitHub 全新 clone 的 commit，再將該 checkout 精確傳到 FIRST 新目錄。19項工具測試、44份檔案雜湊通過；CHEASE c50 與 VMEC lowbeta 各重新執行整條管線並比對通過。沒有把 GitHub 憑證傳到 FIRST。後續提交只補驗收紀錄，solver 執行工具未改。
