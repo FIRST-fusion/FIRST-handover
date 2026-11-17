@@ -66,3 +66,7 @@ crontab -l
 | 結果與參考不符 | input/binary/image/control hash、完整 log、summary | 放寬公差或覆寫 reference |
 
 停止工作只針對自己已確認的容器名稱，先保留 log 與狀態並通知協作者。此教材的程式使用 timeout；不自動刪除容器、資料或設定排程。重啟主機、SSH／防火牆／驅動修改、帳號增刪、RAID 維修皆屬獨立管理作業，不在快速入門流程中。
+
+## 帳號別執行驗收
+
+ubuntu 已另做四例實跑，但不是直接讀取 ouvic home：使用相同hash的帳號自有程式副本。詳見 [MULTIUSER.md](MULTIUSER.md)；其他帳號仍未驗證。

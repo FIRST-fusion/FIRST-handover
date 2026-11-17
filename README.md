@@ -4,6 +4,7 @@
 
 - [快速開始：clone → preflight → 執行 → 比對](docs/QUICKSTART.md)
 - [CHEASE → DCON、VMEC → DCON：每一步做什麼](docs/WORKFLOWS.md)
+- [帳號別驗證：ouvic／ubuntu 與路徑權限限制](docs/MULTIUSER.md)
 - [FIRST 主機管理：帳號、磁碟、容器、排程與故障](docs/OPERATIONS.md)
 - [老師目標、目前缺口與第一週交接驗收](docs/PROJECT.md)
 - [授權與使用範圍](NOTICE.md)

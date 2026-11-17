@@ -1,0 +1,155 @@
+{
+  "account": "ubuntu",
+  "uid": 1000,
+  "verified_at": "2026-11-17T19:50:34.274253+00:00",
+  "root": "/home/ubuntu/first-handover-validation-20261118",
+  "source": "direct rsync, no GitHub clone",
+  "original_preflight": "PermissionError reading /home/ouvic/... (home mode 750)",
+  "permission_changes_to_original_home": false,
+  "sudo_used": false,
+  "adaptation": "Three same-SHA256 solver copies under ubuntu-owned licensed-runtime; only binaries paths changed in the local config",
+  "original_runtime_sha256": "f175f4dcd76166568713edeb3640b594a84543b96135e1d606244c77a39e2174",
+  "ubuntu_runtime_sha256": "8251f5c5098547767263f4bfa7f2e205501d83fa8f5a58a3fde9929625aa733c",
+  "binary_sha256": {
+    "chease": "1b76c798afe1c715360de4a84163eaeb6f0b1df1849b321fbe875c1e17ec0617",
+    "vmec": "af9851222f1418b43642d02576fa4067757aada16a546ef9e8129a5745599938",
+    "dcon": "13ab832975cd66b44321f004c39991206d2433515088160c6af55c444594bc00"
+  },
+  "python_tests_passed": 19,
+  "reference_integrity_files_passed": 44,
+  "cases": [
+    {
+      "case": "vmec_lowbeta",
+      "workflow_valid": true,
+      "literal_reference_compare": {
+        "passed": false,
+        "errors": [
+          {
+            "code": "label",
+            "message": "label mismatch",
+            "key": "runtime.sha256"
+          }
+        ]
+      },
+      "path_only_relocation_verified_compare": {
+        "passed": true,
+        "errors": []
+      },
+      "summary_sha256": "62cf23bf23720c92433ee3c1505003f08cc6a1887774c568a6c24883041bef5d",
+      "output_owner_uid": 1000,
+      "containers": [
+        {
+          "name": "first-handover-vmec-20261118034908-1960292",
+          "user": "1000:1000",
+          "exit": 0
+        },
+        {
+          "name": "first-handover-dcon-20261118034910-1960292",
+          "user": "1000:1000",
+          "exit": 0
+        }
+      ],
+      "scientific_acceptance": "NOT_CERTIFIED: workflow regression only"
+    },
+    {
+      "case": "chease_c50",
+      "workflow_valid": true,
+      "literal_reference_compare": {
+        "passed": false,
+        "errors": [
+          {
+            "code": "label",
+            "message": "label mismatch",
+            "key": "runtime.sha256"
+          }
+        ]
+      },
+      "path_only_relocation_verified_compare": {
+        "passed": true,
+        "errors": []
+      },
+      "summary_sha256": "13da5fd008d672232885392359e05929f2ae92657e92454f4d670162b198394f",
+      "output_owner_uid": 1000,
+      "containers": [
+        {
+          "name": "first-handover-chease-20261118034912-1960497",
+          "user": "1000:1000",
+          "exit": 0
+        },
+        {
+          "name": "first-handover-dcon-20261118034924-1960497",
+          "user": "1000:1000",
+          "exit": 0
+        }
+      ],
+      "scientific_acceptance": "NOT_CERTIFIED: workflow regression only"
+    },
+    {
+      "case": "chease_c51",
+      "workflow_valid": true,
+      "literal_reference_compare": {
+        "passed": false,
+        "errors": [
+          {
+            "code": "label",
+            "message": "label mismatch",
+            "key": "runtime.sha256"
+          }
+        ]
+      },
+      "path_only_relocation_verified_compare": {
+        "passed": true,
+        "errors": []
+      },
+      "summary_sha256": "0ecfe70e06613e5f3034df9956b1701a3d69d3ad3771a32d96db50a431f40a38",
+      "output_owner_uid": 1000,
+      "containers": [
+        {
+          "name": "first-handover-chease-20261118034934-1960832",
+          "user": "1000:1000",
+          "exit": 0
+        },
+        {
+          "name": "first-handover-dcon-20261118034944-1960832",
+          "user": "1000:1000",
+          "exit": 0
+        }
+      ],
+      "scientific_acceptance": "NOT_CERTIFIED: workflow regression only"
+    },
+    {
+      "case": "vmec_smooth",
+      "workflow_valid": true,
+      "literal_reference_compare": {
+        "passed": false,
+        "errors": [
+          {
+            "code": "label",
+            "message": "label mismatch",
+            "key": "runtime.sha256"
+          }
+        ]
+      },
+      "path_only_relocation_verified_compare": {
+        "passed": true,
+        "errors": []
+      },
+      "summary_sha256": "95fe981fb65af8ee45245d419b60bf6cd6bf62dda54793e43568f0af7d9b91f8",
+      "output_owner_uid": 1000,
+      "containers": [
+        {
+          "name": "first-handover-vmec-20261118034953-1961059",
+          "user": "1000:1000",
+          "exit": 0
+        },
+        {
+          "name": "first-handover-dcon-20261118035003-1961059",
+          "user": "1000:1000",
+          "exit": 0
+        }
+      ],
+      "scientific_acceptance": "NOT_CERTIFIED: workflow regression only"
+    }
+  ],
+  "passed": true
+}

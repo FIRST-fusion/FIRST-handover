@@ -4,3 +4,7 @@ __pycache__/
 writer.lock
 .cursor/
 .DS_Store
+
+# Restricted local solver copies must never enter Git.
+licensed-runtime/
+runtime/first.ouvic.json
