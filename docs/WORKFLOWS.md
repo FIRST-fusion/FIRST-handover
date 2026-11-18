@@ -70,6 +70,37 @@ NaN／Inf、缺檔、殘差不達標、timeout、ODE 錯誤使工具失敗。對
 
 ## 調整參數時
 
-先複製到新研究 scope，記錄新 input hash、目的、owner 和資源上限；不要修改已接受的 examples/reference。提高 β、變更電流／壁面／模式數會改變物理問題；放寬 FTOL 或比對容差不是修復。此 repository 不自動啟動參數搜尋。
+日常建立／修改／執行步驟統一見[交接首頁](../README.md)。`case.py init` 建立自己的副本，runner 保存當次 input hash；原始 examples/reference 保留作對照。提高 β、變更電流／壁面／模式數會改變物理問題；放寬 FTOL 或比對容差不是修復。此 repository 不自動啟動參數搜尋。
 
 各程式的 beta 定義／正規化可能不同。`equilibrium.beta_vac` 是 CHEASE 的 B0 真空場正規化量；`dcon.betat`、`dcon.betan` 是該版 DCON 診斷，不可把不同路徑的 beta 數字直接當成研究成果排名。參考例的高 βN 不代表達成老師 A≈1.2／高bootstrap／第二穩定分支的聯合目標。
+
+<a id="input-reference"></a>
+
+## 輸入參數參考
+
+
+### VMEC：`input.test`
+
+- `PRES_SCALE`：壓力整體倍率；lowbeta 範例使用 `AM=1,-1`，因此原本軸壓力為 2000 Pa，改為1500可看到壓力曲線改變。未列出的 `PRES_SCALE` 可在 `&INDATA` 之後加入；p80 的 spline 壓力資料不需要一起改。
+- `AM`／`AM_AUX_S`、`AM_AUX_F`：依壓力 profile 類型決定函數或 spline 資料，不可混用。
+- `NCURR=0` 時使用 `AI` 或 `AI_AUX_*` 指定 rotational transform；不要誤以為改 `AC` 就一定會生效。
+- `RBC`、`ZBS`：邊界形狀；`PHIEDGE`：總環向磁通。
+- `NS_ARRAY`、`MPOL`、`FTOL_ARRAY`：解析度與收斂要求。工具讀取最後有效 `NS_ARRAY` 對應的 `FTOL_ARRAY`，不是沿用範例公差。
+
+### CHEASE：`namelist`、`EXPEQ`、`NIN`
+
+- `namelist`：求解控制、解析度 `NS/NT/NPSI/NCHI`、收斂 `EPSLON`、物理尺度 `R0EXP/B0EXP`，以及 profile／restart 的選擇。
+- `EXPEQ`：邊界與 profile 資料；不是任意文字表格，請保留格式和點數。
+- `NIN`：此批範例的 restart 資料。**改 namelist 的某個形狀數字，不保證啟用 restart／外部邊界時就會採用它**；要同時理解 `NOPT/NSURF/NFUNC/NPPFUN` 等選項及實際輸入來源。
+- 最小尺度練習：`B0EXP=1.` 改成 `.95`，檢查新圖中的 SI 壓力與電流。這是尺度修改，不等於改出另一個無因次壓力形狀。
+
+自訂 CHEASE 的 `bootstrap-settings.json` 若為 `{}`，表示**未指定 closure seed**，`closure_below_1e-3=null`。要評估指定 seed 的閉合，明確填入三個數值 `seed_axis`、`seed_center`、`seed_width`（width > 0）；A=1.2 起點會複製其既有 seed 供你檢視修改。這不會自動調整平衡到自洽。
+
+
+數值 namelist 支援逗號、換行、D exponent、重複值及單一索引；VMEC 每個有效 grid 都需明列 tolerance。不支援的索引／slice 會報錯，不會忽略後繼續執行。
+
+## 比對與失敗判讀
+
+原始範例 `compare.py` 比較輸入／runtime／控制檔 hash、分類與數值；公差為 `abs(actual-reference) <= atol + rtol*abs(reference)`，主要量目前 rtol=5e-4、atol=1e-8，以各 `expected.json` 為準。殘差另外檢查收斂門檻，不要求列印的最後一位相同。自訂 input 不適用原始 reference，工具會明確拒絕混用。
+
+平衡收斂後先出五圖，再做 DCON 或 bootstrap audit；後處理失敗仍保留圖及原始輸出，但整體 `valid=false`。比對失敗不可自行更新 reference 或放寬容差。`profiles.log`、`equilibrium/run.log`、`dcon/run.log` 與 `summary.json` 應一起保留。

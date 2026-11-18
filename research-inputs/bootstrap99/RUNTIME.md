@@ -1,8 +1,6 @@
-# 研究輸入的執行條件
+# 研究輸入的 runtime 參考
 
-這批是歷史輸入封裝，**不是已註冊到 `tools/run_case.py` 的新增範例**。四個入門範例仍使用原本固定 runtime、參考輸出與 300 秒限制，不要為了讀取這批輸入而覆蓋它們。
-
-新增的獨立入口 `tools/run_bootstrap_case.py` 可跑本包固定輸入的**平衡＋bootstrap audit**；詳見 [ouvic 操作步驟](RUN_ON_OUVIC.md)。它不包含 DCON；本輪驗證範圍為環境與歷史後處理，未宣稱新 solver 實跑成功。
+日常操作統一見[交接首頁](../../README.md)。研究路徑執行平衡＋五圖＋bootstrap audit，不包含 DCON；`case.py` 依起點自動選擇對應的 runner。p80 CHEASE／VMEC 已在 ouvic 實跑，其餘研究案例的限制以[驗收紀錄](../../evidence/ACCEPTANCE.md)為準。
 
 ## 與入門範例不同之處
 
@@ -18,16 +16,13 @@
 
 來源：[historical reproduction manifest](source-reports/linliu-reproduction-manifest.json)、[exact320 summary](cases/p6_s033_c050_fine_exact320/historical/summary.json)。程式與 image 均未加入 Git；使用範圍仍依 [NOTICE](../../NOTICE.md)。
 
-## 接手者如何使用或改值
+## 現行 runner 與帳號限制
 
-1. 先用 [快速開始](../../docs/QUICKSTART.md) 完成一組已驗收的教學流程，確認自己的帳號與容器權限。**ubuntu 的四個入門案例已跑過，不代表這 14 組高解析度研究案例也已在 ubuntu 跑過。**
-2. 將所選案例的整個 `inputs/` 複製到自己的新工作目錄。保留原包不動；CHEASE 必須一起帶 `namelist`、`EXPEQ`、`NIN`，VMEC 帶 `input.test`。
-3. 依上表核對實際可讀的 executable、hash、image 與容量；如果在 ubuntu 使用 highres CHEASE，需另取得該授權 binary 的可讀副本。先前的 ubuntu 教學副本只有標準 CHEASE，不可拿來替代。
-4. 第一輪先不改值，保留 solver stdout、退出狀態、收斂與輸出。容器內 CHEASE 的基本入口為 `/opt/solver < namelist`，VMEC 為 `/opt/solver input.test`；`/opt/solver` 是唯讀掛載的正確 executable，工作目錄需可寫。可用新增獨立入口自動執行這一步與 bootstrap 後處理；完整研究穩定性流程仍未包成 runner。
-5. 比對 `historical/summary.json` 的 β、q、電流、解析度及收斂，使用相同 Hirshman 稽核重算 fBS／閉合。歷史摘要不是自動比較用的 `reference/*/expected.json`，不得直接餵給教學 comparator 冒充新通過。
-6. 需要 DCON 時另建各 n／壁面的工作目錄。p80 的三份原設定可作起點，但必須更新 `equil.in` 的平衡輸出路徑、確認 GPEC_balnorm 版本與磁面覆蓋。A=1.2 有限 n 結果不能借用 p80 的輸出。
-7. 再修改自己的副本：CHEASE 數值控制在 `namelist`，壓力／電流／邊界主要在 `EXPEQ`；VMEC 在 `input.test`。改物理剖面後重做 bootstrap 閉合與穩定性，不沿用舊 fBS 或舊穩定標籤。
+- CHEASE highres 使用 image `sha256:641ae18660a48900fa8ad7340f9fbc2f716b2bf2295ef382344590194400a708`；VMEC 使用上表的 `018ecc…` image。每次建立斷網、唯讀 rootfs 的新容器，binary 唯讀掛載，只有新工作目錄可寫。
+- 每容器2 CPU／8 GB、BLAS/OpenMP單執行緒，使用執行帳號的UID/GID；完整命令、image ID及binary hash保存在新 `summary.json`。
+- ouvic 後處理使用既有 `/home/ouvic/linliu-reproduction-20260911/.venv_uv/bin/python`，不安裝系統套件。
+- **ubuntu 的教學例通過，不代表14組研究案例也在 ubuntu 驗證過。** highres CHEASE仍須取得授權及讀取權限；標準教學binary不能代替。
+- 研究runner預設timeout3600秒；2026-11-18 p80實測CHEASE約225秒、VMEC約97秒，僅solver階段，不含出圖／稽核，不保證每次相同。
+- 如需研究DCON，另用匹配的版本、新平衡介面、各n／壁面設定及完整磁面檢查。p80歷史GPEC_balnorm設定不能直接換成教學classic DCON後沿用研究結論；A=1.2不能借用p80的結果。
 
-不把 `NBSOPT` 改為某個值來「設定 99%」。A=1.2 的 seed 與壓力公式保存在 [原始摘要](cases/p6_s033_c050_fine_exact320/historical/summary.json) 及 [pressure_model](cases/p6_s033_c050_fine_exact320/historical/pressure_model.json)；重建時同時核對磁通座標、單位與 seed 定義。
-
-本次沒有啟動任何新平衡、DCON 或參數搜尋；所有時間與數值均為歷史證據。
+A=1.2 的 seed 與壓力公式保存在[原始摘要](cases/p6_s033_c050_fine_exact320/historical/summary.json)及[pressure_model](cases/p6_s033_c050_fine_exact320/historical/pressure_model.json)；需核對磁通座標、單位與seed。單次平衡重播不等於重新做bootstrap自洽，也不會把NBSOPT某個值當成「設定99%」。

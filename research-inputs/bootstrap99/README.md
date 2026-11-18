@@ -1,10 +1,10 @@
 # 約 99% bootstrap current 的歷史研究輸入
 
-**14 組已找到的平衡輸入：10 組 CHEASE、4 組 VMEC。** 2026-11-18 從 FIRST 原始研究目錄取回，保留輸入原始位元組、必要 restart、歷史結果與 SHA-256。這次只封裝既有資料，**未重新執行這 14 組 solver，也未重新認證其穩定性**。
+**14 組已找到的平衡輸入：10 組 CHEASE、4 組 VMEC。** 2026-11-18 從 FIRST 原始研究目錄取回，保留輸入原始位元組、必要 restart、歷史結果與 SHA-256。本目錄保存歷史資料；後續只對 p80 配對及修改案例做了新實跑，**不是重新驗收全部14組或認證穩定性**，見[實跑證據](../../evidence/ACCEPTANCE.md)。
 
 [回交接首頁](../../README.md) · [完整來源與雜湊](manifest.json) · [執行條件及調參注意](RUNTIME.md)
 
-**[在 ouvic 執行與讀取 bootstrap 比例：可直接使用的命令](RUN_ON_OUVIC.md)**。獨立入口 `tools/run_bootstrap_case.py` 只跑單案例平衡與 bootstrap audit；不含 DCON 或參數搜尋。這與四個入門案例的 `run_case.py` 分開。
+**所有建立案例、修改 input、執行與看圖的步驟統一在[交接首頁](../../README.md)。** 本頁只保留研究案例、物理定義與歷史限制。
 
 ## 先看這兩對
 
@@ -47,6 +47,10 @@
 本表取 `fbs_total_hirshman`，是 collisionless Hirshman 電流分解得到的**全域積分比例** `fBS = 1 − Iaux / Ip`；不是加權近似值 `fbs_weighted_hirshman`，也不是輸入裡把某個開關設成 0.99。
 
 CHEASE 這批使用 `NBSOPT=0`：bootstrap 自洽由外部迭代完成，存下來的是迭代後壓力／電流剖面。**單跑一次保存的平衡輸入不等於重新做 bootstrap 自洽。** 改壓力、seed、邊界後，必須重新迭代、重新算 fBS 與閉合殘差；原先的 99% 不會自動保留。`p80/p90/p98` 是原分支的壓力梯度幅度標記，不是 bootstrap 百分比。
+
+這套 fBS 診斷採 Zeff=2、pe=pi、Te=Ti 與指定梯度假設，依原方法處理 diamagnetic／Pfirsch–Schlüter 部分；不是通用輸運模型。CHEASE 從本次 `linliu_profiles.dat` 重新積分；VMEC 從本次 `wout_test.nc` 的 Fourier／Jacobian 重新計算。VMEC 的 `Iaux_A/Itotal_A` 是安培，CHEASE 原始 `itotal` 是正規化電流，不可直接標為安培。
+
+讀新執行的 `summary.json`：`fbs_percent` 為百分比，`fbs_total_hirshman` 為比例；例如0.9916029189等於99.16029189%，不是0.9916%。自訂 input 的 `historical_fbs/fbs_difference` 為 null；VMEC 的 `closure_below_1e-3=null` 表示沒有固定 seed 閉合認證。CHEASE 自訂 seed 規則見[輸入參數參考](../../docs/WORKFLOWS.md#input-reference)。
 
 ## 跨 solver 的來源配對
 

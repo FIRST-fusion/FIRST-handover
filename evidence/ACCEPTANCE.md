@@ -43,10 +43,66 @@ FIRST `ncku-first` / `ouvic`，隔離根目錄 `/home/ouvic/first-handover-20261
 
 已驗證六例來源檔 SHA-256、CSV 全欄逐點符合新輸出、15個必要檔完整，並打開 CHEASE／VMEC 教學與 p80 代表總覽檢查。28項測試在本機及 FIRST 各通過一次；44份 reference 與136份研究輸入雜湊不變。這些是操作／繪圖驗收，不是新的穩定性認證；p80 此次未跑 DCON。
 
-[六例實跑圖](remote_profiles/README.md) · [machine-readable 收據](remote_profile_acceptance.json)
+[machine-readable 收據](remote_profile_acceptance.json)
 
 ## 可編輯 input（2026-11-18）
 
 新增 `tools/case.py init/run` 與兩 runner 的 `--input-dir`，支援自訂 input 副本、當次快照／hash、修改後自動五圖。三個修改案例已在 FIRST 真正求解，並驗證壓力尺度隨輸入改變；p80 fBS重新計算而非沿用歷史值。原版VMEC低壓例另跑一次回歸通過，本機與FIRST各37項測試通過。
 
-[修改操作說明](../docs/EDIT_INPUTS.md) · [修改後的三例圖與驗收](editable_inputs/README.md) · [machine-readable收據](editable_input_acceptance.json)
+[操作說明](../README.md) · [machine-readable收據](editable_input_acceptance.json)
+
+<a id="fresh-profiles"></a>
+
+<details>
+<summary>六例新求解圖（展開查看）</summary>
+
+這些圖由 `ouvic@ncku-first` 的新求解輸出自動產生，不是複製 `figures/profiles` 的封存圖。
+
+實跑根目錄：`/home/ouvic/first-handover-20261118`；各案例完整輸出在 `runs/profile-accept-20261118-<case>/`，五張單圖、PDF、CSV 與 metadata 在其 `profiles/` 子目錄。
+
+原始來源是該次 `equilibrium/linliu_profiles.dat` 和 `namelist`（CHEASE），或 `equilibrium/wout_test.nc`（VMEC）。SHA-256、逐點 CSV 檢查及實跑時間見[驗收收據](remote_profile_acceptance.json)；圖形並不構成穩定性認證。
+
+### 四個教學範例
+
+![VMEC lowbeta](remote_profiles/vmec_lowbeta.png)
+
+![CHEASE c50](remote_profiles/chease_c50.png)
+
+![CHEASE c51](remote_profiles/chease_c51.png)
+
+![VMEC smooth](remote_profiles/vmec_smooth.png)
+
+### 高 bootstrap p80：本次重新求解
+
+CHEASE fBS = 99.1602918859%；VMEC fBS = 99.1695246833%。沒有重做外迭代或 DCON，不增加穩定性認證。原生符號保留，沒有將 J·B／極向加權電流取絕對值。
+
+![CHEASE p80](remote_profiles/freep80_high256.png)
+
+![VMEC p80](remote_profiles/vmec_p80_513.png)
+
+</details>
+
+<a id="edited-profiles"></a>
+
+<details>
+<summary>修改 input 的三例圖（展開查看）</summary>
+
+FIRST／ouvic，三個全新自訂案例；[完整收據](editable_input_acceptance.json)。結果保留在 `/home/ouvic/first-handover-20261118/runs/<以下案例名稱>/`。每個案例有15個圖／資料／來源檔；所有 input 快照 SHA-256 與可編輯檔一致，CSV逐點符合本次平衡輸出。這不是穩定性認證。
+
+| 自訂案例 | 修改 | 新壓力／原壓力 | 新 fBS |
+|---|---|---:|---:|
+| editable-vmec-20261118 | PRES_SCALE：2000 → 1500 | 0.75 | 教學流程不計算 |
+| editable-chease-20261118 | B0EXP：1 → 0.95 | 0.9025 | 教學流程不計算 |
+| editable-p80-20261118 | PRES_SCALE：1 → 0.99 | 0.99 | 98.7676431932% |
+
+p80 不再沿用原始99.1695%，自訂輸入不拿舊參考數字作回歸成功判據。原始 VMEC lowbeta 另做一次不改輸入的回歸，仍通過既有參考比對。本機與FIRST各37項測試通過；44份reference及136份研究輸入雜湊不變。
+
+首次準備 p80 修改時，重複設定檢查發現原檔已有小寫 `pres_scale=1.0`，在任何求解前停止；改為編輯該既有設定後才啟動三例，沒有重複求解或覆寫舊結果。
+
+![自訂VMEC](editable_inputs/editable-vmec-20261118.png)
+
+![自訂CHEASE](editable_inputs/editable-chease-20261118.png)
+
+![自訂p80](editable_inputs/editable-p80-20261118.png)
+
+</details>
