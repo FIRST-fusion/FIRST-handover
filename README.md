@@ -32,7 +32,7 @@ nano inputs/my-chease/namelist
 | VMEC | `input.test` 或自訂檔名，內容為 `&INDATA` | 本交接範例只需主 input |
 | CHEASE | `namelist`，內容為 `&EQDATA`／`$EQDATA` | 依 input 設定準備 `EXPEQ`、`NIN`；上述複製已包含 |
 
-VMEC 範例可修改 `PRES_SCALE=2000`；其他輸入欄位見[參數說明](docs/WORKFLOWS.md#input-reference)。
+VMEC 範例可修改 `PRES_SCALE=2000` 後存檔執行。
 
 ## 3. 執行
 
@@ -99,4 +99,4 @@ python3 run_case.py inputs/my-vmec/input.test --bootstrap --dcon --timeout 3600 
 | `dcon/run.log` | DCON 完整輸出 |
 | `profiles/profiles.csv`、`profiles/metadata.json` | 繪圖數值與來源檔案 |
 
-[圖表定義](docs/PROFILES.md) · [研究 input 清單](research-inputs/bootstrap99/README.md) · [其他帳號設定](docs/MULTIUSER.md) · [驗收紀錄](evidence/ACCEPTANCE.md)
+[專案目標](docs/PROJECT.md) · [研究 input 清單](research-inputs/bootstrap99/README.md) · [驗收紀錄](evidence/ACCEPTANCE.md)

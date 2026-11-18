@@ -2,7 +2,7 @@
 
 每案例有 q、pressure、⟨J·B⟩、極向與環向 Jacobian 加權電流剖面。
 橫軸為 normalized toroidal flux s；保留原生符號、取樣與端點。
-[來源欄位、單位、磁通轉換與執行命令](../../docs/PROFILES.md)。
+每個案例的 `metadata.json` 記錄來源欄位、單位與磁通換算；[執行指令見首頁](../../README.md#3-執行)。
 
 | 案例 | 總覽 | 五頁 PDF | 數據 | 來源與 hash |
 |---|---|---|---|---|

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""從原始 CHEASE/VMEC 輸出畫五張 profile；不執行 solver。見 docs/PROFILES.md。"""
+"""從原始 CHEASE/VMEC 輸出畫五張 profile；不執行 solver。來源與換算記錄於 metadata.json。"""
 import argparse
 import hashlib
 import json

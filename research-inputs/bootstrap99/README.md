@@ -50,7 +50,7 @@ CHEASE 這批使用 `NBSOPT=0`：bootstrap 自洽由外部迭代完成，存下�
 
 這套 fBS 診斷採 Zeff=2、pe=pi、Te=Ti 與指定梯度假設，依原方法處理 diamagnetic／Pfirsch–Schlüter 部分；不是通用輸運模型。CHEASE 從本次 `linliu_profiles.dat` 重新積分；VMEC 從本次 `wout_test.nc` 的 Fourier／Jacobian 重新計算。VMEC 的 `Iaux_A/Itotal_A` 是安培，CHEASE 原始 `itotal` 是正規化電流，不可直接標為安培。
 
-讀新執行的 `summary.json`：`fbs_percent` 為百分比，`fbs_total_hirshman` 為比例；例如0.9916029189等於99.16029189%，不是0.9916%。自訂 input 的 `historical_fbs/fbs_difference` 為 null；VMEC 的 `closure_below_1e-3=null` 表示沒有固定 seed 閉合認證。CHEASE 自訂 seed 規則見[輸入參數參考](../../docs/WORKFLOWS.md#input-reference)。
+讀新執行的 `summary.json`：`fbs_percent` 為百分比，`fbs_total_hirshman` 為比例；例如0.9916029189等於99.16029189%，不是0.9916%。自訂 input 的 `historical_fbs/fbs_difference` 為 null；VMEC 的 `closure_below_1e-3=null` 表示沒有固定 seed 閉合認證。CHEASE 自訂 seed 放在 input 同目錄的 `bootstrap-settings.json`，填入 `seed_axis`、`seed_center`、`seed_width`（width > 0）；未指定則不認證 seed 閉合。
 
 ## 跨 solver 的來源配對
 
