@@ -52,13 +52,21 @@ CHEASE 可複製 `examples/chease_c50/` 的 `namelist`、`EXPEQ`、`NIN` 到自�
 
 ## 4. 選擇診斷與執行選項
 
-直接指定 input，預設做 **平衡＋五張 profile＋教學 DCON**。若要重新計算 bootstrap 比例而不跑 DCON，同一個入口加上 `--bootstrap`：
+直接指定一般自訂 input，預設做 **平衡＋五張 profile＋教學 DCON**，**不執行額外的 bootstrap 診斷**。要計算 Hirshman bootstrap current 與其總電流比例，同一個入口加上 `--bootstrap`：
 
 ```sh
 python3 run_case.py inputs/my-vmec/input.test --bootstrap
 ```
 
-fBS 會從這次平衡重新算，不沿用舊的99%，也不會自動做自洽外迭代。若資料夾保留先前建立的 `case.json`，工具會沿用其中選定的教學／研究流程；舊副本不必重建。
+| 執行方式 | 平衡與五圖 | Bootstrap 診斷／fBS | DCON |
+|---|---|---|---|
+| 一般自訂 input，未加 `--bootstrap` | 有 | 不執行 | 有 |
+| 自訂 input 加 `--bootstrap` | 有 | 從本次平衡重新計算 | 不執行 |
+| 直接指定高 bootstrap 研究範例名稱 | 有 | 從本次平衡重新計算 | 不執行 |
+
+**Bootstrap 診斷不等於自洽電流求解。** 它計算本次平衡對應的 bootstrap current 與 fBS，不沿用舊的99%，但**不會把 bootstrap current 回灌給 solver 反覆求平衡**。目前五張圖中的電流仍是**總電流剖面**，尚未另外繪製 bootstrap current 剖面；有五張圖不代表已跑 bootstrap。
+
+若資料夾保留先前建立的 `case.json`，工具會沿用其中選定的教學／研究流程；舊副本不必重建。執行時終端機會印出 `workflow`，可確認本次選用的流程。
 
 只想跑原始範例，也用同一個入口：
 
@@ -80,6 +88,33 @@ DCON路徑的平衡預設300秒，bootstrap路徑平衡預設3600秒；高解析
 
 每次都把當次 input 快照與新結果放進 `runs/<案例或資料夾名>-<時間戳>/`。**再次修改後跑同一行即可，不會覆寫上一輪。**
 
+<details>
+<summary>run_case.py 完整參數（args）速查</summary>
+
+日常只需 `python3 run_case.py INPUT`；需要 bootstrap 時加 `--bootstrap`。其餘參數按需使用：
+
+| 參數 | 用途／預設 |
+|---|---|
+| `INPUT`（位置參數，help 中名為 `case`） | input 檔案、資料夾或範例名稱；省略則讀目前工作資料夾的 `input.test`／`namelist`。 |
+| `--bootstrap` | 自訂 input 改走平衡＋五圖＋Hirshman bootstrap／fBS，不跑 DCON，也不做自洽外迭代。研究範例原本就走此流程；教學範例若要使用此選項，請指定其 input 路徑而非僅填範例名。 |
+| `--output DIR` | 指定**尚不存在**的結果目錄；省略則在專案 `runs/` 自動建立時間戳目錄。 |
+| `--timeout SECONDS` | 平衡求解時限，整數 1–14400 秒；教學流程預設300秒，bootstrap流程預設3600秒。不改變 DCON 固定300秒時限。 |
+| `--preflight` | 只做輸入／runtime／依賴檢查，不求解、不產圖；不指定 input 時可單獨檢查 runtime 與繪圖依賴。 |
+| `--solver chease` 或 `--solver vmec` | 資料夾同時有兩種 input 時選擇 solver；通常可省略並自動辨識，指定值必須與 input 內容一致。 |
+| `--input PATH` | 用具名參數指定 input 檔或資料夾，與直接填 `INPUT` 二選一即可。 |
+| `--input-dir DIR` | 相容舊操作的 input 資料夾選項；新操作建議直接填路徑。不能與 `--input` 同時使用。 |
+| `--plot-python PYTHON` | 指定具有 numpy／scipy／matplotlib 的繪圖 Python。ouvic 預設使用既有 `.venv_uv/bin/python`，找不到時用啟動 runner 的 Python；此選項不切換 bootstrap 診斷所用的既有科學 Python。 |
+| `-h`、`--help` | 顯示程式實際支援的參數後離開。 |
+
+例如自己的高解析度 input 要算 bootstrap 並給一小時：
+
+```sh
+python3 run_case.py inputs/my-vmec/input.test --bootstrap --timeout 3600
+python3 run_case.py --help
+```
+
+</details>
+
 ## 5. 跑完看這些檔案
 
 終端機會顯示本次結果目錄；在 VS Code Remote SSH 開啟其中的 `profiles/overview.png` 就能看圖。
@@ -90,7 +125,8 @@ DCON路徑的平衡預設300秒，bootstrap路徑平衡預設3600秒；高解析
 | `profiles/profiles.pdf` | 五頁圖；同目錄另有各張 PNG／PDF |
 | `profiles/profiles.csv`、`metadata.json` | 逐點數值、來源檔、SHA-256 與單位換算 |
 | `equilibrium/` | 本次實際 input、求解輸出及 `run.log` |
-| `summary.json` | 是否完成、錯誤、診斷、圖檔路徑；研究案例另有 `fbs_percent` |
+| `equilibrium/bootstrap.json` | bootstrap 流程的診斷、方法、來源雜湊與 fBS；一般教學流程不產生此檔 |
+| `summary.json` | 是否完成、錯誤、診斷、圖檔路徑；bootstrap 流程另有 `fbs_total_hirshman` 與 `fbs_percent` |
 | `dcon/` | 教學路徑的 DCON 設定與診斷；研究路徑沒有此步驟 |
 
 `fbs_percent=98.7676` 就是 **98.7676%**；`fbs_total_hirshman=0.987676` 是比例。兩張電流圖是加權剖面 [A]，不是局部電流密度；完整來源和定義見[圖表說明](docs/PROFILES.md)。
