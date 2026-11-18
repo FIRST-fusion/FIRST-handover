@@ -399,5 +399,289 @@
       "Edited input previously required template or case.py; now file/directory accepted directly"
     ],
     "specific_user_error": "Not supplied; do not claim the exact user failure was reproduced"
+  },
+  "combined_bootstrap_dcon": {
+    "verified_at": "2026-11-18T08:16:57.433906+00:00",
+    "host": "ncku-first",
+    "account": "ouvic",
+    "cases": [
+      {
+        "case": "chease-custom",
+        "output": "/home/ouvic/first-handover-20261118/runs/combined-dcon-chease-custom-20261118",
+        "valid": true,
+        "input_file": "/home/ouvic/first-handover-20261118/inputs/direct-cli-20261118/chease/namelist",
+        "input_sha256": {
+          "namelist": "5a359e94964d6c7954710a4a49c6fc850bc4c1f81c0919ee77c4b6e06a3fdd50",
+          "EXPEQ": "b8eb0cfb2d391f15f2865f7c1521244fb8e0294117b022af5bef5b6d223739b4",
+          "NIN": "69f8434e4d90bde2abf143c155a1a1c48863f6d3257c3181236ae0257d1c6254",
+          "bootstrap-settings.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+        },
+        "single_equilibrium": true,
+        "same_dcon_interface_sha256": "ee24e9b1e18aa8e41a6deea8c00c3f6ad61bb2cf141fb2d24a74f6128dab06b2",
+        "controls_sha256": "c1fc396cb0d850ccce9c91ce12e117e1b9944e8609a9a8200d140ab2d296eeb2",
+        "fbs_percent": 97.91792841294343,
+        "labels": {
+          "equilibrium.converged": true,
+          "dcon.reported_fixed": "unknown",
+          "dcon.reported_free": "stable",
+          "dcon.reported_ballooning": "unstable",
+          "dcon.reported_mercier": "stable",
+          "dcon.floating_point_flags": "IEEE_DENORMAL,IEEE_OVERFLOW_FLAG,IEEE_UNDERFLOW_FLAG",
+          "controls.sha256": "c1fc396cb0d850ccce9c91ce12e117e1b9944e8609a9a8200d140ab2d296eeb2"
+        },
+        "warnings": [
+          "DCON floating-point flags: IEEE_DENORMAL,IEEE_OVERFLOW_FLAG,IEEE_UNDERFLOW_FLAG; diagnostic classification is not scientifically certified"
+        ],
+        "dcon": {
+          "requested": true,
+          "completed": true,
+          "error": null,
+          "reported_free": "stable",
+          "source_interface": "/home/ouvic/first-handover-20261118/runs/combined-dcon-chease-custom-20261118/equilibrium/INP1",
+          "source_interface_sha256": "ee24e9b1e18aa8e41a6deea8c00c3f6ad61bb2cf141fb2d24a74f6128dab06b2",
+          "copied_interface": "/home/ouvic/first-handover-20261118/runs/combined-dcon-chease-custom-20261118/dcon/INP1",
+          "copied_interface_sha256": "ee24e9b1e18aa8e41a6deea8c00c3f6ad61bb2cf141fb2d24a74f6128dab06b2",
+          "controls_sha256": "c1fc396cb0d850ccce9c91ce12e117e1b9944e8609a9a8200d140ab2d296eeb2"
+        },
+        "diagnostics": null,
+        "sources": [
+          {
+            "path": "/home/ouvic/first-handover-20261118/runs/combined-dcon-chease-custom-20261118/equilibrium/linliu_profiles.dat",
+            "sha256": "fafae5db060ab3b376c419ea7156b8ee74bb47825c1e80ba9dc33f026f149cc4"
+          },
+          {
+            "path": "/home/ouvic/first-handover-20261118/runs/combined-dcon-chease-custom-20261118/equilibrium/namelist",
+            "sha256": "5a359e94964d6c7954710a4a49c6fc850bc4c1f81c0919ee77c4b6e06a3fdd50"
+          }
+        ],
+        "csv_matches_new_output": true,
+        "same_input_profiles_match_previous": true,
+        "artifacts_sha256": {
+          "profiles.pdf": "7b7905d228684b93ec64a4f6e843542949c7ea083d9a905cef1d99f03885b866",
+          "poloidal_current.png": "5778a8a6bf4520a84d95ea665a9d80e0bb5f5b186155834cdb0b24199be30c7e",
+          "jdotb.pdf": "4e0f6452e1f72a807c8d240e3e469c6cedfa59c89a868403d7377ddbce5c45b8",
+          "overview.pdf": "66883a60b4a685ae28a9a49f4fc84990b0407cacb3198098f1ec4763a69a04e9",
+          "toroidal_current.png": "fee0d1998a28764ac7ab54e92a9b2e889f45e6a2145e245a418bd6842a574372",
+          "pressure.pdf": "c6959a15bcea5f70754a19980f02c564d6ffcab8acf2157bad9630e3720530be",
+          "jdotb.png": "56ea3cd3fc8a19db856abd746f1129e5c632d521c8240e528cd7bc35b985166b",
+          "q.png": "281fca06fcd88b162dfeaa3aab90e7f1287fa99031ec4cfc0674f50bc8ab960c",
+          "pressure.png": "3caa996ee34113899e8ba6183aba8596a651b7ce2a0ea1cfa8fad6b084254b90",
+          "poloidal_current.pdf": "f0443d20c4165966270ce4c68f8c263324ccd0bc84a9097dafbef622a23d3e96",
+          "q.pdf": "333963bb8e78dee7d66b27c044e951bc61c636e8f3a0bb12d990030b88d51dce",
+          "metadata.json": "2626d0a3cc97b0b269cb3f8eb6f2ca137007704b9057b048f0427475dd5c4e92",
+          "profiles.csv": "2a4738a5c5a05122d10ab24b12f7177f3b93baa6fa9e80720f0744b4b3aca30e",
+          "overview.png": "850f8bb8dc26cb3e721954e17863b9e09319967edacc8727762f59d7fcec618f",
+          "toroidal_current.pdf": "bde219764aead429c308b49d2e3b0c44c007e02759a21e034e330cc3038ff17d"
+        },
+        "summary_sha256": "d46e1817358cca7e224e11ff472e94dc87c555edaac0824fd97f72201cfaf9cd",
+        "stages": [
+          {
+            "stage": "chease",
+            "container": "first-handover-chease-20261118160402-2013241",
+            "exit_code": 0,
+            "seconds": 11.97853422164917
+          },
+          {
+            "stage": "dcon",
+            "container": "first-handover-dcon-20261118160418-2013241",
+            "exit_code": 0,
+            "seconds": 9.19273066520691
+          }
+        ],
+        "started_at": "2026-11-18T08:04:02.500154+00:00",
+        "finished_at": "2026-11-18T08:04:28.045350+00:00"
+      },
+      {
+        "case": "vmec-custom",
+        "output": "/home/ouvic/first-handover-20261118/runs/combined-dcon-vmec-custom-20261118",
+        "valid": true,
+        "input_file": "/home/ouvic/first-handover-20261118/inputs/direct-cli-20261118/bootstrap/input.own",
+        "input_sha256": {
+          "input.test": "6c0a8a97d1b8036de470e72dab81004d86b0c88f832ecda9cb77921561cb9974",
+          "bootstrap-settings.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+        },
+        "single_equilibrium": true,
+        "same_dcon_interface_sha256": "a14e6d9e6ea0c30828f04f5339f3dd0f463b1c64730cb5153bd5ef9eb9ae2d4d",
+        "controls_sha256": "cb2312d21fe5a13450802afb702349fdfddea4e291357369d2a66636b6661889",
+        "fbs_percent": 98.96915053880481,
+        "labels": {
+          "equilibrium.converged": true,
+          "dcon.reported_fixed": "unknown",
+          "dcon.reported_free": "stable",
+          "dcon.reported_ballooning": "unstable",
+          "dcon.reported_mercier": "unstable",
+          "dcon.floating_point_flags": "IEEE_DENORMAL,IEEE_DIVIDE_BY_ZERO,IEEE_OVERFLOW_FLAG,IEEE_UNDERFLOW_FLAG",
+          "controls.sha256": "cb2312d21fe5a13450802afb702349fdfddea4e291357369d2a66636b6661889"
+        },
+        "warnings": [
+          "DCON floating-point flags: IEEE_DENORMAL,IEEE_DIVIDE_BY_ZERO,IEEE_OVERFLOW_FLAG,IEEE_UNDERFLOW_FLAG; diagnostic classification is not scientifically certified"
+        ],
+        "dcon": {
+          "requested": true,
+          "completed": true,
+          "error": null,
+          "reported_free": "stable",
+          "source_interface": "/home/ouvic/first-handover-20261118/runs/combined-dcon-vmec-custom-20261118/equilibrium/dcon_test.txt",
+          "source_interface_sha256": "a14e6d9e6ea0c30828f04f5339f3dd0f463b1c64730cb5153bd5ef9eb9ae2d4d",
+          "copied_interface": "/home/ouvic/first-handover-20261118/runs/combined-dcon-vmec-custom-20261118/dcon/dcon_test.txt",
+          "copied_interface_sha256": "a14e6d9e6ea0c30828f04f5339f3dd0f463b1c64730cb5153bd5ef9eb9ae2d4d",
+          "controls_sha256": "cb2312d21fe5a13450802afb702349fdfddea4e291357369d2a66636b6661889"
+        },
+        "diagnostics": null,
+        "sources": [
+          {
+            "path": "/home/ouvic/first-handover-20261118/runs/combined-dcon-vmec-custom-20261118/equilibrium/wout_test.nc",
+            "sha256": "123659867d0c65fa1a6f98fd79ea0edee3ed75f01a3598154fb41bf7c65f33fa"
+          }
+        ],
+        "csv_matches_new_output": true,
+        "same_input_profiles_match_previous": true,
+        "artifacts_sha256": {
+          "profiles.pdf": "c0e75863c2ef1c410db610771101c528a322096fc2fe63372996d4b2ec3eeacf",
+          "poloidal_current.png": "99908fd1eb2b960d3feb3ccd84b673930b0a6fa24e121f74d88e0b510d6a51ee",
+          "jdotb.pdf": "d754bb08e0b845fef5f5e639315292dec86e77e0590737a2c3dab2f646d82f93",
+          "overview.pdf": "7adb90def99af81ca78f95018da01f32094e7287faf5c0a221403a90ac1ee261",
+          "toroidal_current.png": "77abd99af850cb43e5585ac82918c01df0cb58b7bb31774bdb1baee4fd01c877",
+          "pressure.pdf": "286deb6c514ddc73e27ad0d266fbcc8be3001d7950defd6512a198edee00a6a6",
+          "jdotb.png": "b8e82396c5806c30cf59475c07dfd70f3ef3a3fcc49be26dd20841c99c3c5e21",
+          "q.png": "41ad69c557859a53763ed52f8e06775271f89481bbff153d05ff42760662b1c5",
+          "pressure.png": "c75bfcde249b84480fa888f4c33583f76b0d3e64ab521374e75edacc08672cf6",
+          "poloidal_current.pdf": "d10746b68a588feb1e3078dc8cf59802aecfff4f721154300b471cbbaf89486a",
+          "q.pdf": "690ff1df6bc4eecf8ec1d09a9cd702f5e5c35faa3ec8e5e73420c87a7c183fa4",
+          "metadata.json": "43c39e08241eae0a5f4af58293f7ac03b7333d74bb9ccd9b79db8965da3c81b4",
+          "profiles.csv": "96c3d4d8decbcab36e198b73d6f3236bbf03ce53d116e7d21a03f42d3f5c158f",
+          "overview.png": "b7487abdede2c2f1c28a4a4513bdb05457fef8905bd173debfa855505c6378ba",
+          "toroidal_current.pdf": "9d8efa4c66494fcca56d50867f78b5dfd9af657438692a5eeaf4a7e800c53973"
+        },
+        "summary_sha256": "62aa4ebdcba91aa0bc0bdecee6072e6a0e6f805f2d08e6001245917b6d41247a",
+        "stages": [
+          {
+            "stage": "vmec",
+            "container": "first-handover-vmec-20261118160428-2013625",
+            "exit_code": 0,
+            "seconds": 104.77552247047424
+          },
+          {
+            "stage": "dcon",
+            "container": "first-handover-dcon-20261118160618-2013625",
+            "exit_code": 0,
+            "seconds": 12.60240912437439
+          }
+        ],
+        "started_at": "2026-11-18T08:04:28.606169+00:00",
+        "finished_at": "2026-11-18T08:06:31.310496+00:00"
+      },
+      {
+        "case": "chease-p80",
+        "output": "/home/ouvic/first-handover-20261118/runs/combined-dcon-chease-p80-20261118",
+        "valid": true,
+        "input_file": "/home/ouvic/first-handover-20261118/research-inputs/bootstrap99/cases/freep80_high256/inputs/namelist",
+        "input_sha256": {
+          "namelist": "14e27c66598c6f86bb5cbcc312b4275f166ebc1a72f21832852d8d4542e7bb43",
+          "EXPEQ": "1900867c67255c3882e5268fc4a6ae23934f29b80361a684a22f05cf7362756e",
+          "NIN": "8ea495d85fbe1a22d3bb0307717cb88c64bd5ba3d3330aaaf17f497e008694e3"
+        },
+        "single_equilibrium": true,
+        "same_dcon_interface_sha256": "9688f14610d619055dc01c32e0fa66dcb8da191eee42777b0ef3936d4d70859a",
+        "controls_sha256": "c1fc396cb0d850ccce9c91ce12e117e1b9944e8609a9a8200d140ab2d296eeb2",
+        "fbs_percent": 99.16029188592947,
+        "labels": {
+          "equilibrium.converged": true,
+          "dcon.reported_fixed": "unknown",
+          "dcon.reported_free": "stable",
+          "dcon.reported_ballooning": "unstable",
+          "dcon.reported_mercier": "stable",
+          "dcon.floating_point_flags": "IEEE_DENORMAL,IEEE_OVERFLOW_FLAG,IEEE_UNDERFLOW_FLAG",
+          "controls.sha256": "c1fc396cb0d850ccce9c91ce12e117e1b9944e8609a9a8200d140ab2d296eeb2"
+        },
+        "warnings": [
+          "DCON floating-point flags: IEEE_DENORMAL,IEEE_OVERFLOW_FLAG,IEEE_UNDERFLOW_FLAG; diagnostic classification is not scientifically certified"
+        ],
+        "dcon": {
+          "requested": true,
+          "completed": true,
+          "error": null,
+          "reported_free": "stable",
+          "source_interface": "/home/ouvic/first-handover-20261118/runs/combined-dcon-chease-p80-20261118/equilibrium/INP1",
+          "source_interface_sha256": "9688f14610d619055dc01c32e0fa66dcb8da191eee42777b0ef3936d4d70859a",
+          "copied_interface": "/home/ouvic/first-handover-20261118/runs/combined-dcon-chease-p80-20261118/dcon/INP1",
+          "copied_interface_sha256": "9688f14610d619055dc01c32e0fa66dcb8da191eee42777b0ef3936d4d70859a",
+          "controls_sha256": "c1fc396cb0d850ccce9c91ce12e117e1b9944e8609a9a8200d140ab2d296eeb2"
+        },
+        "diagnostics": null,
+        "sources": [
+          {
+            "path": "/home/ouvic/first-handover-20261118/runs/combined-dcon-chease-p80-20261118/equilibrium/linliu_profiles.dat",
+            "sha256": "4140ea77c2ff3bd4a7fe558e86c9245a7fb78c147fa5a5deef0d216766bb7e32"
+          },
+          {
+            "path": "/home/ouvic/first-handover-20261118/runs/combined-dcon-chease-p80-20261118/equilibrium/namelist",
+            "sha256": "14e27c66598c6f86bb5cbcc312b4275f166ebc1a72f21832852d8d4542e7bb43"
+          }
+        ],
+        "csv_matches_new_output": true,
+        "same_input_profiles_match_previous": true,
+        "artifacts_sha256": {
+          "profiles.pdf": "869353abd1cd582efee2c9c67f78b39563285dda8bd00d88c2138e1f4d6a6ed2",
+          "poloidal_current.png": "4d03fc2df6e3e59382b10fb78af5833721e1ab2935672c3797bb921677b693c9",
+          "jdotb.pdf": "6ae53b438192a7e021ab657fcd80f002df6a872d0faa9811b8273f150e11d066",
+          "overview.pdf": "662601712dfef3acea949c20ce32510da22a6c43f617ad45102b75bc25b26fd1",
+          "toroidal_current.png": "813a1b019a927c93f05cfce36b2cdeb35ba0833ae270071201ef3f454c0774ae",
+          "pressure.pdf": "88b70d41134986bf896fd9a63bc855bef35c090046e19b110a25e8aca87d1589",
+          "jdotb.png": "edbb42bcf934862c84b9ec2a9a7d10ac14d823bd4897847702f93cfd77d093d9",
+          "q.png": "a8848e21be912314b082271f8971b84f180f77f9d9a9a3b68ed828d361e2b630",
+          "pressure.png": "faad93e09045c445512465e2497e0e4e093b2d505f93ba71445ec7d1242230b4",
+          "poloidal_current.pdf": "443a50e2e84083795ff241e05212021f6a5706db6bc6e5f72b27a2ec441db0d7",
+          "q.pdf": "b144f5d0fd43de95115fa49d95a53322cf4ed5e93b1795ae6fc97889e3260f1b",
+          "metadata.json": "8e46cfc118533df639505239598b96791268587339ea87f5c7c59d6fe8b5aaea",
+          "profiles.csv": "dec767d00af3be1de8b66c367547425bd68b0edf9bf950424aa64c62d83ef86a",
+          "overview.png": "c0ef5998c6b4936754149d268cb48996eb089e0df09b1b5bd338b431365ba2d9",
+          "toroidal_current.pdf": "1bf2d973cfac2bdf0314e011cdfe5dd8dc7f5171898132d8fb90bb03b9795566"
+        },
+        "summary_sha256": "010617733f22a13a76190b6b22f298fd9e2d53558691110ab9bc2efba02da119",
+        "stages": [
+          {
+            "stage": "chease",
+            "container": "first-handover-chease-20261118160631-2014173",
+            "exit_code": 0,
+            "seconds": 227.7010793685913
+          },
+          {
+            "stage": "dcon",
+            "container": "first-handover-dcon-20261118161024-2014173",
+            "exit_code": 0,
+            "seconds": 13.224006652832031
+          }
+        ],
+        "started_at": "2026-11-18T08:06:31.898185+00:00",
+        "finished_at": "2026-11-18T08:10:37.397423+00:00"
+      }
+    ],
+    "baseline_regression": {
+      "summary": "/home/ouvic/first-handover-20261118/runs/combined-dcon-baseline-20261118/summary.json",
+      "sha256": "2a87d0f7d68fa21987238bb5b0e7375d09ddd6654c8a0ffa50c83ee98ca52a7d",
+      "comparison": {
+        "passed": true,
+        "errors": []
+      }
+    },
+    "tools_sha256": {
+      "run_case.py": "bc8b30b8c70e5c09dee0cb4cac4925d67586a3d882ebcfa43306ef70912cadc1",
+      "tools/run_case.py": "3a974dacb0ce7c2ad9ab969234f1f7f4a39df8f3ef0660e6726be6feb8d27a72",
+      "tools/run_bootstrap_case.py": "dba8d45749f83aefec52009cc7bf469a3ae37cc59863abeeaf7238de92d45c67"
+    },
+    "scientific_acceptance": "NOT_CERTIFIED: bounded n=1 diagnostics; warnings preserved; no closure iteration or resolution study",
+    "validation": {
+      "local_tests": 56,
+      "remote_tests": 56,
+      "reference_files_unchanged": 44,
+      "research_files_unchanged": 136,
+      "new_solver_executions": 4,
+      "combined_cases": 3,
+      "remote_log": "/home/ouvic/first-handover-20261118/runs/combined-dcon-accept-20261118.log",
+      "remote_completion": "2026-11-18T16:10:51+08:00",
+      "visual_check": "CHEASE overview inspected; downloaded image SHA matches remote artifact",
+      "vpn_recovery": "VPN dropped mid-run; restored through existing NCKU profile, reconciled completed original process; no rerun"
+    }
   }
 }

@@ -103,4 +103,4 @@ NaN／Inf、缺檔、殘差不達標、timeout、ODE 錯誤使工具失敗。對
 
 原始範例 `compare.py` 比較輸入／runtime／控制檔 hash、分類與數值；公差為 `abs(actual-reference) <= atol + rtol*abs(reference)`，主要量目前 rtol=5e-4、atol=1e-8，以各 `expected.json` 為準。殘差另外檢查收斂門檻，不要求列印的最後一位相同。自訂 input 不適用原始 reference，工具會明確拒絕混用。
 
-平衡收斂後先出五圖，再做 DCON 或 bootstrap audit；後處理失敗仍保留圖及原始輸出，但整體 `valid=false`。比對失敗不可自行更新 reference 或放寬容差。`profiles.log`、`equilibrium/run.log`、`dcon/run.log` 與 `summary.json` 應一起保留。
+平衡收斂後先出五圖，再做 DCON 或 bootstrap audit；`run_case.py INPUT --bootstrap --dcon` 可從同一次平衡做兩項診斷，研究範例用 `run_case.py CASE --dcon`。這不會回灌bootstrap反覆求自洽，DCON仍為既有教學n=1設定。後處理失敗仍保留已完成診斷、圖及原始輸出，但整體 `valid=false`。比對失敗不可自行更新 reference 或放寬容差。`profiles.log`、`equilibrium/run.log`、`dcon/run.log` 與 `summary.json` 應一起保留。

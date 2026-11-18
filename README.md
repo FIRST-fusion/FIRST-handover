@@ -58,15 +58,25 @@ CHEASE 可複製 `examples/chease_c50/` 的 `namelist`、`EXPEQ`、`NIN` 到自�
 python3 run_case.py inputs/my-vmec/input.test --bootstrap
 ```
 
+**同一次執行也要 DCON 檢驗**，再加上 `--dcon`：
+
+```sh
+python3 run_case.py inputs/my-vmec/input.test --bootstrap --dcon
+```
+
+這條指令只求**一次平衡**，從該次輸出產圖、計算 bootstrap，並把同一份平衡介面送入 DCON；不是分別求兩個不同平衡。原始研究範例也能用 `python3 run_case.py vmec_p80_513 --dcon`。
+
 | 執行方式 | 平衡與五圖 | Bootstrap 診斷／fBS | DCON |
 |---|---|---|---|
 | 一般自訂 input，未加 `--bootstrap` | 有 | 不執行 | 有 |
 | 自訂 input 加 `--bootstrap` | 有 | 從本次平衡重新計算 | 不執行 |
+| 自訂 input 加 `--bootstrap --dcon` | 有，只求一次平衡 | 從本次平衡重新計算 | 有，同一份平衡介面 |
 | 直接指定高 bootstrap 研究範例名稱 | 有 | 從本次平衡重新計算 | 不執行 |
+| 高 bootstrap 研究範例名稱加 `--dcon` | 有，只求一次平衡 | 從本次平衡重新計算 | 有，同一份平衡介面 |
 
 **Bootstrap 診斷不等於自洽電流求解。** 它計算本次平衡對應的 bootstrap current 與 fBS，不沿用舊的99%，但**不會把 bootstrap current 回灌給 solver 反覆求平衡**。目前五張圖中的電流仍是**總電流剖面**，尚未另外繪製 bootstrap current 剖面；有五張圖不代表已跑 bootstrap。
 
-**為什麼 bootstrap 流程沒有 DCON？** 這是目前 runner 將兩條流程分開的實作限制，不是 bootstrap 平衡不能做穩定性檢驗。Bootstrap 診斷本身不改變平衡，同一份平衡仍可送 DCON；但目前 `--bootstrap` 尚未串接此步驟，也沒有可同時啟用兩者的參數。此模式成功不代表已通過 DCON；即使日後加入 DCON，也須另確認其設定、解析度與診斷完整性，不能只由 fBS 判斷穩定。
+**DCON 的檢驗範圍：** 加上 `--dcon` 會執行既有教學設定（環向模數 `n=1`、`mpsi=mtheta=128`、正規化極向磁通範圍 `1e-4–0.99`、固定壁面設定），不是 n 掃描或解析度收斂研究。保留原始穩定／不穩定標籤與浮點警訊；流程完成不等於已證明物理穩定，也不能只由 fBS 判斷穩定。未加 `--dcon` 的 bootstrap-only 模式仍不做 DCON。
 
 若資料夾保留先前建立的 `case.json`，工具會沿用其中選定的教學／研究流程；舊副本不必重建。執行時終端機會印出 `workflow`，可確認本次選用的流程。
 
@@ -93,12 +103,13 @@ DCON路徑的平衡預設300秒，bootstrap路徑平衡預設3600秒；高解析
 <details>
 <summary>run_case.py 完整參數（args）速查</summary>
 
-日常只需 `python3 run_case.py INPUT`；需要 bootstrap 時加 `--bootstrap`。其餘參數按需使用：
+日常只需 `python3 run_case.py INPUT`；需要 bootstrap 時加 `--bootstrap`，兩項診斷一起做則加 `--bootstrap --dcon`。其餘參數按需使用：
 
 | 參數 | 用途／預設 |
 |---|---|
 | `INPUT`（位置參數，help 中名為 `case`） | input 檔案、資料夾或範例名稱；省略則讀目前工作資料夾的 `input.test`／`namelist`。 |
-| `--bootstrap` | 自訂 input 改走平衡＋五圖＋Hirshman bootstrap／fBS，不跑 DCON，也不做自洽外迭代。研究範例原本就走此流程；教學範例若要使用此選項，請指定其 input 路徑而非僅填範例名。 |
+| `--bootstrap` | 自訂 input 加入 Hirshman bootstrap／fBS；單獨使用不跑 DCON，可搭配 `--dcon`。不做自洽外迭代。研究範例原本就有 bootstrap；教學範例若要使用此選項，請指定其 input 路徑而非僅填範例名。 |
+| `--dcon` | 在 bootstrap／研究流程加跑同一份平衡的 DCON（`n=1`），不重跑平衡。一般教學流程原本就有 DCON，加此參數不會重複執行。 |
 | `--output DIR` | 指定**尚不存在**的結果目錄；省略則在專案 `runs/` 自動建立時間戳目錄。 |
 | `--timeout SECONDS` | 平衡求解時限，整數 1–14400 秒；教學流程預設300秒，bootstrap流程預設3600秒。不改變 DCON 固定300秒時限。 |
 | `--preflight` | 只做輸入／runtime／依賴檢查，不求解、不產圖；不指定 input 時可單獨檢查 runtime 與繪圖依賴。 |
@@ -111,7 +122,7 @@ DCON路徑的平衡預設300秒，bootstrap路徑平衡預設3600秒；高解析
 例如自己的高解析度 input 要算 bootstrap 並給一小時：
 
 ```sh
-python3 run_case.py inputs/my-vmec/input.test --bootstrap --timeout 3600
+python3 run_case.py inputs/my-vmec/input.test --bootstrap --dcon --timeout 3600
 python3 run_case.py --help
 ```
 
@@ -129,9 +140,11 @@ python3 run_case.py --help
 | `equilibrium/` | 本次實際 input、求解輸出及 `run.log` |
 | `equilibrium/bootstrap.json` | bootstrap 流程的診斷、方法、來源雜湊與 fBS；一般教學流程不產生此檔 |
 | `summary.json` | 是否完成、錯誤、診斷、圖檔路徑；bootstrap 流程另有 `fbs_total_hirshman` 與 `fbs_percent` |
-| `dcon/` | 教學路徑的 DCON 設定與診斷；研究路徑沒有此步驟 |
+| `dcon/` | 教學流程或研究流程加 `--dcon` 時的 DCON 介面副本、設定與診斷 |
 
 `fbs_percent=98.7676` 就是 **98.7676%**；`fbs_total_hirshman=0.987676` 是比例。兩張電流圖是加權剖面 [A]，不是局部電流密度；完整來源和定義見[圖表說明](docs/PROFILES.md)。
+
+整合流程的 `summary.json` 會分開記錄 `bootstrap_audit.completed` 與 `dcon.completed`。`dcon.reported_free` 只是 DCON 的自由邊界判斷，固定邊界／Mercier／ballooning 結果見 `labels` 的 `dcon.reported_*`，浮點警訊見 `warnings`。`dcon` 內另有來源介面、副本與控制檔的 SHA-256，供核對是否使用同一次平衡。失敗或未執行的步驟不能當成 stable。
 
 `valid=true` 代表流程檢查通過，**不代表物理穩定**。修改後不應要求與舊範例數字相同。高 bootstrap 案例的 fBS 會重新計算；缺少 closure seed 時不宣稱閉合通過。
 
@@ -143,6 +156,7 @@ python3 run_case.py --help
 - 自選 `--output` 已存在：換名字，或省略讓工具自動命名。
 - 未完成：先看 `summary.json` 的 `error`、`equilibrium/run.log`；出圖錯誤看 `profiles.log`。未收斂不算成功。
 - 平衡完成但 DCON 失敗：平衡圖仍會保留，整條流程仍標為失敗。
+- 整合流程中某項診斷失敗：保留已完成的 bootstrap／DCON 結果與五圖，整體 `valid=false`；不把其中一項成功當成兩項都通過。
 - 只有出圖失敗：保留計算結果，按[圖表說明](docs/PROFILES.md)單獨重畫，不必重跑 solver。
 - SSH 中斷：先核對該次輸出與容器狀態，不直接重送。
 

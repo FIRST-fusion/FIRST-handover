@@ -114,3 +114,21 @@ p80 不再沿用原始99.1695%，自訂輸入不拿舊參考數字作回歸成�
 ouvic已用三條根目錄指令實跑：任意檔名VMEC（旁邊故意放不同的舊input.test）、無case.json的CHEASE資料夾、任意檔名VMEC加 `--bootstrap`。指定檔案hash與當次solver快照一致，壓力比依序為0.875、0.9409、0.995；新fBS為98.9691505388%。每例產出五圖，CSV逐點符合新平衡。另以根目錄入口跑原版lowbeta回歸通過。本機／FIRST各43項測試通過；44份reference與136份研究輸入雜湊通過。
 
 完整命令在主機 `runs/direct-cli-acceptance-20261118.sh`，輸出為 `runs/direct-cli-{vmec,chease,bootstrap,baseline}-20261118/`；收據納入既有 [editable_input_acceptance.json](editable_input_acceptance.json) 的 `direct_run_case_entrypoint`，沒有另開Markdown文件。
+
+## 同一次平衡：bootstrap＋DCON 整合（2026-11-18）
+
+`run_case.py INPUT --bootstrap --dcon` 現在只求一次平衡，產五圖、計算Hirshman bootstrap，再把同一份介面交給既有教學classic DCON。研究範例用 `run_case.py CASE --dcon`；未加旗標時保留既有預設。兩條runner共用DCON步驟，控制檔SHA與原基準相同（n=1、mpsi=mtheta=128、psi=1e-4–0.99、固定300秒時限）。
+
+ouvic已實跑並逐點核對以下三例；每例僅一個平衡容器與一個DCON容器，來源介面與DCON副本SHA完全一致，五圖CSV與新平衡逐點一致，同input剖面亦符合先前輸出。結果在 `/home/ouvic/first-handover-20261118/runs/`：
+
+| 結果目錄 | 本次 fBS (%) | DCON自由邊界報告 | Ballooning報告 | Mercier報告 |
+|---|---:|---|---|---|
+| `combined-dcon-chease-custom-20261118` | 97.9179284129 | stable | unstable | stable |
+| `combined-dcon-vmec-custom-20261118` | 98.9691505388 | stable | unstable | unstable |
+| `combined-dcon-chease-p80-20261118` | 99.1602918859 | stable | unstable | stable |
+
+**這是流程完成與資料來源驗收，不是穩定性通過。** 上述三例均有局部不穩定標籤，固定邊界報告皆unknown；IEEE_DENORMAL／OVERFLOW／UNDERFLOW等旗標保留，VMEC另有DIVIDE_BY_ZERO。沒有隱藏警訊、調整截斷範圍或自動搜尋穩定設定；本輪未做電流自洽外迭代、n掃描或完整磁面／解析度收斂認證。
+
+原版 `vmec_lowbeta` 另跑至 `combined-dcon-baseline-20261118` 並通過原參考比對。本機及FIRST各56項測試通過，含bootstrap失敗仍執行DCON、DCON失敗保留fBS與圖、NaN拒收與預設模式相容性；44份reference與136份研究輸入hash不變。驗收腳本／日誌是主機 `runs/combined-dcon-accept-20261118.sh`／`.log`；詳細收據合併在既有 [editable_input_acceptance.json](editable_input_acceptance.json) 的 `combined_bootstrap_dcon`。
+
+驗收期間VPN中斷；恢復後核對原PID與完成標記（16:10:51 +08:00），沒有重送計算。既有研究、input、結果與排程均保留。

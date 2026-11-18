@@ -1,6 +1,6 @@
 # 研究輸入的 runtime 參考
 
-日常操作統一見[交接首頁](../../README.md)。研究路徑執行平衡＋五圖＋bootstrap audit，不包含 DCON；`run_case.py` 接受研究起點名稱；自己的 input 加 `--bootstrap` 即使用研究流程，舊 `case.json` 亦可沿用。p80 CHEASE／VMEC 已在 ouvic 實跑，其餘研究案例的限制以[驗收紀錄](../../evidence/ACCEPTANCE.md)為準。
+日常操作統一見[交接首頁](../../README.md)。研究路徑預設執行平衡＋五圖＋bootstrap audit；加 `--dcon` 可對同一份平衡執行既有教學 DCON（n=1），不重跑平衡。`run_case.py` 接受研究起點名稱；自己的 input 加 `--bootstrap --dcon` 即可一次做兩項診斷，單獨 `--bootstrap` 保留不跑DCON的模式，舊 `case.json` 亦可沿用。實跑範圍與限制以[驗收紀錄](../../evidence/ACCEPTANCE.md)為準；流程完成不等於穩定認證。
 
 ## 與入門範例不同之處
 

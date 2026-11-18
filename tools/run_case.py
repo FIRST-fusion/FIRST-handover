@@ -91,6 +91,57 @@ def extract_dcon(text,metrics,labels,warnings):
     if flags:warnings.append('DCON floating-point flags: '+','.join(flags)+'; diagnostic classification is not scientifically certified')
     if labels['dcon.reported_free']=='unknown':raise ValueError('Missing DCON free boundary result')
 
+def run_dcon(solver, cfg, run, interface, summary):
+    """Run classic DCON once on the equilibrium interface just extracted for this run.
+
+    Control text, nn=1 and the fixed 300s limit are the tutorial settings.
+    ``completed`` means this step finished; ``reported_free`` is only the
+    solver label. Neither one sets ``valid`` or certifies stability.
+    """
+    summary.setdefault('metrics', {})
+    summary.setdefault('labels', {})
+    summary.setdefault('warnings', [])
+    summary.setdefault('stages', [])
+    dc=run/'dcon'
+    copied=dc/interface.name
+    state={'requested':True,'completed':False,'error':None,'reported_free':None,
+           'source_interface':str(interface),'source_interface_sha256':None,
+           'copied_interface':str(copied),'copied_interface_sha256':None,
+           'controls_sha256':None}
+    summary['dcon']=state
+    try:
+        dc.mkdir()
+        state['source_interface_sha256']=sha(interface)
+        shutil.copy2(interface, copied)
+        state['copied_interface_sha256']=sha(copied)
+        if state['source_interface_sha256']!=state['copied_interface_sha256']:
+            raise RuntimeError('Copied DCON interface hash differs from the equilibrium source')
+        equil=(ROOT/'runtime/equil.in').read_text()
+        for key,value in [('eq_type','"'+solver+'"'),('eq_filename','"/work/'+interface.name+'"'),('out_eq_1d','t')]:equil=change(equil,key,value)
+        (dc/'equil.in').write_text(equil)
+        dcon=(ROOT/'runtime/dcon.in').read_text()
+        for key,value in [('nn',1),('tol_nr','1e-8'),('tol_r','1e-8'),('singfac_min','1e-3'),('ucrit',10)]:dcon=change(dcon,key,value)
+        (dc/'dcon.in').write_text(dcon)
+        vac=(ROOT/'runtime/vac.in').read_text()
+        # ishape=6 is the installed conformal-wall option; a=0.2 retained explicitly.
+        (dc/'vac.in').write_text(vac)
+        state['controls_sha256']=hashlib.sha256(b''.join((dc/n).read_bytes() for n in ['equil.in','dcon.in','vac.in'])).hexdigest()
+        text=container('dcon',cfg,dc,'exec timeout 300 /opt/solver',summary['stages'])
+        extract_dcon(text,summary['metrics'],summary['labels'],summary['warnings'])
+        eq=interface.parent
+        for artifact in [eq/'threed1.test', eq/'linliu_profiles.dat', dc/'dcon.out', dc/'equil_1d.out']:
+            if artifact.is_file() and BAD.search(artifact.read_text(errors='replace')):
+                raise ValueError('Nonfinite/fatal token in '+artifact.name)
+        summary['labels']['controls.sha256']=state['controls_sha256']
+        state['completed']=True
+        state['reported_free']=summary['labels'].get('dcon.reported_free')
+    except Exception as exc:
+        state['completed']=False
+        state['error']=str(exc)
+        state['reported_free']=None
+        raise
+    return state
+
 def resolve_request(target, override=None, solver_hint=None):
     cfg=json.loads((ROOT/'runtime/first.json').read_text())
     research={row['case']:row for row in json.loads((ROOT/'research-inputs/bootstrap99/manifest.json').read_text())['cases']}
@@ -125,7 +176,8 @@ def main(argv=None):
     source_group.add_argument('--input-dir',type=Path,help='相容舊指令：指定自訂input資料夾，不需範例名')
     source_group.add_argument('--input',type=Path,help='指定input檔案或資料夾，也可直接放在位置參數')
     ap.add_argument('--solver',choices=['chease','vmec'],help='資料夾同時有兩種input時指定solver')
-    ap.add_argument('--bootstrap',action='store_true',help='自訂input改跑平衡、五圖與fBS，不跑DCON')
+    ap.add_argument('--bootstrap',action='store_true',help='自訂input改跑平衡、五圖與fBS；未加 --dcon 時不跑DCON')
+    ap.add_argument('--dcon',action='store_true',help='對本次平衡介面跑經典DCON。教學流程預設已啟用；研究範例與 --bootstrap 需明確加上')
     ap.add_argument('--timeout',type=int)
     ap.add_argument('--preflight',action='store_true')
     ap.add_argument('--plot-python',default=DEFAULT_PYTHON,help='Python with numpy/scipy/matplotlib for automatic profiles')
@@ -147,7 +199,11 @@ def main(argv=None):
         if request['custom']:convergence_limit(inputs,solver,main_file)
     except (ValueError,KeyError,OSError) as exc:
         ap.error(str(exc))
-    print('Input: '+str(main_file)+' | solver='+solver+' | workflow='+('bootstrap + profiles (no DCON)' if request['research'] else 'profiles + DCON'),flush=True)
+    if request['research']:
+        workflow='bootstrap + profiles + DCON' if args.dcon else 'bootstrap + profiles (no DCON)'
+    else:
+        workflow='profiles + DCON'
+    print('Input: '+str(main_file)+' | solver='+solver+' | workflow='+workflow,flush=True)
     if request['research']:
         from run_bootstrap_case import main as bootstrap_main
         command=[request['case'],'--plot-python',args.plot_python]
@@ -155,6 +211,7 @@ def main(argv=None):
         if args.output:command+=['--output',str(args.output)]
         if args.timeout is not None:command+=['--timeout',str(args.timeout)]
         if args.preflight:command+=['--preflight']
+        if args.dcon:command+=['--dcon']
         return bootstrap_main(command)
     # Raw CHEASE inputs use the existing larger-capacity build, including restart reads.
     if request['raw'] and solver=='chease':
@@ -184,28 +241,16 @@ def main(argv=None):
         interface=extract_equilibrium(solver,text,eq,limit,summary['metrics'],summary['labels'])
         # Keep valid equilibrium profiles even if subsequent DCON diagnostics fail.
         summary['profiles']=make_profiles(solver,run,label,args.plot_python)
-        dc=run/'dcon';dc.mkdir();shutil.copy2(interface,dc/interface.name)
-        equil=(ROOT/'runtime/equil.in').read_text()
-        for key,value in [('eq_type','"'+solver+'"'),('eq_filename','"/work/'+interface.name+'"'),('out_eq_1d','t')]:equil=change(equil,key,value)
-        (dc/'equil.in').write_text(equil)
-        dcon=(ROOT/'runtime/dcon.in').read_text()
-        for key,value in [('nn',1),('tol_nr','1e-8'),('tol_r','1e-8'),('singfac_min','1e-3'),('ucrit',10)]:dcon=change(dcon,key,value)
-        (dc/'dcon.in').write_text(dcon)
-        vac=(ROOT/'runtime/vac.in').read_text()
-        # ishape=6 is the installed conformal-wall option; a=0.2 retained explicitly.
-        (dc/'vac.in').write_text(vac)
-        text=container('dcon',cfg,dc,'exec timeout 300 /opt/solver',summary['stages'])
-        extract_dcon(text,summary['metrics'],summary['labels'],summary['warnings'])
-        for artifact in [eq/'threed1.test', eq/'linliu_profiles.dat', dc/'dcon.out', dc/'equil_1d.out']:
-            if artifact.is_file() and BAD.search(artifact.read_text(errors='replace')):
-                raise ValueError('Nonfinite/fatal token in '+artifact.name)
+        run_dcon(solver,cfg,run,interface,summary)
+        controls=summary['labels'].pop('controls.sha256')
         summary['labels']['input.sha256']=hashlib.sha256(json.dumps(summary['input_sha256'],sort_keys=True).encode()).hexdigest()
         summary['labels']['runtime.sha256']=hashlib.sha256(json.dumps(cfg,sort_keys=True).encode()).hexdigest()
-        summary['labels']['controls.sha256']=hashlib.sha256(b''.join((dc/n).read_bytes() for n in ['equil.in','dcon.in','vac.in'])).hexdigest()
+        summary['labels']['controls.sha256']=controls
         summary['workflow_complete']=True
         summary['valid']=True
     except Exception as exc:
         summary['error']=str(exc)
+        summary['workflow_complete']=False
     summary['runtime']=cfg
     summary['finished_at']=datetime.datetime.now(datetime.timezone.utc).isoformat()
     (run/'summary.json').write_text(json.dumps(summary,indent=2,allow_nan=False)+'\n')
