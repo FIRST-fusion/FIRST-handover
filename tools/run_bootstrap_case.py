@@ -24,23 +24,26 @@ ARCHIVE = ROOT / 'research-inputs/bootstrap99'
 PYTHON = '/home/ouvic/linliu-reproduction-20260911/.venv_uv/bin/python'
 
 
-def main():
+def main(argv=None):
     manifest = json.loads((ARCHIVE / 'manifest.json').read_text())
     cases = {case['case']: case for case in manifest['cases']}
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('case', choices=cases)
     parser.add_argument('--output', type=Path)
     parser.add_argument('--input-dir', type=Path, help='Editable inputs; no archived input hash restriction')
+    parser.add_argument('--input-file', type=Path, help='Main input file, copied to the solver canonical filename')
     parser.add_argument('--timeout', type=int, default=3600)
     parser.add_argument('--preflight', action='store_true')
     parser.add_argument('--plot-python', default=DEFAULT_PYTHON, help='Python with numpy/scipy/matplotlib for automatic profiles')
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
+    if args.input_file and not args.input_dir:
+        args.input_dir = args.input_file.resolve().parent
     if not 1 <= args.timeout <= 14400:
         parser.error('timeout must be 1..14400 seconds')
     solver = cases[args.case]['solver']
     inputs = (args.input_dir or ARCHIVE / 'cases' / args.case / 'inputs').resolve()
-    input_files(inputs, solver)
-    convergence_limit(inputs, solver)
+    input_files(inputs, solver, args.input_file)
+    convergence_limit(inputs, solver, args.input_file)
     if args.input_dir:
         settings_path = inputs / 'bootstrap-settings.json'
         validate_settings(json.loads(settings_path.read_text()) if settings_path.exists() else {})
@@ -75,8 +78,9 @@ def main():
               'scientific_acceptance': 'NOT_CERTIFIED: equilibrium and bootstrap audit only; DCON not run',
               'started_at': datetime.datetime.now(datetime.timezone.utc).isoformat()}
     try:
-        result['input_sha256'] = snapshot(inputs, solver, work)
+        result['input_sha256'] = snapshot(inputs, solver, work, args.input_file)
         result['input_directory'] = str(inputs)
+        result['input_file'] = str(args.input_file.resolve()) if args.input_file else str(inputs / ('input.test' if solver == 'vmec' else 'namelist'))
         result['custom_input'] = bool(args.input_dir)
         result['reference_comparison_applicable'] = not bool(args.input_dir)
         metadata = ARCHIVE / prefix / 'historical/summary.json'

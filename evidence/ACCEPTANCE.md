@@ -106,3 +106,11 @@ p80 不再沿用原始99.1695%，自訂輸入不拿舊參考數字作回歸成�
 ![自訂p80](editable_inputs/editable-p80-20261118.png)
 
 </details>
+
+## 單一 run_case.py 入口（2026-11-18）
+
+根目錄新增 `run_case.py` 作同一個runner的薄入口；`tools/run_case.py` 現在直接接受檔案、資料夾及所有教學／研究範例名，不再要求先init或準備case.json。支援 `--bootstrap` 從自訂input重新計算fBS。這是修正已確認的入口限制；使用者實際失敗指令與錯誤未提供，未宣稱重現該次未知錯誤。
+
+ouvic已用三條根目錄指令實跑：任意檔名VMEC（旁邊故意放不同的舊input.test）、無case.json的CHEASE資料夾、任意檔名VMEC加 `--bootstrap`。指定檔案hash與當次solver快照一致，壓力比依序為0.875、0.9409、0.995；新fBS為98.9691505388%。每例產出五圖，CSV逐點符合新平衡。另以根目錄入口跑原版lowbeta回歸通過。本機／FIRST各43項測試通過；44份reference與136份研究輸入雜湊通過。
+
+完整命令在主機 `runs/direct-cli-acceptance-20261118.sh`，輸出為 `runs/direct-cli-{vmec,chease,bootstrap,baseline}-20261118/`；收據納入既有 [editable_input_acceptance.json](editable_input_acceptance.json) 的 `direct_run_case_entrypoint`，沒有另開Markdown文件。

@@ -70,7 +70,7 @@ NaN／Inf、缺檔、殘差不達標、timeout、ODE 錯誤使工具失敗。對
 
 ## 調整參數時
 
-日常建立／修改／執行步驟統一見[交接首頁](../README.md)。`case.py init` 建立自己的副本，runner 保存當次 input hash；原始 examples/reference 保留作對照。提高 β、變更電流／壁面／模式數會改變物理問題；放寬 FTOL 或比對容差不是修復。此 repository 不自動啟動參數搜尋。
+日常建立／修改／執行步驟統一見[交接首頁](../README.md)。直接用 `run_case.py` 指定自己的 input 檔案／資料夾，runner 保存當次 input hash；原始 examples/reference 保留作對照。提高 β、變更電流／壁面／模式數會改變物理問題；放寬 FTOL 或比對容差不是修復。此 repository 不自動啟動參數搜尋。
 
 各程式的 beta 定義／正規化可能不同。`equilibrium.beta_vac` 是 CHEASE 的 B0 真空場正規化量；`dcon.betat`、`dcon.betan` 是該版 DCON 診斷，不可把不同路徑的 beta 數字直接當成研究成果排名。參考例的高 βN 不代表達成老師 A≈1.2／高bootstrap／第二穩定分支的聯合目標。
 

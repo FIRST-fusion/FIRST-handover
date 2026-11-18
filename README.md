@@ -11,55 +11,74 @@ cd /home/ouvic/first-handover-20261118
 
 這個目錄已備好工具。需有 FIRST 帳號與既有 solver 的使用權限；其他帳號的設定見頁末「首次安裝」。
 
-## 2. 選起點，建立自己的案例（只做一次）
+## 2. 已有自己的 input：直接執行
 
-第一次建議用簡單的 VMEC：
-
-```sh
-python3 tools/case.py init my-case --from vmec_lowbeta
-```
-
-要換起點，替換 `--from` 後面的名稱；要另開案例，將 `my-case` 換成新名字。
-
-| 想做什麼 | `--from` 名稱 | 要編輯的檔案 | 執行內容 |
-|---|---|---|---|
-| VMEC 入門，建議先選 | `vmec_lowbeta` | `input.test` | 平衡＋五圖＋DCON |
-| CHEASE 入門 | `chease_c50` | `namelist`、`EXPEQ`、`NIN` | 平衡＋五圖＋DCON |
-| CHEASE 高 bootstrap p80 | `freep80_high256` | `namelist`、`EXPEQ`、`NIN` | 平衡＋五圖＋重算 fBS |
-| VMEC 高 bootstrap p80 | `vmec_p80_513` | `input.test` | 平衡＋五圖＋重算 fBS |
-
-另有教學例 `vmec_smooth`、`chease_c51`；其他研究起點見[研究案例表](research-inputs/bootstrap99/README.md)。高 bootstrap 路徑**不跑 DCON、不做自洽外迭代**；改過 input 後不保證仍有 99%。
-
-## 3. 修改 input 並存檔
-
-檔案都在 `inputs/my-case/`。可以用 VS Code Remote SSH 開啟，也可以：
+**只用 `run_case.py`，不需要先 init、不需要範例名稱，也不需要 case.json。**
 
 ```sh
-nano inputs/my-case/input.test
+# VMEC：可以指定任何檔名，內容須為 &INDATA
+python3 run_case.py /home/ouvic/my-inputs/input.test
+
+# CHEASE：指定 namelist；需要的 EXPEQ/NIN 放同一資料夾
+python3 run_case.py /home/ouvic/my-chease/namelist
+
+# 也能直接指定資料夾（內有 input.test 或 namelist）
+python3 run_case.py /home/ouvic/my-inputs
 ```
 
-VMEC 最簡單的練習：把 `PRES_SCALE=2000` 改成 `PRES_SCALE=1500`，觀察壓力曲線。`nano` 存檔按 Ctrl+O、Enter，離開按 Ctrl+X。
+上面的路徑請換成你自己的檔案。工具按 **input 內容**辨識 CHEASE／VMEC，會先印出實際讀取的完整路徑。資料夾若同時有兩種 input，請直接指定其中一個檔案。指定 `input.mine` 時會讀它，不會偷換成同資料夾的舊 `input.test`。
 
-CHEASE 則編輯同目錄的 `namelist` 等檔案；例如 `B0EXP=1.` 改成 `.95` 是磁場尺度練習。形狀／剖面是否生效還取決於 restart 與輸入選項，不能只改任意一個數字。詳細欄位集中在[輸入參數與流程](docs/WORKFLOWS.md#input-reference)。
+檔案在其他位置也沒問題：可以從任意目錄用 `python3 /home/ouvic/first-handover-20261118/run_case.py /你的/input路徑` 執行。
 
-**自己的新 input 也能使用**：先選同 solver 的起點，再替換副本中的檔案。VMEC 命名為 `input.test`；CHEASE 使用 `namelist` 及所需的 `EXPEQ/NIN`。原範例保留作對照，不必修改 manifest 或參考雜湊。
+## 3. 還沒有 input：複製一份範例，再修改
 
-## 4. 每次改好後，只執行這一行
+第一次建議使用 VMEC lowbeta。以下 `my-vmec` 請選一個尚未存在的新資料夾名：
 
 ```sh
-python3 tools/case.py run my-case
+mkdir -p inputs
+mkdir inputs/my-vmec && cp examples/vmec_lowbeta/input.test inputs/my-vmec/
+nano inputs/my-vmec/input.test
 ```
 
-工具會使用你現在的 input，將當次快照及結果放進 `runs/my-case-<時間戳>/`。**之後再改檔、再跑同一行即可，不用再次 init，也不會覆寫上一輪。**
-
-常用選項：
+例如把 `PRES_SCALE=2000` 改成 `PRES_SCALE=1500`。`nano` 存檔按 Ctrl+O、Enter，離開按 Ctrl+X；也能用 VS Code Remote SSH 編輯。之後每次存檔，只跑這行：
 
 ```sh
-python3 tools/case.py run my-case --preflight  # 只檢查環境與input
-python3 tools/case.py run my-case --timeout 600
+python3 run_case.py inputs/my-vmec/input.test
 ```
 
-教學例預設每個 solver 階段300秒，高 bootstrap 平衡預設3600秒。每個容器最多2 CPU／8 GB、單執行緒，不需要 GPU；順序執行即可。
+CHEASE 可複製 `examples/chease_c50/` 的 `namelist`、`EXPEQ`、`NIN` 到自己的新資料夾，再直接指定 namelist 執行。形狀／剖面是否生效取決於 restart 與輸入選項，詳細欄位見[輸入參數](docs/WORKFLOWS.md#input-reference)。
+
+原始範例留作對照。你可以任意編輯自己的副本、替換成新 input；不用更新 manifest 或參考雜湊。
+
+## 4. 選擇診斷與執行選項
+
+直接指定 input，預設做 **平衡＋五張 profile＋教學 DCON**。若要重新計算 bootstrap 比例而不跑 DCON，同一個入口加上 `--bootstrap`：
+
+```sh
+python3 run_case.py inputs/my-vmec/input.test --bootstrap
+```
+
+fBS 會從這次平衡重新算，不沿用舊的99%，也不會自動做自洽外迭代。若資料夾保留先前建立的 `case.json`，工具會沿用其中選定的教學／研究流程；舊副本不必重建。
+
+只想跑原始範例，也用同一個入口：
+
+| 起點 | 指令 | 內容 |
+|---|---|---|
+| VMEC 入門 | `python3 run_case.py vmec_lowbeta` | 平衡＋五圖＋DCON |
+| CHEASE 入門 | `python3 run_case.py chease_c50` | 平衡＋五圖＋DCON |
+| CHEASE 高 bootstrap p80 | `python3 run_case.py freep80_high256` | 平衡＋五圖＋重算 fBS |
+| VMEC 高 bootstrap p80 | `python3 run_case.py vmec_p80_513` | 平衡＋五圖＋重算 fBS |
+
+另有 `vmec_smooth`、`chease_c51` 及[研究案例表](research-inputs/bootstrap99/README.md)中的起點。
+
+```sh
+python3 run_case.py inputs/my-vmec/input.test --preflight  # 只檢查，不計算
+python3 run_case.py inputs/my-vmec/input.test --timeout 3600
+```
+
+DCON路徑的平衡預設300秒，bootstrap路徑平衡預設3600秒；高解析度自訂input可用 `--timeout` 加長平衡時間。DCON階段固定300秒。每個容器最多2 CPU／8 GB、單執行緒，不需要GPU。直接讀CHEASE檔案且沒有既有案例設定時，使用較大容量的highres build。
+
+每次都把當次 input 快照與新結果放進 `runs/<案例或資料夾名>-<時間戳>/`。**再次修改後跑同一行即可，不會覆寫上一輪。**
 
 ## 5. 跑完看這些檔案
 
@@ -80,7 +99,9 @@ python3 tools/case.py run my-case --timeout 600
 
 ### 遇到問題
 
-- `init` 說目錄已存在：直接編輯原副本，或換新案例名。
+- `找不到 input`：核對你指定的路徑；不要把示範的 `/home/ouvic/my-inputs` 原樣當成自己的檔案。
+- `python3: can’t open file ...run_case.py`：先進入本專案目錄，或使用上面的完整 script 路徑。
+- 範例副本已存在：直接編輯，不必再次複製。
 - 自選 `--output` 已存在：換名字，或省略讓工具自動命名。
 - 未完成：先看 `summary.json` 的 `error`、`equilibrium/run.log`；出圖錯誤看 `profiles.log`。未收斂不算成功。
 - 平衡完成但 DCON 失敗：平衡圖仍會保留，整條流程仍標為失敗。
@@ -88,14 +109,11 @@ python3 tools/case.py run my-case --timeout 600
 - SSH 中斷：先核對該次輸出與容器狀態，不直接重送。
 
 <details>
-<summary>已有自己的 input 資料夾，想直接指定</summary>
+<summary>舊指令與相容範圍</summary>
 
-```sh
-python3 tools/run_case.py vmec_lowbeta --input-dir /home/ouvic/my-inputs
-python3 tools/run_bootstrap_case.py freep80_high256 --input-dir /home/ouvic/my-chease-inputs
-```
+`tools/run_case.py` 與根目錄 `run_case.py` 使用相同程式。舊的 `case.py init/run`、範例名稱加 `--input-dir` 仍保留相容，但新操作只需使用本頁的 `run_case.py`。
 
-案例名選擇 solver／runtime／診斷流程，實際 input 來自指定資料夾。研究 CHEASE 使用 highres binary；不要拿教學 standard binary 讀高解析度 restart。本交接支援固定邊界、軸對稱流程，不保證任意外部輸入所需的額外 runtime 都已備妥。
+支援本交接的固定邊界、軸對稱輸入，不保證任意外部input所需的額外runtime都已備妥。資料夾自動辨識使用 `input.test`／`namelist`；其他檔名請直接指定檔案。CHEASE的EXPEQ/NIN仍按該input設定準備，不是省略它們也一定能算。
 
 </details>
 
@@ -108,7 +126,7 @@ python3 tools/run_bootstrap_case.py freep80_high256 --input-dir /home/ouvic/my-c
 git clone https://github.com/FIRST-fusion/FIRST-handover.git
 cd FIRST-handover
 python3 tools/check_reference.py
-python3 tools/run_case.py --preflight
+python3 run_case.py --preflight
 ```
 
 ouvic 已有科學 Python；其他環境須具備 `requirements-plot.txt` 的套件，可用 `--plot-python /path/to/python` 指定。binary、image 與 hash 由 `runtime/first.json` 記錄。
@@ -116,11 +134,11 @@ ouvic 已有科學 Python；其他環境須具備 `requirements-plot.txt` 的套
 只想原封不動重跑與比對基準：
 
 ```sh
-python3 tools/run_case.py vmec_lowbeta --output runs/replay-01
+python3 run_case.py vmec_lowbeta --output runs/replay-01
 python3 tools/compare.py runs/replay-01/summary.json reference/vmec_lowbeta/expected.json
 ```
 
-原始高 bootstrap 重播可用 `python3 tools/run_bootstrap_case.py freep80_high256`。`--output` 必須是新目錄；不要對自訂 input 使用原始 reference 驗收。
+原始高 bootstrap 重播可用 `python3 run_case.py freep80_high256`。`--output` 必須是新目錄；不要對自訂 input 使用原始 reference 驗收。
 
 不執行 solver 的本機工具檢查：
 
