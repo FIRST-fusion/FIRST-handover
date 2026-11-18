@@ -10,6 +10,7 @@
 - [老師目標、目前缺口與第一週交接驗收](docs/PROJECT.md)
 - [授權與使用範圍](NOTICE.md)
 - [本次實跑驗收紀錄](evidence/ACCEPTANCE.md)
+- [FIRST 新求解 → 自動五張 profile：六例實跑畫面](evidence/remote_profiles/README.md)
 - [約 99% bootstrap：14 組歷史研究輸入、restart 與結果](research-inputs/bootstrap99/README.md)
 - [在 ouvic 執行高 bootstrap 案例，查看新計算的 fBS](research-inputs/bootstrap99/RUN_ON_OUVIC.md)
 
@@ -39,7 +40,7 @@ python3 tools/compare.py runs/my-first-chease/summary.json reference/chease_c50/
 
 需要 Linux x86_64、Python 3.10+、Docker、FIRST 的既有授權 runtime。**不是任意機器 clone 後就能下載 solver 的公開套件**：binary 與 image 不在 Git 中；`runtime/first.json` 固定 FIRST 的映像 ID、binary 路徑與 SHA-256。
 
-每次輸出放新目錄；輸入與原 binary 不修改。容器斷網、限制資源，不啟動參數搜尋、不改排程、不刪舊容器。
+每次輸出放新目錄；輸入與原 binary 不修改。兩個 runner 完成後會自動生成 `profiles/overview.png`、五張單圖與 `profiles/profiles.pdf`，終端機直接列出圖檔路徑。容器斷網、限制資源，不啟動參數搜尋、不改排程、不刪舊容器。
 
 ## 看懂驗收結果
 

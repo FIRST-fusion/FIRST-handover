@@ -8,3 +8,5 @@ writer.lock
 # Restricted local solver copies must never enter Git.
 licensed-runtime/
 runtime/first.ouvic.json
+
+.venv-plot/

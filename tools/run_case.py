@@ -2,6 +2,7 @@
 """FIRST-only isolated container reproduction. Never modifies source inputs or binaries."""
 import argparse, datetime, hashlib, json, math, os, re, shutil, subprocess, sys, time
 from pathlib import Path
+from profile_output import DEFAULT_PYTHON, check_plot_python, make_profiles
 ROOT = Path(__file__).resolve().parents[1]
 NUMBER = r'[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[EeDd][+-]?\d+)?'
 BAD = re.compile(r'(?i)(?<![A-Za-z_])(?:NaN|Infinity|Inf)(?![A-Za-z_])|segmentation fault|SIGFPE|ZERO PIVOT')
@@ -94,9 +95,11 @@ def main():
     ap.add_argument('case',nargs='?',choices=['chease_c50','chease_c51','vmec_smooth','vmec_lowbeta'])
     ap.add_argument('--output',type=Path)
     ap.add_argument('--preflight',action='store_true')
+    ap.add_argument('--plot-python',default=DEFAULT_PYTHON,help='Python with numpy/scipy/matplotlib for automatic profiles')
     args=ap.parse_args();cfg=json.loads((ROOT/'runtime/first.json').read_text())
     preflight(cfg)
-    if args.preflight:print('FIRST images and solver binary hashes verified');return 0
+    check_plot_python(args.plot_python)
+    if args.preflight:print('FIRST images, solver binary hashes and plotting dependencies verified');return 0
     if not args.case:ap.error('case required')
     run=(args.output or ROOT/'runs'/(args.case+'-'+datetime.datetime.now().strftime('%Y%m%d-%H%M%S'))).resolve()
     run.mkdir(parents=True,exist_ok=False)
@@ -132,12 +135,13 @@ def main():
         summary['labels']['runtime.sha256']=hashlib.sha256(json.dumps(cfg,sort_keys=True).encode()).hexdigest()
         summary['labels']['controls.sha256']=hashlib.sha256(b''.join((dc/n).read_bytes() for n in ['equil.in','dcon.in','vac.in'])).hexdigest()
         summary['workflow_complete']=True
+        summary['profiles']=make_profiles(solver,run,args.case,args.plot_python)
         summary['valid']=True
     except Exception as exc:
         summary['error']=str(exc)
     summary['runtime']=cfg
     summary['finished_at']=datetime.datetime.now(datetime.timezone.utc).isoformat()
     (run/'summary.json').write_text(json.dumps(summary,indent=2,allow_nan=False)+'\n')
-    print(json.dumps({'output':str(run),'valid':summary['valid'],'error':summary.get('error'),'warnings':summary['warnings']},indent=2))
+    print(json.dumps({'output':str(run),'valid':summary['valid'],'profiles':summary.get('profiles'), 'error':summary.get('error'),'warnings':summary['warnings']},indent=2))
     return 0 if summary['valid'] else 1
 if __name__=='__main__':sys.exit(main())

@@ -3,7 +3,7 @@
 ## 前置條件
 
 - 已獲授權的 FIRST/NCKU 帳號、SSH、Docker 存取及本私人 GitHub repository 的讀取權限。
-- 在 FIRST Linux x86_64 執行，Python ≥3.10；Python 工具只用標準函式庫，不需 pip install。
+- 在 FIRST Linux x86_64 執行，Python ≥3.10；runner 使用標準函式庫，自動出圖另需 NumPy／SciPy／Matplotlib。ouvic 預設使用已安裝套件的 `/home/ouvic/linliu-reproduction-20260911/.venv_uv/bin/python`，不需安裝或更動系統環境。其他帳號可用 `--plot-python /path/to/python` 指定自己的環境（依賴見 `requirements-plot.txt`）；preflight 會先查核。
 - `runtime/first.json` 所列既有映像及 binary 仍在。新帳號還須有讀取 binary 的權限；沒有就由主機管理者依授權配置，不用 sudo 硬繞過。
 - 不在 Mac 或 GitHub Actions 跑 solver。repository 沒有包含 solver，也不會自動下載／安裝它們。
 
@@ -47,6 +47,8 @@ python3 tools/compare.py runs/my-vmec-smooth/summary.json reference/vmec_smooth/
 
 ## 4. 看哪些檔案？
 
+上述每條 runner 指令完成後，**自動從本次新平衡產生五張 profile**，終端機會列出 `profiles.overview` 與 `profiles.pdf` 的完整路徑。不是複製 reference 圖。用 VS Code Remote SSH 的檔案總管打開 `profiles/overview.png` 可看到五圖總覽，或下載 `profiles/profiles.pdf` 看五頁圖；不需要在主機開瀏覽器或新增服務。
+
 ```text
 runs/my-case/
 ├── equilibrium/
@@ -59,7 +61,14 @@ runs/my-case/
 │   ├── equil.in / dcon.in / vac.in   實際使用的設定
 │   ├── run.log / dcon.out           原始診斷
 │   └── INP1 或 dcon_test.txt        從此次平衡複製的介面
-└── summary.json           實際命令、exit、耗時、hash、指標與警訊
+├── profiles/
+│   ├── overview.png / overview.pdf     五張圖總覽
+│   ├── q.png / pressure.png / jdotb.png
+│   ├── poloidal_current.png / toroidal_current.png
+│   ├── profiles.pdf                   五頁圖（各單圖另有 PDF）
+│   └── profiles.csv / metadata.json   逐點值、來源路徑與 SHA-256
+├── profiles.log           出圖命令的 stdout/stderr
+└── summary.json           實際命令、exit、耗時、hash、指標、警訊與圖檔路徑
 ```
 
 `reference/<case>/` 提供對應的真實輸出節選與完整 stdout/stderr，不只是一張摘要表。大型繪圖／中間副產品不放入 Git；原始完整 run 保留在 FIRST 隔離驗證目錄。`evidence/reference_manifest.json` 記錄節選檔 SHA-256 與來源位置。
@@ -73,10 +82,16 @@ runs/my-case/
 
 比對失敗先確認沒有更換 binary、image、輸入或設定，保留兩份 summary 與 log 交給維護者；不要自動更新 reference 或放寬容差。
 
+若 solver 已完成但出圖失敗，整個 runner 仍回傳非零、`valid=false`，保留全部計算輸出與 `profiles.log`；修復後只用 [PROFILES.md](PROFILES.md) 的獨立繪圖命令讀該次輸出，指定新的圖目錄，不必重跑 solver。
+
 ## 無 FIRST 的本機檢查
 
+完整測試包含繪圖，需在有 `requirements-plot.txt` 套件的 Python 環境執行；例如：
+
 ```sh
-python3 -m unittest discover -s tests -v
+python3 -m venv .venv-plot
+.venv-plot/bin/python -m pip install -r requirements-plot.txt
+.venv-plot/bin/python -m unittest discover -s tests -v
 python3 tools/check_reference.py
 ```
 

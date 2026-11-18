@@ -1,0 +1,383 @@
+{
+  "verified_at": "2026-11-18T06:16:58.563641+00:00",
+  "host": "ncku-first",
+  "account": "ouvic",
+  "remote_root": "/home/ouvic/first-handover-20261118",
+  "mode": "new solver executions, not archive-only plotting",
+  "cases": [
+    {
+      "case": "vmec_lowbeta",
+      "solver": "vmec",
+      "output": "/home/ouvic/first-handover-20261118/runs/profile-accept-20261118-vmec_lowbeta",
+      "valid": true,
+      "points": 129,
+      "source_hashes_verified": true,
+      "csv_matches_this_run": true,
+      "single_profiles": 5,
+      "artifact_count": 15,
+      "artifacts_sha256": {
+        "profiles.pdf": "2d02f8e30ac162bf6459e3660f43576249c2b9461b81c25bf81b043c39c61580",
+        "poloidal_current.png": "2efe43eee689a414b3569ddded9c5d12d965cf6dc7b8b6450ebd40b646e79c10",
+        "jdotb.pdf": "2e127ef39c11af3f44272092cd17302df59eccd4a7388274a6e020382d2d07a3",
+        "overview.pdf": "548aeadb01d32b800f978778b343fb0ca220b1e4325d368395e68b83cda39ac2",
+        "toroidal_current.png": "55a6327e84875c9a3390f19b9979a6585a36786f8f93e025f4f7e1bc54625118",
+        "pressure.pdf": "f1562c44501c48e472239a81e677383796c727fe4b2dc24cad44da584afa9a74",
+        "jdotb.png": "216de9217bec52a6dda1b91c8221f38568f1c35bf8e9e2883c6cd82971adf82d",
+        "q.png": "a940b12cefb671c2a48d367c56dc076b18c5f886a756b03784c6443086c7550d",
+        "pressure.png": "c987da04d6ab13df6b5bee5417a0fee05ea0d8a07d3737d3a9fce404e991664d",
+        "poloidal_current.pdf": "4d6d4b7cedf0dd1c2418ab7a59c239a60cf93cb4f5fa2f0c8db9a4b2a3d745a1",
+        "q.pdf": "0f138fd417799c216c4a42730a769a2cb581f4995fe01000bf3527970bf62027",
+        "metadata.json": "d4c8620a3533bd2498f33228ec72d5d9b26378ca1474bc8f9249a7091ed81d6a",
+        "profiles.csv": "ce02c9ade8ad420f20e837e0d1d21b8791118ef5d1669034bebb8e7e0f84ca9a",
+        "overview.png": "e383a9237132809177190d9e08b03d3f1b235bbae8c1c2d4f4d851cf8684fbae",
+        "toroidal_current.pdf": "fdbaa84853c9dfecfbe730ef06cb51caf1eb3c630e59d205ff71ebea4dc93adb"
+      },
+      "summary_sha256": "d69bf3907f7ad377f9ac7142ac6a044f4c0cfe5b1a5ac8cabeb2cb9b9542ab67",
+      "sources": [
+        {
+          "path": "/home/ouvic/first-handover-20261118/runs/profile-accept-20261118-vmec_lowbeta/equilibrium/wout_test.nc",
+          "sha256": "738ff6957d96e7f46bc2d7c768fbe53fdbda70525eab9feb3bfebdc42b1f75a8"
+        }
+      ],
+      "started_at": "2026-11-18T06:09:29.697163+00:00",
+      "finished_at": "2026-11-18T06:09:43.183183+00:00",
+      "stages": [
+        {
+          "stage": "vmec",
+          "container": "first-handover-vmec-20261118140929-1991249",
+          "seconds": 2.008643865585327,
+          "exit_code": 0
+        },
+        {
+          "stage": "dcon",
+          "container": "first-handover-dcon-20261118140931-1991249",
+          "seconds": 1.3546557426452637,
+          "exit_code": 0
+        }
+      ],
+      "scientific_acceptance": "NOT_CERTIFIED: workflow regression only",
+      "warnings": [
+        "DCON floating-point flags: IEEE_DENORMAL,IEEE_DIVIDE_BY_ZERO,IEEE_UNDERFLOW_FLAG; diagnostic classification is not scientifically certified"
+      ],
+      "reference_comparison": {
+        "passed": true,
+        "errors": []
+      }
+    },
+    {
+      "case": "chease_c50",
+      "solver": "chease",
+      "output": "/home/ouvic/first-handover-20261118/runs/profile-accept-20261118-chease_c50",
+      "valid": true,
+      "points": 201,
+      "source_hashes_verified": true,
+      "csv_matches_this_run": true,
+      "single_profiles": 5,
+      "artifact_count": 15,
+      "artifacts_sha256": {
+        "profiles.pdf": "7a8eb9c2edae5590c93589f15144ad344b53a0376bf57838fa926f728cbe261b",
+        "poloidal_current.png": "ec7cb7371808f483b161197072399e0bc1199ef2401a3521ba4446c363880609",
+        "jdotb.pdf": "dc41fce757adb7569ea1fe5c25a5363919426e9c07246b5ec6b32ae777b53336",
+        "overview.pdf": "ec9c4c8596bff046181a47299911d426a99009aeeffef19deba0c6bd2c97e1e9",
+        "toroidal_current.png": "05da35a532dcf757830eb2aef6773cd1fdc6ea22d353faf1819622e240b09547",
+        "pressure.pdf": "98edba527b0e18c9bd8f65d5e20e04810c4a0e431bb0a8f0dc18331f2f6460cb",
+        "jdotb.png": "09eeae3613989a94a052dbae62aae6589ef2a9914bedafa78bbb44080b62a811",
+        "q.png": "34ec57cd13a949d9a5fdc6110369c6d3d023b7307e4ca05e20b87b52fb06c2e5",
+        "pressure.png": "e67657cf5f5aa904e02e684d4dbc81c79ceaee0a8031efb5039627154e9aaaaf",
+        "poloidal_current.pdf": "982abc16932088ebf6c1758a2085cf8d414152a4469f682c15cbbd1040c5b2a6",
+        "q.pdf": "b6a4126d2b574c938a85b23a670db0410f58ba0121cd46101e164cbbea899c49",
+        "metadata.json": "fbff84e0f22dd165cc2827158e2b11c9fb5f0f75b9e4a4748e46cd2d62bc573f",
+        "profiles.csv": "7ba80f0177778db4053eaaa5908629ea1d68dd29f376436a9d879150ef120404",
+        "overview.png": "f086908f887b0d675ac53292d88ef3da08929bbcb76fde9c63c3b389aca7ac1b",
+        "toroidal_current.pdf": "8d52993b319d3b811b3668a37ecf5422d19f0ffab5f6ba6d68cdeb116173d7ab"
+      },
+      "summary_sha256": "f7edbd94791e7518d1a9f0741c111b9064978e6f2fa396b16f3e37f4e41b45b5",
+      "sources": [
+        {
+          "path": "/home/ouvic/first-handover-20261118/runs/profile-accept-20261118-chease_c50/equilibrium/linliu_profiles.dat",
+          "sha256": "bd60c2c8d39efd6b3829882a936b61857d40d10ef44a9a7bd0caae315958471e"
+        },
+        {
+          "path": "/home/ouvic/first-handover-20261118/runs/profile-accept-20261118-chease_c50/equilibrium/namelist",
+          "sha256": "613e3c7117eefeb72fa96338478c6645452dbf05829c819fba90df3f280e0a6f"
+        }
+      ],
+      "started_at": "2026-11-18T06:09:43.614590+00:00",
+      "finished_at": "2026-11-18T06:10:09.789317+00:00",
+      "stages": [
+        {
+          "stage": "chease",
+          "container": "first-handover-chease-20261118140943-1991522",
+          "seconds": 13.405601739883423,
+          "exit_code": 0
+        },
+        {
+          "stage": "dcon",
+          "container": "first-handover-dcon-20261118140957-1991522",
+          "seconds": 8.670406579971313,
+          "exit_code": 0
+        }
+      ],
+      "scientific_acceptance": "NOT_CERTIFIED: workflow regression only",
+      "warnings": [
+        "DCON floating-point flags: IEEE_DENORMAL,IEEE_OVERFLOW_FLAG,IEEE_UNDERFLOW_FLAG; diagnostic classification is not scientifically certified"
+      ],
+      "reference_comparison": {
+        "passed": true,
+        "errors": []
+      }
+    },
+    {
+      "case": "chease_c51",
+      "solver": "chease",
+      "output": "/home/ouvic/first-handover-20261118/runs/profile-accept-20261118-chease_c51",
+      "valid": true,
+      "points": 201,
+      "source_hashes_verified": true,
+      "csv_matches_this_run": true,
+      "single_profiles": 5,
+      "artifact_count": 15,
+      "artifacts_sha256": {
+        "profiles.pdf": "9c603644a9edf8d3d3bc41ee3fdb08d3e22d6a0f15eee8814df8dde9dcad5af0",
+        "poloidal_current.png": "c4b8027eaace64df29633647b0434cbc033b23b4e2bdc8f9cf5efef22c3c089e",
+        "jdotb.pdf": "dc2a94126e8b684ee082239c1e746b3eaaa433103c3c135948f40a980ca8c1e9",
+        "overview.pdf": "78a6aff608f91307a2baa011c8fcf75e728c4945b21e75df00dd7c55297d40c9",
+        "toroidal_current.png": "13045d1ae3d82773575784c5c67c1447eeb4ab70bc9205d012688b8b7e36c388",
+        "pressure.pdf": "475c08c06c04e2ea140b48406ddedf49d02a738257fa99b8985c64e6972a3d89",
+        "jdotb.png": "8573f34894b0b9a87a7b3097b2457a078cda4652c70b569377206f806ab8cf0d",
+        "q.png": "846525e4909dcfe936b0d77ab9ad98d1fadcd706f3601d96d6d6627057ed0e8e",
+        "pressure.png": "0cfe6f44bf1cf26cdd0fefbdb9f91528b0b0d9afddca04e736b9b8591decc85f",
+        "poloidal_current.pdf": "9d1eaf90bcbef60cae3d565298f9169cacd4646840a0bac5660b9facb4437afd",
+        "q.pdf": "44ae0ea0150bc135ac35ea0f2400ae2506fd20d7156594e9458edac16acae17e",
+        "metadata.json": "a9ef7d820db86c5f1024e1cd07f89f7c52c0d869cbe62cd4ade153bdd55c488a",
+        "profiles.csv": "43b3cd17a4ca9cab553c372049caffcec8b6bbc0d835fbe96654a0d6622bb33d",
+        "overview.png": "07ace03e508cf9a19dd6ff6ca5d37ae8fa63ec892f70cc437194e1d43e690211",
+        "toroidal_current.pdf": "ad89845158ecd3adacd40cc5348796a020823f4c29078992157c0c45d5925f7d"
+      },
+      "summary_sha256": "24388ccac09db73449b06021a168ac3f2ab6bb3d5159023c6722dae9d6162e61",
+      "sources": [
+        {
+          "path": "/home/ouvic/first-handover-20261118/runs/profile-accept-20261118-chease_c51/equilibrium/linliu_profiles.dat",
+          "sha256": "9a3877c08175a582e0bf99cee4570b71c35f207041ddc7d9e5c31ec48d9b8fc9"
+        },
+        {
+          "path": "/home/ouvic/first-handover-20261118/runs/profile-accept-20261118-chease_c51/equilibrium/namelist",
+          "sha256": "613e3c7117eefeb72fa96338478c6645452dbf05829c819fba90df3f280e0a6f"
+        }
+      ],
+      "started_at": "2026-11-18T06:10:10.134513+00:00",
+      "finished_at": "2026-11-18T06:10:33.847427+00:00",
+      "stages": [
+        {
+          "stage": "chease",
+          "container": "first-handover-chease-20261118141010-1991795",
+          "seconds": 12.246973752975464,
+          "exit_code": 0
+        },
+        {
+          "stage": "dcon",
+          "container": "first-handover-dcon-20261118141022-1991795",
+          "seconds": 7.981444597244263,
+          "exit_code": 0
+        }
+      ],
+      "scientific_acceptance": "NOT_CERTIFIED: workflow regression only",
+      "warnings": [
+        "DCON floating-point flags: IEEE_DENORMAL,IEEE_OVERFLOW_FLAG,IEEE_UNDERFLOW_FLAG; diagnostic classification is not scientifically certified"
+      ],
+      "reference_comparison": {
+        "passed": true,
+        "errors": []
+      }
+    },
+    {
+      "case": "vmec_smooth",
+      "solver": "vmec",
+      "output": "/home/ouvic/first-handover-20261118/runs/profile-accept-20261118-vmec_smooth",
+      "valid": true,
+      "points": 225,
+      "source_hashes_verified": true,
+      "csv_matches_this_run": true,
+      "single_profiles": 5,
+      "artifact_count": 15,
+      "artifacts_sha256": {
+        "profiles.pdf": "823b0235bc6062b54cd5c2189197bc5a6fdabba6d8b56fef2bf3aa13de1c0232",
+        "poloidal_current.png": "2a699224662c183678b75df7c065e0aa0a2421d2e1668eb07e02966e06a58cc9",
+        "jdotb.pdf": "a25751dc2700bfbcb46e6b9232f2fd20f9ad9f8541d127cda2725948a0a2d603",
+        "overview.pdf": "2353d0bf200543aad36e963d250952eb561b9ed010954c229dcd8ed26390361b",
+        "toroidal_current.png": "117161d4055a21b78592a7ab98f04f6c353c65d1db675e2d60f0bd1f2a099324",
+        "pressure.pdf": "f141366623775289c300dac59989dbfd4f99c7b5804d0a8c0b913fd1733d7507",
+        "jdotb.png": "a6442f70d1a92a8366665147c2cf1179ef0208e3c7ed48d01ea20073a52d9b1c",
+        "q.png": "5c1ae8a458591c44e88c02d785f5de599061d668f3b4d392c200366c0e6c6763",
+        "pressure.png": "5cff03a949dd3f7039c40542824c88632a54cd8cefdefdfc837d95fc7ad36535",
+        "poloidal_current.pdf": "6cc7e5eeba0b88397673f9a90d2dc7390816e1ce37d65066e57c38a58a347f3b",
+        "q.pdf": "cf6ca9833dffac26ca72b9dd9570ecc5c8a1d15ba0233fdd7d3fec0548cee787",
+        "metadata.json": "4240d1ecbc03dc164ab275f25285b5ed0f7152be6fbedb54ea840589b7aef704",
+        "profiles.csv": "ebe006d635d5415c1e4985a2f543a99e9571e3d59c95b5169f3d37fa5926b600",
+        "overview.png": "6491b1f4c8b1aeb21721c7bad7160a31e4d646cc1237be3198e8c4d1146fe4f9",
+        "toroidal_current.pdf": "67ff2bb39ceb22581486b1d722492e018cafbb3c3695e667d4cfd5c2bdeecadc"
+      },
+      "summary_sha256": "f88c4ae83b46c25e6dfadbf7d98eb706feb2197d70635784c36cfb69295f7417",
+      "sources": [
+        {
+          "path": "/home/ouvic/first-handover-20261118/runs/profile-accept-20261118-vmec_smooth/equilibrium/wout_test.nc",
+          "sha256": "3d4f356e37e9a2ee1173fa306a292e4f0e834e3537a065257250ef661dd2710d"
+        }
+      ],
+      "started_at": "2026-11-18T06:10:34.217628+00:00",
+      "finished_at": "2026-11-18T06:10:58.252127+00:00",
+      "stages": [
+        {
+          "stage": "vmec",
+          "container": "first-handover-vmec-20261118141034-1992105",
+          "seconds": 9.598173379898071,
+          "exit_code": 0
+        },
+        {
+          "stage": "dcon",
+          "container": "first-handover-dcon-20261118141043-1992105",
+          "seconds": 10.799529075622559,
+          "exit_code": 0
+        }
+      ],
+      "scientific_acceptance": "NOT_CERTIFIED: workflow regression only",
+      "warnings": [
+        "DCON floating-point flags: IEEE_DENORMAL,IEEE_DIVIDE_BY_ZERO,IEEE_OVERFLOW_FLAG,IEEE_UNDERFLOW_FLAG; diagnostic classification is not scientifically certified"
+      ],
+      "reference_comparison": {
+        "passed": true,
+        "errors": []
+      }
+    },
+    {
+      "case": "freep80_high256",
+      "solver": "chease",
+      "output": "/home/ouvic/first-handover-20261118/runs/profile-accept-20261118-freep80_high256",
+      "valid": true,
+      "points": 513,
+      "source_hashes_verified": true,
+      "csv_matches_this_run": true,
+      "single_profiles": 5,
+      "artifact_count": 15,
+      "artifacts_sha256": {
+        "profiles.pdf": "ae85c29ec4982a96fbfd683ad3d6ebbd1a4f1b8ed18180931891c0b1899fec47",
+        "poloidal_current.png": "4d03fc2df6e3e59382b10fb78af5833721e1ab2935672c3797bb921677b693c9",
+        "jdotb.pdf": "86f96951064ccd66e476f38448864c719d93f48dfb1cf851a14361fea71c6b56",
+        "overview.pdf": "1930d8578eb4629186923ad5665f11b95b76fb14498df56f796cf8b272aedf24",
+        "toroidal_current.png": "813a1b019a927c93f05cfce36b2cdeb35ba0833ae270071201ef3f454c0774ae",
+        "pressure.pdf": "e9640c2477752aaca074aace3c857af1518f06d91e7106c6115056de96f19d7e",
+        "jdotb.png": "edbb42bcf934862c84b9ec2a9a7d10ac14d823bd4897847702f93cfd77d093d9",
+        "q.png": "a8848e21be912314b082271f8971b84f180f77f9d9a9a3b68ed828d361e2b630",
+        "pressure.png": "faad93e09045c445512465e2497e0e4e093b2d505f93ba71445ec7d1242230b4",
+        "poloidal_current.pdf": "2b535b7423fbda3d9869c8282c589af26016eb49d6298fa7c571a75eb6ef0a09",
+        "q.pdf": "027ea25b475cf5f2904be3bd279f7d51ffef60c3c7a28029cd2e38f194f2d211",
+        "metadata.json": "53e63d5e0b4c66b224ac1c2b719d6c5821fc8771737eaf06fb6ae2e518e0651a",
+        "profiles.csv": "dec767d00af3be1de8b66c367547425bd68b0edf9bf950424aa64c62d83ef86a",
+        "overview.png": "c0ef5998c6b4936754149d268cb48996eb089e0df09b1b5bd338b431365ba2d9",
+        "toroidal_current.pdf": "cc0da555fb671514cafeb3e5d87562a31983eceef055394a3583139765070391"
+      },
+      "summary_sha256": "15bc197b656a810b818088625e04e7255851dd8755c1f3ab4bee026a5a0c5242",
+      "sources": [
+        {
+          "path": "/home/ouvic/first-handover-20261118/runs/profile-accept-20261118-freep80_high256/equilibrium/linliu_profiles.dat",
+          "sha256": "4140ea77c2ff3bd4a7fe558e86c9245a7fb78c147fa5a5deef0d216766bb7e32"
+        },
+        {
+          "path": "/home/ouvic/first-handover-20261118/runs/profile-accept-20261118-freep80_high256/equilibrium/namelist",
+          "sha256": "14e27c66598c6f86bb5cbcc312b4275f166ebc1a72f21832852d8d4542e7bb43"
+        }
+      ],
+      "started_at": "2026-11-18T06:10:58.839311+00:00",
+      "finished_at": "2026-11-18T06:14:48.552829+00:00",
+      "stages": [
+        {
+          "stage": "chease",
+          "container": "first-handover-chease-20261118141058-1992440",
+          "seconds": 224.9287462234497,
+          "exit_code": 0
+        }
+      ],
+      "scientific_acceptance": "NOT_CERTIFIED: equilibrium and bootstrap audit only; DCON not run",
+      "warnings": [],
+      "fbs_total_hirshman": 0.9916029188592947,
+      "fbs_percent": 99.16029188592947,
+      "fbs_difference": 0.0
+    },
+    {
+      "case": "vmec_p80_513",
+      "solver": "vmec",
+      "output": "/home/ouvic/first-handover-20261118/runs/profile-accept-20261118-vmec_p80_513",
+      "valid": true,
+      "points": 513,
+      "source_hashes_verified": true,
+      "csv_matches_this_run": true,
+      "single_profiles": 5,
+      "artifact_count": 15,
+      "artifacts_sha256": {
+        "profiles.pdf": "b5a897abc2439cb4ec2845569c4bd3a5b26f20f627e75986c3b4afe59141e362",
+        "poloidal_current.png": "d182b722ec4823178de18e59ef98d6b2258c8fd7d5525d3545d7632b28bffbfa",
+        "jdotb.pdf": "d6163a35857e34ed4878fc331cdd81dd7fd6ff5a43cc9b9cfa458d4df0e1785b",
+        "overview.pdf": "b64106b3057e361e9eff833e70a9ce546ebf60b7a1aafe769bb17af754cfc81e",
+        "toroidal_current.png": "80d73c128af27fc822320d20a8f13d8cc85f3636917bb38962df84f82b650dc0",
+        "pressure.pdf": "1eba3f03f5f94726f15937465d748b1be7327163296e0a325da6f1fe99a113ae",
+        "jdotb.png": "ddb634ba5c0fa64d22986bb6bc0e9be2085bb22b505c4e9554f03d487615cecd",
+        "q.png": "ecb976947b20b3971c5702776c31c8f60409224aced94a5ea31ccc0ea5ab8539",
+        "pressure.png": "f4599eaa9d68d7caae2d0e57a231abcab64c76369f6c36653393af6b3e2b12de",
+        "poloidal_current.pdf": "67371fbdd5aca5b2d9090e2dde30f94a349e2c79d1fb2729880133ee10b5b1b0",
+        "q.pdf": "569587c2e9c1b0e791df2b74a29541548aeac052c6c5cbb09c934c0f748f7ea2",
+        "metadata.json": "2be27878e32d973d187f7e8f95a3e1e4d02d7c1125fa6adb272e92a951c3fbde",
+        "profiles.csv": "3ab0840f43f0bae5690d88966025d390ef7bc03e83f9451858a36c520b3bb71a",
+        "overview.png": "144781863bff65becb33fb8c110b32c2ccd2e11f9684dbed383978a332b7ad62",
+        "toroidal_current.pdf": "c891b6fb4c8ad04fcb86eb681376501de6bc756a0df3bba98862b446ef2f516c"
+      },
+      "summary_sha256": "5f305e21399049cd07cbe231e1cc30db745a6a3624ab4572fb94d3afe589a610",
+      "sources": [
+        {
+          "path": "/home/ouvic/first-handover-20261118/runs/profile-accept-20261118-vmec_p80_513/equilibrium/wout_test.nc",
+          "sha256": "366d8af4da14aa18501cd95e56ff67d23a6b8d7b3dd47d4b4ca4dd18439a681b"
+        }
+      ],
+      "started_at": "2026-11-18T06:14:49.054648+00:00",
+      "finished_at": "2026-11-18T06:16:31.833542+00:00",
+      "stages": [
+        {
+          "stage": "vmec",
+          "container": "first-handover-vmec-20261118141449-1993862",
+          "seconds": 96.93411493301392,
+          "exit_code": 0
+        }
+      ],
+      "scientific_acceptance": "NOT_CERTIFIED: equilibrium and bootstrap audit only; DCON not run",
+      "warnings": [],
+      "fbs_total_hirshman": 0.9916952468332592,
+      "fbs_percent": 99.16952468332592,
+      "fbs_difference": 0.0
+    }
+  ],
+  "tools_sha256": {
+    "run_case.py": "a059c1188e79088395ce6d57b0b91134627de62b000398f137e5e35afaab39b7",
+    "run_bootstrap_case.py": "9868baaf658185be0bbc5985fc7a8611b5ef80793cd75491be82da6a513df51f",
+    "profile_output.py": "c2022ded8d4476668b248ed5e4dde71ed9e49cc5e2d48cea7917da944fccc9b5",
+    "plot_profiles.py": "e5be3299bf5a95fa26a6c2680ec79a085adc1a3b6ee7d76c9de43ad32f135040"
+  },
+  "total_single_profiles": 30,
+  "tests": {
+    "local": {
+      "python": "/opt/anaconda3/bin/python3",
+      "passed": 28
+    },
+    "remote": {
+      "python": "/home/ouvic/linliu-reproduction-20260911/.venv_uv/bin/python",
+      "passed": 28,
+      "log": "remote_profiles/tests.log"
+    }
+  },
+  "reference_integrity_files_passed": 44,
+  "research_input_integrity_files_passed": 136,
+  "visual_inspection": [
+    "vmec_lowbeta",
+    "chease_c50",
+    "freep80_high256",
+    "vmec_p80_513"
+  ]
+}

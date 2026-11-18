@@ -4,6 +4,8 @@
 
 ## 使用
 
+在 FIRST 執行 `tools/run_case.py` 或 `tools/run_bootstrap_case.py`，現在會在求解與診斷成功後自動呼叫此工具，圖放在該次 `runs/<name>/profiles/`。以下獨立指令則用於重畫既有輸出，不會重跑 solver。自動出圖會驗證 15 個必要檔案：6 PNG、7 PDF、CSV 與 metadata JSON。
+
 在 repository 根目錄，使用有 NumPy、SciPy、Matplotlib 的 Python（依賴見 `requirements-plot.txt`）：
 
 ```sh

@@ -1,5 +1,6 @@
-import importlib.util,tempfile,unittest
+import importlib.util,tempfile,unittest,sys
 from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
 spec=importlib.util.spec_from_file_location('run_case',Path(__file__).resolve().parents[1]/'tools/run_case.py')
 r=importlib.util.module_from_spec(spec);spec.loader.exec_module(r)
 

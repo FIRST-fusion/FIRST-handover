@@ -20,11 +20,17 @@ python3 tools/run_bootstrap_case.py freep80_high256 --output runs/my-p80-01
 
 輸出目錄不得已存在；再次執行請改成 `my-p80-02`，不要刪舊資料。原機的平衡計算歷史約 4 分鐘，預設 timeout 為 3,600 秒，可用 `--timeout` 指定。輸入被複製到新目錄，不會修改 archive。
 
-完成時終端機顯示 `valid`、`fbs`、`percent` 與輸出路徑。資料結構：
+完成時會自動從這次新平衡畫出 **q、pressure、⟨J·B⟩、極向／環向加權電流** 五圖，終端機顯示 `valid`、`fbs`、`percent` 及 `profiles.overview`／`profiles.pdf` 路徑。資料結構：
 
 ```text
 runs/my-p80-01/
   summary.json                 ← 新執行狀態、fBS、與歷史值的差、容器命令
+  profiles/overview.png        ← 五圖總覽，VS Code Remote SSH 可直接開啟
+  profiles/profiles.pdf        ← 五頁圖，可下載閱讀
+  profiles/*.png / *.pdf       ← 五張單圖與總覽
+  profiles/profiles.csv        ← 每個繪圖點的數值
+  profiles/metadata.json       ← 本次來源檔路徑、SHA-256、單位與換算
+  profiles.log                 ← 繪圖日誌
   equilibrium/
     namelist / EXPEQ / NIN      ← 本次實際使用的輸入
     run.log / linliu_profiles.dat / INP1 / ...
@@ -32,6 +38,8 @@ runs/my-p80-01/
 ```
 
 若失敗，讀新目錄 `summary.json` 的 `error` 與 `equilibrium/run.log`；不使用 historical 摘要補成成功。`valid=true` 僅代表平衡與有限值診斷完成，還需看 fBS 範圍、閉合、數值差異；不等於 DCON 或穩定性通過。
+
+出圖套件使用主機既有科學 Python；`--preflight` 也會檢查繪圖依賴，可用 `--plot-python` 指定另一個環境。若只在出圖階段失敗，保留 solver 結果，依 [PROFILES.md](../../docs/PROFILES.md) 單獨重畫到新目錄，不必重跑求解。
 
 ## 3. 看 bootstrap current ratio
 
@@ -105,4 +113,8 @@ PY
 - 不執行 DCON。fBS 不需要 DCON 才能算；但判斷 MHD 穩定仍需另做 DCON 與解析度／磁面覆蓋驗證。p80 的 GPEC_balnorm 設定已附，不能替換成教學 classic DCON 後沿用研究結論。
 - A=1.2 使用 `.33 / .05 / .03` 的 seed 軸值／中心／寬度；工具依原 metadata 算 `closure_fixed_seed`，保留但不誤用 legacy default-seed 診斷。
 
-**本入口的本次驗證範圍**：ouvic 環境 preflight，以及 14 組歷史輸出的後處理數值核對；沒有為撰寫這份操作說明重新啟動 solver。新容器 wrapper 的完整平衡實跑仍須依上述命令驗證，不把歷史後處理通過宣稱成新 solver 執行成功。
+**2026-11-18 遠端實跑驗證**：已在 ouvic 新目錄實際完成 `freep80_high256`（CHEASE 約 225 秒）與 `vmec_p80_513`（VMEC 約 97 秒），並重新計算 bootstrap、自動出五圖。fBS 分別為 **99.1602918859%**、**99.1695246833%**；兩者均與各自歷史值一致。計時僅 solver 階段，不含前置檢查與出圖。其餘 12 組仍只有既有 preflight／歷史後處理驗證，本次未重跑。
+
+- 本次 CHEASE 圖：`runs/profile-accept-20261118-freep80_high256/profiles/overview.png`
+- 本次 VMEC 圖：`runs/profile-accept-20261118-vmec_p80_513/profiles/overview.png`
+- [實跑總覽圖](../../evidence/remote_profiles/README.md)；[來源雜湊、逐點核對及容器實跑收據](../../evidence/remote_profile_acceptance.json)。

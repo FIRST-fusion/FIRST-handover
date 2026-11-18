@@ -34,3 +34,13 @@ FIRST `ncku-first` / `ouvic`，隔離根目錄 `/home/ouvic/first-handover-20261
 ## GitHub 全新取得後再驗證
 
 `clean_checkout.json` 記錄從 GitHub 全新 clone 的 commit，再將該 checkout 精確傳到 FIRST 新目錄。19項工具測試、44份檔案雜湊通過；CHEASE c50 與 VMEC lowbeta 各重新執行整條管線並比對通過。沒有把 GitHub 憑證傳到 FIRST。後續提交只補驗收紀錄，solver 執行工具未改。
+
+## 自動五圖：FIRST 新執行驗收（2026-11-18 14:09–14:16，台北）
+
+已更新兩個 runner：預先查核科學 Python，求解／診斷後自動讀本次輸出繪圖，列出 PNG 總覽與 PDF 路徑；出圖失敗保持 `valid=false`。舊遠端工具先保留在 `backups-profile-20261118T1409/`，未改原 solver、image、歷史案例或排程。
+
+四個教學例全部重新執行 equilibrium → DCON → profiles，四個 reference 比對通過。另對 `freep80_high256` 與 `vmec_p80_513` 重新執行 equilibrium → bootstrap → profiles。六例各有五張單圖，共 **30 張單圖**；每例共15個圖／數值／來源檔案。
+
+已驗證六例來源檔 SHA-256、CSV 全欄逐點符合新輸出、15個必要檔完整，並打開 CHEASE／VMEC 教學與 p80 代表總覽檢查。28項測試在本機及 FIRST 各通過一次；44份 reference 與136份研究輸入雜湊不變。這些是操作／繪圖驗收，不是新的穩定性認證；p80 此次未跑 DCON。
+
+[六例實跑圖](remote_profiles/README.md) · [machine-readable 收據](remote_profile_acceptance.json)

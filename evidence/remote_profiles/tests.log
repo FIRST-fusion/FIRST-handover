@@ -1,0 +1,33 @@
+test_boolean_actual_is_not_numeric (test_compare.CompareCliTests) ... ok
+test_dotted_keys_are_literal (test_compare.CompareCliTests) ... ok
+test_exact_pass (test_compare.CompareCliTests) ... ok
+test_false_valid (test_compare.CompareCliTests) ... ok
+test_label_mismatch_and_missing_label (test_compare.CompareCliTests) ... ok
+test_malformed_json_and_schema (test_compare.CompareCliTests) ... ok
+test_malformed_tolerance (test_compare.CompareCliTests) ... ok
+test_missing_metrics (test_compare.CompareCliTests) ... ok
+test_nan_rejected (test_compare.CompareCliTests) ... ok
+test_reference_not_mutated (test_compare.CompareCliTests) ... ok
+test_tolerance_pass_and_fail (test_compare.CompareCliTests) ... ok
+test_usage (test_compare.CompareCliTests) ... ok
+test_empty_reference_is_not_a_numeric_regression (test_compare_review.ReviewChecks) ... ok
+test_label_boolean_is_not_integer (test_compare_review.ReviewChecks) ... ok
+test_unrepresentable_number_fails_without_crash (test_compare_review.ReviewChecks) ... ok
+test_cli_outputs_and_no_overwrite (test_plot_profiles.ProfilesTest) ... ok
+test_integral_not_multiply_and_scaling (test_plot_profiles.ProfilesTest) ... ok
+test_reject_nonfinite_shape_zero_and_grid (test_plot_profiles.ProfilesTest) ... ok
+test_require_explicit_unique_normalization (test_plot_profiles.ProfilesTest) ... ok
+test_vmec_no_extra_mu0_preserves_signs_and_endpoints (test_plot_profiles.ProfilesTest) ... ok
+test_vmec_zero_iota_rejected (test_plot_profiles.ProfilesTest) ... ok
+test_exit_zero_without_artifacts_is_not_complete (test_profile_output.ProfileOutputChecks) ... ok
+test_failed_plotter_is_not_complete (test_profile_output.ProfileOutputChecks) ... ok
+test_missing_environment_fails_before_solver (test_profile_output.ProfileOutputChecks) ... ok
+test_chease_residual_and_interface (test_run_case.RunnerChecks) ... ok
+test_dcon_missing_stable_label_not_inferred (test_run_case.RunnerChecks) ... ok
+test_template_edit_requires_exactly_one_assignment (test_run_case.RunnerChecks) ... ok
+test_vmec_uses_final_residual_not_exit_marker_only (test_run_case.RunnerChecks) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 6.052s
+
+OK

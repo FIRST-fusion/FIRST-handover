@@ -17,6 +17,7 @@ from pathlib import Path
 
 from run_case import ROOT, container, extract_equilibrium, preflight, sha
 from audit_bootstrap import SOURCE, SOURCE_HASH
+from profile_output import DEFAULT_PYTHON, check_plot_python, make_profiles
 
 ARCHIVE = ROOT / 'research-inputs/bootstrap99'
 PYTHON = '/home/ouvic/linliu-reproduction-20260911/.venv_uv/bin/python'
@@ -30,6 +31,7 @@ def main():
     parser.add_argument('--output', type=Path)
     parser.add_argument('--timeout', type=int, default=3600)
     parser.add_argument('--preflight', action='store_true')
+    parser.add_argument('--plot-python', default=DEFAULT_PYTHON, help='Python with numpy/scipy/matplotlib for automatic profiles')
     args = parser.parse_args()
     if not 1 <= args.timeout <= 14400:
         parser.error('timeout must be 1..14400 seconds')
@@ -41,6 +43,7 @@ def main():
     # Only this stage is needed; classic DCON is not this research audit's engine.
     cfg = {key: {solver: cfg[key][solver]} for key in ['binaries', 'binary_sha256', 'images']}
     preflight(cfg)
+    check_plot_python(args.plot_python)
     source, expected = SOURCE_HASH[solver]
     if sha(SOURCE / source) != expected:
         raise ValueError('Diagnostic source SHA mismatch')
@@ -90,12 +93,14 @@ def main():
         result['fbs_percent'] = audit['fbs_percent']
         result['historical_fbs'] = cases[args.case]['fbs_total_hirshman']
         result['fbs_difference'] = result['fbs_total_hirshman'] - result['historical_fbs']
+        result['profiles'] = make_profiles(solver, output, args.case, args.plot_python)
         result['valid'] = True  # complete equilibrium + finite diagnostic, not stability/closure certification
     except Exception as exc:
         result['error'] = str(exc)
     result['finished_at'] = datetime.datetime.now(datetime.timezone.utc).isoformat()
     (output / 'summary.json').write_text(json.dumps(result, indent=2, allow_nan=False) + '\n')
     print(json.dumps({'output': str(output), 'valid': result['valid'],
+                      'profiles': result.get('profiles'),
                       'fbs': result.get('fbs_total_hirshman'), 'percent': result.get('fbs_percent'),
                       'error': result.get('error')}))
     return 0 if result['valid'] else 1
