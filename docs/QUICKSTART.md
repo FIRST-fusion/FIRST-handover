@@ -1,5 +1,7 @@
 # 快速入門：在 FIRST 跑出自己的結果
 
+**這頁是重跑原始範例。要新增或修改自己的 input，請直接看 [EDIT_INPUTS.md](EDIT_INPUTS.md)。**
+
 ## 前置條件
 
 - 已獲授權的 FIRST/NCKU 帳號、SSH、Docker 存取及本私人 GitHub repository 的讀取權限。

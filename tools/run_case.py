@@ -3,6 +3,7 @@
 import argparse, datetime, hashlib, json, math, os, re, shutil, subprocess, sys, time
 from pathlib import Path
 from profile_output import DEFAULT_PYTHON, check_plot_python, make_profiles
+from editable_inputs import input_files, snapshot, convergence_limit
 ROOT = Path(__file__).resolve().parents[1]
 NUMBER = r'[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[EeDd][+-]?\d+)?'
 BAD = re.compile(r'(?i)(?<![A-Za-z_])(?:NaN|Infinity|Inf)(?![A-Za-z_])|segmentation fault|SIGFPE|ZERO PIVOT')
@@ -94,14 +95,23 @@ def main():
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('case',nargs='?',choices=['chease_c50','chease_c51','vmec_smooth','vmec_lowbeta'])
     ap.add_argument('--output',type=Path)
+    ap.add_argument('--input-dir',type=Path,help='Use your editable input directory instead of the template')
+    ap.add_argument('--timeout',type=int,default=300)
     ap.add_argument('--preflight',action='store_true')
     ap.add_argument('--plot-python',default=DEFAULT_PYTHON,help='Python with numpy/scipy/matplotlib for automatic profiles')
     args=ap.parse_args();cfg=json.loads((ROOT/'runtime/first.json').read_text())
+    if not 1 <= args.timeout <= 14400:ap.error('timeout must be 1..14400 seconds')
+    if args.input_dir and not args.case:ap.error('--input-dir requires a solver template case')
+    if args.case:
+        inputs=(args.input_dir or ROOT/'examples'/args.case).resolve()
+        input_files(inputs,cfg['cases'][args.case]['solver'])
+        if args.input_dir:convergence_limit(inputs,cfg['cases'][args.case]['solver'])
     preflight(cfg)
     check_plot_python(args.plot_python)
     if args.preflight:print('FIRST images, solver binary hashes and plotting dependencies verified');return 0
     if not args.case:ap.error('case required')
-    run=(args.output or ROOT/'runs'/(args.case+'-'+datetime.datetime.now().strftime('%Y%m%d-%H%M%S'))).resolve()
+    label=inputs.name if args.input_dir else args.case
+    run=(args.output or ROOT/'runs'/(label+'-'+datetime.datetime.now().strftime('%Y%m%d-%H%M%S-%f'))).resolve()
     run.mkdir(parents=True,exist_ok=False)
     summary={'case':args.case,'valid':False,'metrics':{},'labels':{},'warnings':[],
              'scientific_acceptance':'NOT_CERTIFIED: workflow regression only','stages':[],
@@ -109,13 +119,17 @@ def main():
     try:
         case=cfg['cases'][args.case];solver=case['solver']
         eq=run/'equilibrium';eq.mkdir()
-        inputs=ROOT/'examples'/args.case
-        summary['input_sha256']={p.name:sha(p) for p in inputs.iterdir() if p.is_file()}
-        for p in inputs.iterdir():
-            if p.is_file():shutil.copy2(p,eq/p.name)
-        script='exec timeout 300 /opt/solver < namelist' if solver=='chease' else 'exec timeout 300 /opt/solver input.test'
+        summary['input_sha256']=snapshot(inputs,solver,eq)
+        summary['input_directory']=str(inputs)
+        summary['custom_input']=bool(args.input_dir)
+        summary['reference_comparison_applicable']=not bool(args.input_dir)
+        limit=convergence_limit(eq,solver) if args.input_dir else case['residual_limit']
+        summary['convergence_limit']=limit
+        script='exec timeout '+str(args.timeout)+' /opt/solver '+('< namelist' if solver=='chease' else 'input.test')
         text=container(solver,cfg,eq,script,summary['stages'])
-        interface=extract_equilibrium(solver,text,eq,case['residual_limit'],summary['metrics'],summary['labels'])
+        interface=extract_equilibrium(solver,text,eq,limit,summary['metrics'],summary['labels'])
+        # Keep valid equilibrium profiles even if subsequent DCON diagnostics fail.
+        summary['profiles']=make_profiles(solver,run,label,args.plot_python)
         dc=run/'dcon';dc.mkdir();shutil.copy2(interface,dc/interface.name)
         equil=(ROOT/'runtime/equil.in').read_text()
         for key,value in [('eq_type','"'+solver+'"'),('eq_filename','"/work/'+interface.name+'"'),('out_eq_1d','t')]:equil=change(equil,key,value)
@@ -135,7 +149,6 @@ def main():
         summary['labels']['runtime.sha256']=hashlib.sha256(json.dumps(cfg,sort_keys=True).encode()).hexdigest()
         summary['labels']['controls.sha256']=hashlib.sha256(b''.join((dc/n).read_bytes() for n in ['equil.in','dcon.in','vac.in'])).hexdigest()
         summary['workflow_complete']=True
-        summary['profiles']=make_profiles(solver,run,args.case,args.plot_python)
         summary['valid']=True
     except Exception as exc:
         summary['error']=str(exc)

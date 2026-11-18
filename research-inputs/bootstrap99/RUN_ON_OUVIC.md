@@ -2,6 +2,8 @@
 
 **先選 `freep80_high256`。** 新增 `tools/run_bootstrap_case.py` 接受本包 14 組固定輸入，只做一次容器內平衡求解，再由主機既有 Python 科學環境重新計算 bootstrap 比例。它不執行參數搜尋、bootstrap 外迭代或 DCON，不修改原案例。
 
+**要改自己的 input？** 用 `python3 tools/case.py init my-p80 --from freep80_high256` 建立副本，修改 `inputs/my-p80/` 後，用 `python3 tools/case.py run my-p80` 執行。[完整操作說明](../../docs/EDIT_INPUTS.md)。以下仍是原始輸入重播。
+
 ## 1. 登入與檢查（不求解）
 
 ```sh
@@ -109,7 +111,7 @@ PY
 
 ## 6. 哪些事這個工具不做？
 
-- 不重新做 bootstrap 外迭代；它重播保存的自洽終點，並檢查結果。改壓力／電流／形狀後不能沿用原 99%。此入口鎖定原始輸入雜湊，改 archive 會被拒絕；自訂剖面需要獨立新案例與相應 seed 設定。
+- 不重新做 bootstrap 外迭代；它重播保存的自洽終點，並檢查結果。改壓力／電流／形狀後不能沿用原 99%。預設重播仍核對原始輸入雜湊；自訂輸入使用 `case.py` 或 `--input-dir`，不需符合原輸入雜湊。自訂閉合需明確 seed 設定，沒有指定時不會沿用歷史閉合成功狀態。
 - 不執行 DCON。fBS 不需要 DCON 才能算；但判斷 MHD 穩定仍需另做 DCON 與解析度／磁面覆蓋驗證。p80 的 GPEC_balnorm 設定已附，不能替換成教學 classic DCON 後沿用研究結論。
 - A=1.2 使用 `.33 / .05 / .03` 的 seed 軸值／中心／寬度；工具依原 metadata 算 `closure_fixed_seed`，保留但不誤用 legacy default-seed 診斷。
 

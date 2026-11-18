@@ -10,3 +10,6 @@ licensed-runtime/
 runtime/first.ouvic.json
 
 .venv-plot/
+
+# User-editable cases stay local unless explicitly curated.
+/inputs/

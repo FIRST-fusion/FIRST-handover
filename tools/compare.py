@@ -49,6 +49,8 @@ def compare(actual: Any, expected: Any) -> dict[str, Any]:
 
     if actual.get("valid") is not True:
         errors.append(_err("valid", "actual valid must be exactly true"))
+    if actual.get("custom_input") is True:
+        errors.append(_err("custom_input", "Edited inputs are not the immutable reference case; inspect the new results instead"))
 
     actual_metrics = _require_mapping(actual, "metrics", "actual", errors)
     actual_labels = _require_mapping(actual, "labels", "actual", errors)

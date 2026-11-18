@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """FIRST: replay one archived high-bootstrap equilibrium, then recompute fBS.
 
-No search/closure iteration/DCON is launched. Only immutable archived inputs
-are accepted. Use --preflight for read-only checks without solver execution.
+No search/closure iteration/DCON is launched. Defaults to archived inputs;
+--input-dir accepts edited copies. Use --preflight for checks without execution.
 """
 import argparse
 import datetime
@@ -16,8 +16,9 @@ import sys
 from pathlib import Path
 
 from run_case import ROOT, container, extract_equilibrium, preflight, sha
-from audit_bootstrap import SOURCE, SOURCE_HASH
+from audit_bootstrap import SOURCE, SOURCE_HASH, validate_settings
 from profile_output import DEFAULT_PYTHON, check_plot_python, make_profiles
+from editable_inputs import input_files, snapshot, convergence_limit
 
 ARCHIVE = ROOT / 'research-inputs/bootstrap99'
 PYTHON = '/home/ouvic/linliu-reproduction-20260911/.venv_uv/bin/python'
@@ -29,6 +30,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('case', choices=cases)
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--input-dir', type=Path, help='Editable inputs; no archived input hash restriction')
     parser.add_argument('--timeout', type=int, default=3600)
     parser.add_argument('--preflight', action='store_true')
     parser.add_argument('--plot-python', default=DEFAULT_PYTHON, help='Python with numpy/scipy/matplotlib for automatic profiles')
@@ -36,6 +38,12 @@ def main():
     if not 1 <= args.timeout <= 14400:
         parser.error('timeout must be 1..14400 seconds')
     solver = cases[args.case]['solver']
+    inputs = (args.input_dir or ARCHIVE / 'cases' / args.case / 'inputs').resolve()
+    input_files(inputs, solver)
+    convergence_limit(inputs, solver)
+    if args.input_dir:
+        settings_path = inputs / 'bootstrap-settings.json'
+        validate_settings(json.loads(settings_path.read_text()) if settings_path.exists() else {})
     cfg = json.loads((ROOT / 'runtime/first.json').read_text())
     if solver == 'chease':
         cfg['binaries']['chease'] = '/home/ouvic/linliu-reproduction-20260911/src_highres/chease_linliu.x'
@@ -50,14 +58,16 @@ def main():
     subprocess.run([PYTHON, '-c', 'import numpy, scipy, netCDF4'], check=True)
     prefix = 'cases/' + args.case + '/'
     for row in manifest['files']:
-        if row['path'].startswith(prefix) and ('/inputs/' in row['path'] or row['path'] == prefix + 'historical/summary.json'):
+        if not args.input_dir and row['path'].startswith(prefix) and ('/inputs/' in row['path'] or row['path'] == prefix + 'historical/summary.json'):
             if sha(ARCHIVE / row['path']) != row['sha256']:
                 raise ValueError('Archived input/metadata hash mismatch: ' + row['path'])
     if args.preflight:
         print(json.dumps({'case': args.case, 'solver': solver, 'runtime': cfg,
+                          'custom_input': bool(args.input_dir), 'input_directory': str(inputs),
                           'preflight_passed': True, 'solver_executed': False}, indent=2))
         return 0
-    output = (args.output or ROOT / 'runs' / (args.case + '-' + datetime.datetime.now().strftime('%Y%m%d-%H%M%S'))).resolve()
+    label = inputs.name if args.input_dir else args.case
+    output = (args.output or ROOT / 'runs' / (label + '-' + datetime.datetime.now().strftime('%Y%m%d-%H%M%S-%f'))).resolve()
     output.mkdir(parents=True, exist_ok=False)
     work = output / 'equilibrium'
     work.mkdir()
@@ -65,35 +75,34 @@ def main():
               'scientific_acceptance': 'NOT_CERTIFIED: equilibrium and bootstrap audit only; DCON not run',
               'started_at': datetime.datetime.now(datetime.timezone.utc).isoformat()}
     try:
-        for path in (ARCHIVE / prefix / 'inputs').iterdir():
-            if path.is_file():
-                shutil.copy2(path, work / path.name)
-        result['input_sha256'] = {p.name: sha(p) for p in work.iterdir()}
+        result['input_sha256'] = snapshot(inputs, solver, work)
+        result['input_directory'] = str(inputs)
+        result['custom_input'] = bool(args.input_dir)
+        result['reference_comparison_applicable'] = not bool(args.input_dir)
+        metadata = ARCHIVE / prefix / 'historical/summary.json'
+        if args.input_dir:
+            metadata = work / 'bootstrap-settings.json'
+            settings = inputs / 'bootstrap-settings.json'
+            metadata.write_text(settings.read_text() if settings.exists() else '{}\n')
+            validate_settings(json.loads(metadata.read_text()))
+            result['input_sha256'][metadata.name] = sha(metadata)
+        limit = convergence_limit(work, solver)
+        result['convergence_limit'] = limit
         command = 'exec timeout -k 30 ' + str(args.timeout) + ' /opt/solver '
         command += '< namelist' if solver == 'chease' else 'input.test'
         text = container(solver, cfg, work, command, result['stages'])
-        # Use the actual last requested tolerance, not a ratio-based success flag.
-        if solver == 'chease':
-            control = (work / 'namelist').read_text()
-            tolerance = re.search(r'\bEPSLON\s*=\s*([0-9.eEdD+-]+)', control, re.I)[1]
-        else:
-            control = (work / 'input.test').read_text()
-            tolerance = re.search(r'\bFTOL_ARRAY\s*=([^\n]+)', control, re.I)[1].strip().rstrip(',').split(',')[-1].strip()
-        limit = float(tolerance.replace('D', 'E').replace('d', 'e'))
-        if not math.isfinite(limit) or limit <= 0:
-            raise ValueError('Invalid convergence tolerance')
         result['metrics'], result['labels'] = {}, {}
         extract_equilibrium(solver, text, work, limit, result['metrics'], result['labels'])
+        result['profiles'] = make_profiles(solver, output, label, args.plot_python)
         subprocess.run([PYTHON, str(ROOT / 'tools/audit_bootstrap.py'), solver, str(work),
-                        '--metadata', str(ARCHIVE / prefix / 'historical/summary.json')], check=True,
+                        '--metadata', str(metadata)] + (['--custom-input'] if args.input_dir else []), check=True,
                        env={**os.environ, 'OPENBLAS_NUM_THREADS': '1', 'OMP_NUM_THREADS': '1'})
         audit = json.loads((work / 'bootstrap.json').read_text())
         result['bootstrap'] = audit
         result['fbs_total_hirshman'] = audit['fbs_total_hirshman']
         result['fbs_percent'] = audit['fbs_percent']
-        result['historical_fbs'] = cases[args.case]['fbs_total_hirshman']
-        result['fbs_difference'] = result['fbs_total_hirshman'] - result['historical_fbs']
-        result['profiles'] = make_profiles(solver, output, args.case, args.plot_python)
+        result['historical_fbs'] = None if args.input_dir else cases[args.case]['fbs_total_hirshman']
+        result['fbs_difference'] = None if args.input_dir else result['fbs_total_hirshman'] - result['historical_fbs']
         result['valid'] = True  # complete equilibrium + finite diagnostic, not stability/closure certification
     except Exception as exc:
         result['error'] = str(exc)

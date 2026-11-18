@@ -1,5 +1,23 @@
 # FIRST：可重現的容器實作與專案交接
 
+**接手者可以新增自己的 input、修改參數，再用一行指令求解與出圖。**
+
+## 想自己改 input？先看這裡
+
+在 FIRST 專案目錄中：
+
+```sh
+python3 tools/case.py init my-vmec --from vmec_lowbeta
+# 用編輯器修改 inputs/my-vmec/input.test 並存檔
+python3 tools/case.py run my-vmec
+```
+
+`init` 只需做一次；之後每次改檔，再跑同一行 `run` 即可。輸出自動分新目錄並附五張 profile 圖。CHEASE／高 bootstrap 也支援。
+
+**[修改 input 的一步一步說明與參數位置](docs/EDIT_INPUTS.md)**
+
+## 原始範例與延伸文件
+
 **接手者先跑得出來，再按需要查理論。** 此 repository 提供兩條獨立流程、四組固定範例、真實參考輸出及自動比對，另附 FIRST 主機管理速查。
 
 - [快速開始：clone → preflight → 執行 → 比對](docs/QUICKSTART.md)
@@ -27,7 +45,7 @@
 
 ## 最短上手（已在 FIRST clone 後）
 
-另收錄 **[14 組高 bootstrap 研究輸入](research-inputs/bootstrap99/README.md)**（A=1.4／A=1.2，fBS 約 99.16%–99.63%），含 CHEASE restart、配對 VMEC 與歷史證據。它們不是上表四個新實跑範例，尚未註冊到教學 runner；高解析度 binary、時間及穩定性限制另有說明。本次新增封裝沒有啟動參數搜尋。
+另收錄 **[14 組高 bootstrap 研究輸入](research-inputs/bootstrap99/README.md)**（A=1.4／A=1.2，fBS 約 99.16%–99.63%），含 CHEASE restart、配對 VMEC 與歷史證據。它們使用獨立的高 bootstrap runner，`case.py` 會依所選起點自動選用；高解析度 binary、時間及穩定性限制另有說明。本次新增封裝沒有啟動參數搜尋。
 
 ```sh
 python3 tools/run_case.py --preflight

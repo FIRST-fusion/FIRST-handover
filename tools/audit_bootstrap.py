@@ -28,7 +28,21 @@ def module_for(solver):
     return module
 
 
-def audit(solver, work, metadata):
+def validate_settings(metadata):
+    if not isinstance(metadata, dict):
+        raise ValueError('Bootstrap settings must be a JSON object')
+    keys = ('seed_axis', 'seed_center', 'seed_width')
+    if any(key in metadata for key in keys):
+        for key in keys:
+            if key not in metadata or isinstance(metadata[key], bool) or not isinstance(metadata[key], (float, int)) or not math.isfinite(metadata[key]):
+                raise ValueError('Explicit finite seed_axis/seed_center/seed_width required')
+        if metadata['seed_width'] <= 0:
+            raise ValueError('seed_width must be positive')
+
+
+def audit(solver, work, metadata, custom_input=False):
+    if custom_input:
+        validate_settings(metadata)
     module = module_for(solver)
     if solver == 'chease':
         import numpy as np
@@ -46,9 +60,13 @@ def audit(solver, work, metadata):
             result['seed'] = {key: metadata.get(key, default) for key, default in
                               [('seed_axis', None), ('seed_center', .5), ('seed_width', .03)]}
             closure = result['closure_fixed_seed']
+        elif custom_input:
+            result['closure_default_seed_diagnostic'] = result.pop('closure_max_relative')
+            closure = None
+            result['closure_note'] = 'Edited input without explicit seed: closure not certified'
         else:
             closure = result['closure_max_relative']
-        result['closure_below_1e-3'] = closure < 1e-3
+        result['closure_below_1e-3'] = None if closure is None else closure < 1e-3
         result['method'] = 'CHEASE exported Hirshman current + toroidal auxiliary-current integral'
     else:
         # pathlib joining an absolute case path resolves to this new work dir,
@@ -73,12 +91,13 @@ def main():
     parser.add_argument('solver', choices=SOURCE_HASH)
     parser.add_argument('directory', type=Path)
     parser.add_argument('--metadata', type=Path, required=True)
+    parser.add_argument('--custom-input', action='store_true')
     args = parser.parse_args()
     work = args.directory.resolve()
     output = work / 'bootstrap.json'
     if output.exists():
         raise FileExistsError(output)
-    result = audit(args.solver, work, json.loads(args.metadata.read_text()))
+    result = audit(args.solver, work, json.loads(args.metadata.read_text()), args.custom_input)
     with output.open('x') as stream:
         json.dump(result, stream, indent=2, allow_nan=False)
         stream.write('\n')

@@ -1,0 +1,209 @@
+{
+  "verified_at": "2026-11-18T06:46:04.193010+00:00",
+  "host": "ncku-first",
+  "account": "ouvic",
+  "cases": [
+    {
+      "case": "editable-vmec-20261118",
+      "template": "vmec_lowbeta",
+      "output": "/home/ouvic/first-handover-20261118/runs/editable-vmec-20261118",
+      "valid": true,
+      "input_sha256": {
+        "input.test": "fa63e0deb91f9b6b54a18201dc55d732b3cb97c0c93cc5291d4d4f5487b1bbeb"
+      },
+      "input_snapshot_matches_edited_files": true,
+      "sources": [
+        {
+          "path": "/home/ouvic/first-handover-20261118/runs/editable-vmec-20261118/equilibrium/wout_test.nc",
+          "sha256": "2e4625a8a22d3723e6e284408348d56bc15cfbc0edbf3b506698158cdfcd5d45"
+        }
+      ],
+      "csv_matches_new_output": true,
+      "pressure_ratio_expected": 0.75,
+      "pressure_ratio_observed_min": 0.7499999999999998,
+      "pressure_ratio_observed_max": 0.7500000000000001,
+      "fbs_percent": null,
+      "historical_comparison_applicable": false,
+      "summary_sha256": "8ef5740da4d8c693dde90626b147cac6ce40f1233ca9a95608cabffd1105aff1",
+      "started_at": "2026-11-18T06:43:40.328651+00:00",
+      "finished_at": "2026-11-18T06:43:47.309464+00:00",
+      "stages": [
+        {
+          "stage": "vmec",
+          "container": "first-handover-vmec-20261118144340-1998723",
+          "seconds": 1.9420807361602783,
+          "exit_code": 0
+        },
+        {
+          "stage": "dcon",
+          "container": "first-handover-dcon-20261118144345-1998723",
+          "seconds": 1.2943336963653564,
+          "exit_code": 0
+        }
+      ],
+      "artifacts_sha256": {
+        "profiles.pdf": "301fd835f8b1466919766538b89050bfdd52d6de6cb52c671f72cf46a7ad44f3",
+        "poloidal_current.png": "515e59f19fc991ee141d18a06b87d6189e9d40c840bbc7ee292a88e39d10ae67",
+        "jdotb.pdf": "f67a8b44b734543ed113bf14ccde465227f4d26725e5d524e95dea667fb18b91",
+        "overview.pdf": "2a577713139e01e7834514b248202da082a672cad1b165da18430efe4b38319a",
+        "toroidal_current.png": "f32ff55841e88af8e752e79eeb72042923b6159d213b2c96ea952b7351ada47e",
+        "pressure.pdf": "666fe5f573740d7ee5f48d356ee2252b77ca26ee90416822f958ef559929faa9",
+        "jdotb.png": "b4c1c643f7e87daf06826474d0f615d8fda8e46a30bb3e0a10e5eda9b7ecff0b",
+        "q.png": "5d9a248b15b944d1b0229be37d7bc848d445191b8c4f821a37381a768c330215",
+        "pressure.png": "da51b07ae631294aa72b90281d0e398ae5306a0729acfa7ecf98d8171d66e906",
+        "poloidal_current.pdf": "9bc21322338a2f7923df96a9358800d301fb8214ee380814c5e5509006c67fe6",
+        "q.pdf": "0e052e7ff67859b5abdeb9f906cea50d38d9d3398a9df8d1dbe9ef7afb624a75",
+        "metadata.json": "f7698d75d5c822b9372339497b1914910207d549d419e3ac8debaa4fb54adbcd",
+        "profiles.csv": "22d166ce5b51f34f95b309430defd23c1a05db8d03a27b98a587ec320ce95c1b",
+        "overview.png": "5325a6c6d927a519f2bb030b4ce41be4d75ffaeb43835d4ac951d750dc9d4731",
+        "toroidal_current.pdf": "7e3b2f64110431aa4572adaa9ff51e8bf20824c9fb9384dbd51983a71265b5c3"
+      },
+      "scientific_acceptance": "NOT_CERTIFIED: workflow regression only"
+    },
+    {
+      "case": "editable-chease-20261118",
+      "template": "chease_c50",
+      "output": "/home/ouvic/first-handover-20261118/runs/editable-chease-20261118",
+      "valid": true,
+      "input_sha256": {
+        "namelist": "0c9c410b99ab9b4a0cfd52be0f6fcd1fd6a1dcec2a15ebfb3d663903b9b07213",
+        "EXPEQ": "b8eb0cfb2d391f15f2865f7c1521244fb8e0294117b022af5bef5b6d223739b4",
+        "NIN": "69f8434e4d90bde2abf143c155a1a1c48863f6d3257c3181236ae0257d1c6254"
+      },
+      "input_snapshot_matches_edited_files": true,
+      "sources": [
+        {
+          "path": "/home/ouvic/first-handover-20261118/runs/editable-chease-20261118/equilibrium/linliu_profiles.dat",
+          "sha256": "d49e536da03e8e80de5d475800e9d68aac2835784ab5c10e650c001ffe10fa9c"
+        },
+        {
+          "path": "/home/ouvic/first-handover-20261118/runs/editable-chease-20261118/equilibrium/namelist",
+          "sha256": "0c9c410b99ab9b4a0cfd52be0f6fcd1fd6a1dcec2a15ebfb3d663903b9b07213"
+        }
+      ],
+      "csv_matches_new_output": true,
+      "pressure_ratio_expected": 0.9025,
+      "pressure_ratio_observed_min": 0.9024999999999997,
+      "pressure_ratio_observed_max": 0.9025000000000002,
+      "fbs_percent": null,
+      "historical_comparison_applicable": false,
+      "summary_sha256": "651382a31b3d759eebd4028e1c880a061871b7b5704a96ba32c14de5c42deb24",
+      "started_at": "2026-11-18T06:43:48.189204+00:00",
+      "finished_at": "2026-11-18T06:44:09.660233+00:00",
+      "stages": [
+        {
+          "stage": "chease",
+          "container": "first-handover-chease-20261118144348-1999082",
+          "seconds": 10.634027004241943,
+          "exit_code": 0
+        },
+        {
+          "stage": "dcon",
+          "container": "first-handover-dcon-20261118144402-1999082",
+          "seconds": 7.486804962158203,
+          "exit_code": 0
+        }
+      ],
+      "artifacts_sha256": {
+        "profiles.pdf": "6b8af6fee5b3eebc318af40811de7445593d16a3c8084935d65479eaea960001",
+        "poloidal_current.png": "df0d8c5e5e02dce8550b6c3be3a92e390e331c04b80026ad6be5e6618fc7696a",
+        "jdotb.pdf": "966c8c7624de4b9413ad303b364efc36e559d5e0a57014b23285b1b50522b2ef",
+        "overview.pdf": "2921c390dfb30060f2f086d6db802cb5eb4a4270eb6b7fc3a814b20ec2bea69b",
+        "toroidal_current.png": "1ea20b97ccbdd51a49a2eac312c7ed6bbdc0e4c84ad0ceb9e392bab46703f338",
+        "pressure.pdf": "be7b5c4793c057e83c7496c116bc35cac18f4323fe8d5402026e87378f161694",
+        "jdotb.png": "2ce44ad0d4c6e4ca2514b341c110df6314f3dba0c6710a1ee7f671f232b534ae",
+        "q.png": "38fc7696c59a635da6ea2e0780fcc780adfacb8e8c1df2309ed1415ed668a344",
+        "pressure.png": "3b368e1b5d83d00a948eb9af2c19a87f0489e049a9e00da8b61cbd333dbf7cfc",
+        "poloidal_current.pdf": "2ca05924840ff4eadd4e7ff801e9fa91af4b3b9b3d2e4e48a1ffaff6fd8ce04d",
+        "q.pdf": "b73fbeef4256087471baf0a009d821df22e7aab0b72bfd2bd1f7647fb405a752",
+        "metadata.json": "2d2d477fb41c0291609e27b877c2e3596d8b97357283c05137a39af4296e6a02",
+        "profiles.csv": "415cd92001c01b754814b60e11b33ba5fe6a62df7fc742e035d382c501cc079e",
+        "overview.png": "7e9030108cd71be115c2fa76c6e422598f5ac5e6add732fd86d4d3904080f065",
+        "toroidal_current.pdf": "e4fa3b663713abe6f9e2f4d6613376f3b89c6f33e23fc8cc89c376c609416b04"
+      },
+      "scientific_acceptance": "NOT_CERTIFIED: workflow regression only"
+    },
+    {
+      "case": "editable-p80-20261118",
+      "template": "vmec_p80_513",
+      "output": "/home/ouvic/first-handover-20261118/runs/editable-p80-20261118",
+      "valid": true,
+      "input_sha256": {
+        "input.test": "eb0b278db53835b0a6df6afb9b7406ba65f0debe1b3a9ca7d79a3e5ff6341d90",
+        "bootstrap-settings.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+      },
+      "input_snapshot_matches_edited_files": true,
+      "sources": [
+        {
+          "path": "/home/ouvic/first-handover-20261118/runs/editable-p80-20261118/equilibrium/wout_test.nc",
+          "sha256": "331f87e132ac3831e9ebfeb8340a483260bcf015a62b3c92d711f1b2d3971075"
+        }
+      ],
+      "csv_matches_new_output": true,
+      "pressure_ratio_expected": 0.99,
+      "pressure_ratio_observed_min": 0.9899999999999997,
+      "pressure_ratio_observed_max": 0.9900000000000003,
+      "fbs_percent": 98.7676431931804,
+      "historical_comparison_applicable": false,
+      "summary_sha256": "24851784e356609b5d3edca7dc4ea38c1ccaedb0cf6fb8c101a61ca25a31f586",
+      "started_at": "2026-11-18T06:44:10.902592+00:00",
+      "finished_at": "2026-11-18T06:45:55.160340+00:00",
+      "stages": [
+        {
+          "stage": "vmec",
+          "container": "first-handover-vmec-20261118144410-1999497",
+          "seconds": 98.61931419372559,
+          "exit_code": 0
+        }
+      ],
+      "artifacts_sha256": {
+        "profiles.pdf": "c0ae0c72cc3711f5aa5a6d60eec55eab748b1b816dc189a2dae6f62a73c4a0e9",
+        "poloidal_current.png": "201b2d2f095764a8341932e2680c8ae2b65ea50bfd2a37f4396fb0c9803e0415",
+        "jdotb.pdf": "f20fdce48019345563557dfaf1dd45a5dc4d098802564babf0ead334c65ba656",
+        "overview.pdf": "8d2b0fc0930288ea53fe2a4ce3dc3cc47c862ccef6d8eb5c8ce1b84cc5994de5",
+        "toroidal_current.png": "01d82581a8a4d46cf2cfa985ad21195210c869fd84763372a86ff79bd1c43c05",
+        "pressure.pdf": "e9ce1c42b9007545981bf96597928132d0afdfe04fe1742cea134c555f10a6ee",
+        "jdotb.png": "f22d07f585a1a642b0f2c33708296cd93ad92989c6a430752eec167b2e15d0ad",
+        "q.png": "29ca3b578c38da116d3a986934ddc3cc0a3f47af4dd0e236c20a1e6dc32ae107",
+        "pressure.png": "ea5b8ba0fa665cb376267d83c7341f15dc31cf6d5e497067e6f96ad611858622",
+        "poloidal_current.pdf": "5c1a8c86ee299f554689700e72700be2e6863a10015d344679f7c17493eac7d8",
+        "q.pdf": "f59633532d554f16e234903458799f06fd7a0b5036693cb6e592ddd60689f85c",
+        "metadata.json": "4bb9ca89047b1900dc5b41f918b84320866c991b4edb4acd98169172d34d6c42",
+        "profiles.csv": "202cb60d95268ca4e324e1ae7950026d4183c9205f6b234dcaeb1f7c637901d1",
+        "overview.png": "30dbe4095a353244a1e555b7d43fca646595dfe2d73a3f21aaa0adb9fa553642",
+        "toroidal_current.pdf": "4ac8f6760d5451867a5533c2bd29c700bac5ed6dc6c0fbc0f210880ddf2107c9"
+      },
+      "scientific_acceptance": "NOT_CERTIFIED: equilibrium and bootstrap audit only; DCON not run"
+    }
+  ],
+  "total_single_profiles": 15,
+  "tools_sha256": {
+    "compare.py": "454ecc91c46501c5c16be9e34af87cc86c6da554190881bebdbdd3dd35f93215",
+    "case.py": "66f616de910c2d299690615a96eadef32755af04eee29bfdcc26d3802d3fc554",
+    "run_bootstrap_case.py": "565984c5be4cc83c4b6c8bc8fb84213eba48ec5f6944d8387777927d295a4003",
+    "audit_bootstrap.py": "5203a3a0008d07da3c744d649cf9359d12f9dca2adb6a817cf6f1bf382771491",
+    "profile_output.py": "c2022ded8d4476668b248ed5e4dde71ed9e49cc5e2d48cea7917da944fccc9b5",
+    "check_research_inputs.py": "ecde69152dc7d7feea1b9e1f34998b74b5296811d75ea11e08078422e46183c8",
+    "check_reference.py": "b7e32376e7d6e63b98796fc8e101807a9bf1b3361c41631c9a25b1481f4ee67f",
+    "editable_inputs.py": "6c8dd813da38caeef4f99fce2240f107a155d327d71c903210ef3b54b8efa3e4",
+    "plot_profiles.py": "e5be3299bf5a95fa26a6c2680ec79a085adc1a3b6ee7d76c9de43ad32f135040",
+    "run_case.py": "c38442a1907a30625300ccf096deecd1b02f5516c1f8cafa3984f4b2b108e427"
+  },
+  "final_validation": {
+    "local_tests_passed": 37,
+    "remote_tests_passed": 37,
+    "custom_input_preflights_passed": 3,
+    "original_vmec_lowbeta_regression_passed": true,
+    "reference_integrity_files_passed": 44,
+    "research_integrity_files_passed": 136,
+    "tests_log": "editable_inputs/tests.log",
+    "baseline_summary": "editable_inputs/baseline_regression.json"
+  },
+  "post_run_parser_guard": {
+    "change": "Reject unsupported numeric namelist index/slice syntax instead of ignoring it; supported input semantics unchanged",
+    "solver_run_parser_source": "/home/ouvic/first-handover-20261118/backups-editable-input-20261118/editable_inputs_solver_run.py",
+    "solver_run_sha256": "6c8dd813da38caeef4f99fce2240f107a155d327d71c903210ef3b54b8efa3e4",
+    "deployed_sha256": "dce223988658409dc7ffb9101d2458b85e41a5679c0b668158744316233888f5",
+    "verification": "37 tests, three custom input preflights and original VMEC regression passed after guard addition"
+  }
+}

@@ -44,3 +44,9 @@ FIRST `ncku-first` / `ouvic`，隔離根目錄 `/home/ouvic/first-handover-20261
 已驗證六例來源檔 SHA-256、CSV 全欄逐點符合新輸出、15個必要檔完整，並打開 CHEASE／VMEC 教學與 p80 代表總覽檢查。28項測試在本機及 FIRST 各通過一次；44份 reference 與136份研究輸入雜湊不變。這些是操作／繪圖驗收，不是新的穩定性認證；p80 此次未跑 DCON。
 
 [六例實跑圖](remote_profiles/README.md) · [machine-readable 收據](remote_profile_acceptance.json)
+
+## 可編輯 input（2026-11-18）
+
+新增 `tools/case.py init/run` 與兩 runner 的 `--input-dir`，支援自訂 input 副本、當次快照／hash、修改後自動五圖。三個修改案例已在 FIRST 真正求解，並驗證壓力尺度隨輸入改變；p80 fBS重新計算而非沿用歷史值。原版VMEC低壓例另跑一次回歸通過，本機與FIRST各37項測試通過。
+
+[修改操作說明](../docs/EDIT_INPUTS.md) · [修改後的三例圖與驗收](editable_inputs/README.md) · [machine-readable收據](editable_input_acceptance.json)
