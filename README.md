@@ -66,6 +66,8 @@ python3 run_case.py inputs/my-vmec/input.test --bootstrap
 
 **Bootstrap 診斷不等於自洽電流求解。** 它計算本次平衡對應的 bootstrap current 與 fBS，不沿用舊的99%，但**不會把 bootstrap current 回灌給 solver 反覆求平衡**。目前五張圖中的電流仍是**總電流剖面**，尚未另外繪製 bootstrap current 剖面；有五張圖不代表已跑 bootstrap。
 
+**為什麼 bootstrap 流程沒有 DCON？** 這是目前 runner 將兩條流程分開的實作限制，不是 bootstrap 平衡不能做穩定性檢驗。Bootstrap 診斷本身不改變平衡，同一份平衡仍可送 DCON；但目前 `--bootstrap` 尚未串接此步驟，也沒有可同時啟用兩者的參數。此模式成功不代表已通過 DCON；即使日後加入 DCON，也須另確認其設定、解析度與診斷完整性，不能只由 fBS 判斷穩定。
+
 若資料夾保留先前建立的 `case.json`，工具會沿用其中選定的教學／研究流程；舊副本不必重建。執行時終端機會印出 `workflow`，可確認本次選用的流程。
 
 只想跑原始範例，也用同一個入口：
