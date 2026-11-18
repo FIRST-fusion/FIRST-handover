@@ -1,0 +1,82 @@
+{
+  "sources": [
+    {
+      "path": "/Users/kane/Desktop/linliu-visualization-20261012/source_data/remote/runs/vmec_p80_513/wout_test.nc",
+      "sha256": "366d8af4da14aa18501cd95e56ff67d23a6b8d7b3dd47d4b4ca4dd18439a681b"
+    }
+  ],
+  "sampling": "Native full mesh, source-side extrapolated endpoints retained",
+  "coordinate_formula": "s=(phi-phi_axis)/(phi_edge-phi_axis); psi_n=(chi-chi_axis)/(chi_edge-chi_axis)",
+  "quantity_formulas": {
+    "q": "1/iotaf",
+    "pressure": "presf [already Pa]",
+    "jdotb": "jdotb",
+    "poloidal_current": "jcuru [already A]",
+    "toroidal_current": "jcurv [already A]"
+  },
+  "source_linear_endpoint_flags": {
+    "jcuru": {
+      "axis": true,
+      "edge": true
+    },
+    "jcurv": {
+      "axis": true,
+      "edge": true
+    },
+    "jdotb": {
+      "axis": true,
+      "edge": true
+    }
+  },
+  "solver": "vmec",
+  "case": "vmec_p80_513",
+  "coordinate_plotted": "s_tor",
+  "points": 513,
+  "units": {
+    "s_tor": "1",
+    "rho_tor": "1",
+    "psi_n": "1",
+    "q": "1",
+    "pressure": "Pa",
+    "jdotb": "A T/m2",
+    "poloidal_current": "A",
+    "toroidal_current": "A"
+  },
+  "scientific_acceptance": "NOT_CERTIFIED: plotting does not test stability",
+  "native_signs_retained": true,
+  "extrema": {
+    "s_tor": {
+      "min": -0.0,
+      "max": 1.0
+    },
+    "rho_tor": {
+      "min": -0.0,
+      "max": 1.0
+    },
+    "psi_n": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "q": {
+      "min": 4.3701363022587385,
+      "max": 19.265782448785917
+    },
+    "pressure": {
+      "min": -0.03347404453984099,
+      "max": 207183.44633590613
+    },
+    "jdotb": {
+      "min": -1840723.6014771694,
+      "max": 8915.694537440078
+    },
+    "poloidal_current": {
+      "min": -160626.56930313355,
+      "max": 23.10859313049319
+    },
+    "toroidal_current": {
+      "min": -1632.0076806309726,
+      "max": 884003.1980148098
+    }
+  },
+  "plotter_sha256": "e5be3299bf5a95fa26a6c2680ec79a085adc1a3b6ee7d76c9de43ad32f135040"
+}

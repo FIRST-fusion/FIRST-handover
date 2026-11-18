@@ -3,6 +3,7 @@
 **接手者先跑得出來，再按需要查理論。** 此 repository 提供兩條獨立流程、四組固定範例、真實參考輸出及自動比對，另附 FIRST 主機管理速查。
 
 - [快速開始：clone → preflight → 執行 → 比對](docs/QUICKSTART.md)
+- [五張 profile 圖：q、pressure、⟨J·B⟩、極向／環向電流與來源](docs/PROFILES.md)
 - [CHEASE → DCON、VMEC → DCON：每一步做什麼](docs/WORKFLOWS.md)
 - [帳號別驗證：ouvic／ubuntu 與路徑權限限制](docs/MULTIUSER.md)
 - [FIRST 主機管理：帳號、磁碟、容器、排程與故障](docs/OPERATIONS.md)

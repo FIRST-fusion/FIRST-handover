@@ -1,0 +1,276 @@
+{
+  "scope": "No solver executions; archive-only plots; NOT_CERTIFIED",
+  "vmec_discrete_ampere": [
+    {
+      "source": "/Users/kane/Documents/Github/FIRST-handover/reference/vmec_lowbeta/equilibrium/wout_test.nc",
+      "sha256": "738ff6957d96e7f46bc2d7c768fbe53fdbda70525eab9feb3bfebdc42b1f75a8",
+      "n": 129,
+      "native_signgs": -1.0,
+      "interior_errors": {
+        "jcuru": 0.0,
+        "jcurv": 0.0
+      },
+      "endpoints": {
+        "jcuru": {
+          "axis_linear": true,
+          "edge_linear": true
+        },
+        "jcurv": {
+          "axis_linear": true,
+          "edge_linear": true
+        },
+        "jdotb": {
+          "axis_linear": true,
+          "edge_linear": true
+        }
+      }
+    },
+    {
+      "source": "/Users/kane/Documents/Github/FIRST-handover/reference/vmec_smooth/equilibrium/wout_test.nc",
+      "sha256": "3d4f356e37e9a2ee1173fa306a292e4f0e834e3537a065257250ef661dd2710d",
+      "n": 225,
+      "native_signgs": -1.0,
+      "interior_errors": {
+        "jcuru": 0.0,
+        "jcurv": 0.0
+      },
+      "endpoints": {
+        "jcuru": {
+          "axis_linear": true,
+          "edge_linear": true
+        },
+        "jcurv": {
+          "axis_linear": true,
+          "edge_linear": true
+        },
+        "jdotb": {
+          "axis_linear": true,
+          "edge_linear": true
+        }
+      }
+    },
+    {
+      "source": "/Users/kane/.openclaw/workspace/projects/linliu-visualization-20261012/source_data/remote/runs/vmec_p80_513/wout_test.nc",
+      "sha256": "366d8af4da14aa18501cd95e56ff67d23a6b8d7b3dd47d4b4ca4dd18439a681b",
+      "n": 513,
+      "native_signgs": -1.0,
+      "interior_errors": {
+        "jcuru": 0.0,
+        "jcurv": 0.0
+      },
+      "endpoints": {
+        "jcuru": {
+          "axis_linear": true,
+          "edge_linear": true
+        },
+        "jcurv": {
+          "axis_linear": true,
+          "edge_linear": true
+        },
+        "jdotb": {
+          "axis_linear": true,
+          "edge_linear": true
+        }
+      }
+    },
+    {
+      "source": "/Users/kane/.openclaw/workspace-plasma/projects/aspect12-stability-20261027/validation/evidence/cross_complete/runs/vmec_p6_s033_c050_fine_exact320_2049/wout_test.nc",
+      "sha256": "5a6dc6a9f43bb74eb1ac040344c9673444bff7143ce28b8828755c46518f8265",
+      "n": 2049,
+      "native_signgs": -1.0,
+      "interior_errors": {
+        "jcuru": 0.0,
+        "jcurv": 0.0
+      },
+      "endpoints": {
+        "jcuru": {
+          "axis_linear": true,
+          "edge_linear": true
+        },
+        "jcurv": {
+          "axis_linear": true,
+          "edge_linear": true
+        },
+        "jdotb": {
+          "axis_linear": true,
+          "edge_linear": true
+        }
+      }
+    }
+  ],
+  "definition_sources": [
+    {
+      "path": "/Users/kane/.openclaw/workspace/projects/linliu-visualization-20261012/source_data/remote/src/chease_linliu.f",
+      "sha256": "5e6248cfed05615bd8d6c5f0a8e23e899b06439943810a641a14ea11d182afb8"
+    },
+    {
+      "path": "/Users/kane/.openclaw/workspace/projects/linliu-reproduction-20260911/reports/profiles_ppt_style/source_audit/wrout.f",
+      "sha256": "27cbba86306708888812cb479d8a5daa327363a161a5e4231cd5d5567fe66ab3"
+    },
+    {
+      "path": "/Users/kane/.openclaw/workspace/projects/linliu-reproduction-20260911/reports/profiles_ppt_style/source_audit/eqfor.f",
+      "sha256": "2664425849059b515e678e0a63572e45f5d8940bc7c124df322bad3345c34c5b"
+    }
+  ],
+  "paired_profile_comparisons": [
+    {
+      "chease_case": "freep80_high256",
+      "vmec_case": "vmec_p80_513",
+      "R0_m": 1,
+      "B0_T": 1.0,
+      "comparison_interval": "0.01 < s_tor < 0.99; CHEASE PCHIP onto VMEC, no extrapolation",
+      "sign_applied_only_for_comparison": {
+        "q": 1,
+        "pressure": 1,
+        "jdotb": -1,
+        "poloidal_current": -1,
+        "toroidal_current": 1
+      },
+      "error_normalization": "max(abs(VMEC)) over comparison interval",
+      "metrics": {
+        "q": {
+          "max_relative": 1.8442295165268577e-05,
+          "rms_relative": 2.717795330914465e-06
+        },
+        "pressure": {
+          "max_relative": 2.6063028466218678e-06,
+          "rms_relative": 1.6481327526266972e-06
+        },
+        "jdotb": {
+          "max_relative": 0.0008634326911311237,
+          "rms_relative": 6.844624447068004e-05
+        },
+        "poloidal_current": {
+          "max_relative": 0.003930077954073149,
+          "rms_relative": 0.0002838802409284245
+        },
+        "toroidal_current": {
+          "max_relative": 0.0030634335159512006,
+          "rms_relative": 0.00022836590755480836
+        }
+      },
+      "flux_magnitude_Wb_from_CHEASE": 5.965718780001864,
+      "flux_magnitude_Wb_from_VMEC": 5.965718780001925,
+      "chease_profile_sha256": "4140ea77c2ff3bd4a7fe558e86c9245a7fb78c147fa5a5deef0d216766bb7e32",
+      "parent_evidence": "research-inputs/bootstrap99/cases/vmec_p80_513/historical/transfer.json"
+    },
+    {
+      "chease_case": "p6_s033_c050_fine_exact320",
+      "vmec_case": "vmec_p6_s033_c050_fine_exact320_2049",
+      "R0_m": 0.45,
+      "B0_T": 1.0,
+      "comparison_interval": "0.01 < s_tor < 0.99; CHEASE PCHIP onto VMEC, no extrapolation",
+      "sign_applied_only_for_comparison": {
+        "q": 1,
+        "pressure": 1,
+        "jdotb": -1,
+        "poloidal_current": -1,
+        "toroidal_current": 1
+      },
+      "error_normalization": "max(abs(VMEC)) over comparison interval",
+      "metrics": {
+        "q": {
+          "max_relative": 1.7910286035398607e-05,
+          "rms_relative": 1.1787053207419355e-06
+        },
+        "pressure": {
+          "max_relative": 2.7911121503860756e-06,
+          "rms_relative": 2.394446782509385e-07
+        },
+        "jdotb": {
+          "max_relative": 0.004304320901298488,
+          "rms_relative": 0.00017291820219696765
+        },
+        "poloidal_current": {
+          "max_relative": 0.027853493639090787,
+          "rms_relative": 0.0010932598812307553
+        },
+        "toroidal_current": {
+          "max_relative": 0.020790206139081696,
+          "rms_relative": 0.0008215812495406334
+        }
+      },
+      "flux_magnitude_Wb_from_CHEASE": 1.5206035251092707,
+      "flux_magnitude_Wb_from_VMEC": 1.520603525109303,
+      "chease_profile_sha256": "2e5d28e55871463712ed85040cfad62bd7c4a0fdaa702a3e4fb9825dc7688444",
+      "parent_evidence": "research-inputs/bootstrap99/cases/vmec_p6_s033_c050_fine_exact320_2049/historical/transfer.json"
+    }
+  ],
+  "artifact_checks": [
+    {
+      "case": "chease_c50",
+      "points": 201,
+      "single_profiles": 5,
+      "sources_sha256_match": true,
+      "csv_matches_source_transforms_exactly": true,
+      "overview_visually_inspected": true
+    },
+    {
+      "case": "chease_c51",
+      "points": 201,
+      "single_profiles": 5,
+      "sources_sha256_match": true,
+      "csv_matches_source_transforms_exactly": true,
+      "overview_visually_inspected": true
+    },
+    {
+      "case": "freep80_high256",
+      "points": 513,
+      "single_profiles": 5,
+      "sources_sha256_match": true,
+      "csv_matches_source_transforms_exactly": true,
+      "overview_visually_inspected": true
+    },
+    {
+      "case": "p6_s033_c050_fine_exact320",
+      "points": 1025,
+      "single_profiles": 5,
+      "sources_sha256_match": true,
+      "csv_matches_source_transforms_exactly": true,
+      "overview_visually_inspected": true
+    },
+    {
+      "case": "vmec_lowbeta",
+      "points": 129,
+      "single_profiles": 5,
+      "sources_sha256_match": true,
+      "csv_matches_source_transforms_exactly": true,
+      "overview_visually_inspected": true
+    },
+    {
+      "case": "vmec_p6_s033_c050_fine_exact320_2049",
+      "points": 2049,
+      "single_profiles": 5,
+      "sources_sha256_match": true,
+      "csv_matches_source_transforms_exactly": true,
+      "overview_visually_inspected": true
+    },
+    {
+      "case": "vmec_p80_513",
+      "points": 513,
+      "single_profiles": 5,
+      "sources_sha256_match": true,
+      "csv_matches_source_transforms_exactly": true,
+      "overview_visually_inspected": true
+    },
+    {
+      "case": "vmec_smooth",
+      "points": 225,
+      "single_profiles": 5,
+      "sources_sha256_match": true,
+      "csv_matches_source_transforms_exactly": true,
+      "overview_visually_inspected": true
+    }
+  ],
+  "tests": {
+    "command": "/opt/anaconda3/bin/python3 -m unittest discover -s tests -v",
+    "passed": 25,
+    "failed": 0
+  },
+  "immutable_archive_integrity": {
+    "reference_files": 44,
+    "research_files": 136,
+    "passed": true
+  },
+  "solver_executed": false
+}

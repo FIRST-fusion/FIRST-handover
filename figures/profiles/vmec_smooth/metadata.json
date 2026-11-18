@@ -1,0 +1,82 @@
+{
+  "sources": [
+    {
+      "path": "/Users/kane/Documents/Github/FIRST-handover/reference/vmec_smooth/equilibrium/wout_test.nc",
+      "sha256": "3d4f356e37e9a2ee1173fa306a292e4f0e834e3537a065257250ef661dd2710d"
+    }
+  ],
+  "sampling": "Native full mesh, source-side extrapolated endpoints retained",
+  "coordinate_formula": "s=(phi-phi_axis)/(phi_edge-phi_axis); psi_n=(chi-chi_axis)/(chi_edge-chi_axis)",
+  "quantity_formulas": {
+    "q": "1/iotaf",
+    "pressure": "presf [already Pa]",
+    "jdotb": "jdotb",
+    "poloidal_current": "jcuru [already A]",
+    "toroidal_current": "jcurv [already A]"
+  },
+  "source_linear_endpoint_flags": {
+    "jcuru": {
+      "axis": true,
+      "edge": true
+    },
+    "jcurv": {
+      "axis": true,
+      "edge": true
+    },
+    "jdotb": {
+      "axis": true,
+      "edge": true
+    }
+  },
+  "solver": "vmec",
+  "case": "vmec_smooth",
+  "coordinate_plotted": "s_tor",
+  "points": 225,
+  "units": {
+    "s_tor": "1",
+    "rho_tor": "1",
+    "psi_n": "1",
+    "q": "1",
+    "pressure": "Pa",
+    "jdotb": "A T/m2",
+    "poloidal_current": "A",
+    "toroidal_current": "A"
+  },
+  "scientific_acceptance": "NOT_CERTIFIED: plotting does not test stability",
+  "native_signs_retained": true,
+  "extrema": {
+    "s_tor": {
+      "min": -0.0,
+      "max": 1.0
+    },
+    "rho_tor": {
+      "min": -0.0,
+      "max": 1.0
+    },
+    "psi_n": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "q": {
+      "min": 2.278762271651265,
+      "max": 18.408999288662187
+    },
+    "pressure": {
+      "min": -211.89162146723947,
+      "max": 260000.00088808622
+    },
+    "jdotb": {
+      "min": -7256615.773228299,
+      "max": -719651.0625725604
+    },
+    "poloidal_current": {
+      "min": -68910.18757677035,
+      "max": 20246.229755153723
+    },
+    "toroidal_current": {
+      "min": 184032.639079942,
+      "max": 244101.5218989056
+    }
+  },
+  "plotter_sha256": "e5be3299bf5a95fa26a6c2680ec79a085adc1a3b6ee7d76c9de43ad32f135040"
+}

@@ -1,0 +1,82 @@
+{
+  "sources": [
+    {
+      "path": "/Users/kane/.openclaw/workspace-plasma/projects/aspect12-stability-20261027/validation/evidence/cross_complete/runs/vmec_p6_s033_c050_fine_exact320_2049/wout_test.nc",
+      "sha256": "5a6dc6a9f43bb74eb1ac040344c9673444bff7143ce28b8828755c46518f8265"
+    }
+  ],
+  "sampling": "Native full mesh, source-side extrapolated endpoints retained",
+  "coordinate_formula": "s=(phi-phi_axis)/(phi_edge-phi_axis); psi_n=(chi-chi_axis)/(chi_edge-chi_axis)",
+  "quantity_formulas": {
+    "q": "1/iotaf",
+    "pressure": "presf [already Pa]",
+    "jdotb": "jdotb",
+    "poloidal_current": "jcuru [already A]",
+    "toroidal_current": "jcurv [already A]"
+  },
+  "source_linear_endpoint_flags": {
+    "jcuru": {
+      "axis": true,
+      "edge": true
+    },
+    "jcurv": {
+      "axis": true,
+      "edge": true
+    },
+    "jdotb": {
+      "axis": true,
+      "edge": true
+    }
+  },
+  "solver": "vmec",
+  "case": "vmec_p6_s033_c050_fine_exact320_2049",
+  "coordinate_plotted": "s_tor",
+  "points": 2049,
+  "units": {
+    "s_tor": "1",
+    "rho_tor": "1",
+    "psi_n": "1",
+    "q": "1",
+    "pressure": "Pa",
+    "jdotb": "A T/m2",
+    "poloidal_current": "A",
+    "toroidal_current": "A"
+  },
+  "scientific_acceptance": "NOT_CERTIFIED: plotting does not test stability",
+  "native_signs_retained": true,
+  "extrema": {
+    "s_tor": {
+      "min": -0.0,
+      "max": 1.0
+    },
+    "rho_tor": {
+      "min": -0.0,
+      "max": 1.0
+    },
+    "psi_n": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "q": {
+      "min": 2.7518465422548095,
+      "max": 66.45323862261306
+    },
+    "pressure": {
+      "min": 7.010263790995235e-05,
+      "max": 83642.76137076558
+    },
+    "jdotb": {
+      "min": -3240599.2413198855,
+      "max": 85346.08617976953
+    },
+    "poloidal_current": {
+      "min": -74893.12993864303,
+      "max": 0.07372110724585997
+    },
+    "toroidal_current": {
+      "min": -1671.4029880335388,
+      "max": 326510.86151765427
+    }
+  },
+  "plotter_sha256": "e5be3299bf5a95fa26a6c2680ec79a085adc1a3b6ee7d76c9de43ad32f135040"
+}

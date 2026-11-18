@@ -7,8 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-      - name: Standard-library tests
-        run: python3 -m unittest discover -s tests -v
+      - name: Install plotting-only dependencies
+        run: |
+          python3 -m venv .venv-plot
+          .venv-plot/bin/python -m pip install -r requirements-plot.txt
+      - name: Tool and synthetic profile tests
+        run: .venv-plot/bin/python -m unittest discover -s tests -v
       - name: Verify recorded reference artifacts
         run: python3 tools/check_reference.py
       - name: Verify historical bootstrap research inputs

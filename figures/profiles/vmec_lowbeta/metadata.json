@@ -1,0 +1,82 @@
+{
+  "sources": [
+    {
+      "path": "/Users/kane/Documents/Github/FIRST-handover/reference/vmec_lowbeta/equilibrium/wout_test.nc",
+      "sha256": "738ff6957d96e7f46bc2d7c768fbe53fdbda70525eab9feb3bfebdc42b1f75a8"
+    }
+  ],
+  "sampling": "Native full mesh, source-side extrapolated endpoints retained",
+  "coordinate_formula": "s=(phi-phi_axis)/(phi_edge-phi_axis); psi_n=(chi-chi_axis)/(chi_edge-chi_axis)",
+  "quantity_formulas": {
+    "q": "1/iotaf",
+    "pressure": "presf [already Pa]",
+    "jdotb": "jdotb",
+    "poloidal_current": "jcuru [already A]",
+    "toroidal_current": "jcurv [already A]"
+  },
+  "source_linear_endpoint_flags": {
+    "jcuru": {
+      "axis": true,
+      "edge": true
+    },
+    "jcurv": {
+      "axis": true,
+      "edge": true
+    },
+    "jdotb": {
+      "axis": true,
+      "edge": true
+    }
+  },
+  "solver": "vmec",
+  "case": "vmec_lowbeta",
+  "coordinate_plotted": "s_tor",
+  "points": 129,
+  "units": {
+    "s_tor": "1",
+    "rho_tor": "1",
+    "psi_n": "1",
+    "q": "1",
+    "pressure": "Pa",
+    "jdotb": "A T/m2",
+    "poloidal_current": "A",
+    "toroidal_current": "A"
+  },
+  "scientific_acceptance": "NOT_CERTIFIED: plotting does not test stability",
+  "native_signs_retained": true,
+  "extrema": {
+    "s_tor": {
+      "min": -0.0,
+      "max": 1.0
+    },
+    "rho_tor": {
+      "min": -0.0,
+      "max": 1.0
+    },
+    "psi_n": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "q": {
+      "min": 1.25,
+      "max": 2.0
+    },
+    "pressure": {
+      "min": -2.2243564285341063e-13,
+      "max": 2000.0
+    },
+    "jdotb": {
+      "min": -194331.47241249564,
+      "max": -88427.9205856055
+    },
+    "poloidal_current": {
+      "min": 8200.925575237405,
+      "max": 47763.74696986599
+    },
+    "toroidal_current": {
+      "min": 27754.619771257534,
+      "max": 67886.89946370198
+    }
+  },
+  "plotter_sha256": "e5be3299bf5a95fa26a6c2680ec79a085adc1a3b6ee7d76c9de43ad32f135040"
+}

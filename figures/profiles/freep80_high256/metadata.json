@@ -1,0 +1,96 @@
+{
+  "sources": [
+    {
+      "path": "/Users/kane/Documents/Github/FIRST-handover/research-inputs/bootstrap99/cases/freep80_high256/historical/linliu_profiles.dat",
+      "sha256": "4140ea77c2ff3bd4a7fe558e86c9245a7fb78c147fa5a5deef0d216766bb7e32"
+    },
+    {
+      "path": "/Users/kane/Documents/Github/FIRST-handover/research-inputs/bootstrap99/cases/freep80_high256/inputs/namelist",
+      "sha256": "14e27c66598c6f86bb5cbcc312b4275f166ebc1a72f21832852d8d4542e7bb43"
+    }
+  ],
+  "R0_m": 1.0,
+  "B0_T": 1.0,
+  "column_numbers_1based": {
+    "cs": 1,
+    "csm": 2,
+    "psi": 3,
+    "f": 4,
+    "ffp": 5,
+    "p": 6,
+    "pp": 7,
+    "q": 8,
+    "jpar": 9,
+    "ipar": 10,
+    "jbH": 11,
+    "jbS0": 12,
+    "jbSc": 13,
+    "B2": 14,
+    "RIIE": 15,
+    "RIVOL": 16,
+    "fc": 17,
+    "cpsrf": 18
+  },
+  "flux_integral_normalized": 0.9494736329334479,
+  "flux_edge_magnitude_Wb": 5.965718780001864,
+  "sampling": "Original radial midpoints plus edge diagnostic; no invented axis point",
+  "coordinate_formula": "T=cumsum(q[:-1]*diff(cs**2)*CPSRF); s=midpoints(T/Tedge), last=1; psi_n=csm**2",
+  "quantity_formulas": {
+    "q": "column8",
+    "pressure": "p*B0**2/mu0",
+    "jdotb": "jpar*B0**2/(mu0*R0)",
+    "poloidal_current": "(ffp/f)*(Tedge/q)*B0*R0/mu0",
+    "toroidal_current": "RIIE*(Tedge/q)*B0*R0/(2*pi*mu0)"
+  },
+  "solver": "chease",
+  "case": "freep80_high256",
+  "coordinate_plotted": "s_tor",
+  "points": 513,
+  "units": {
+    "s_tor": "1",
+    "rho_tor": "1",
+    "psi_n": "1",
+    "q": "1",
+    "pressure": "Pa",
+    "jdotb": "A T/m2",
+    "poloidal_current": "A",
+    "toroidal_current": "A"
+  },
+  "scientific_acceptance": "NOT_CERTIFIED: plotting does not test stability",
+  "native_signs_retained": true,
+  "extrema": {
+    "s_tor": {
+      "min": 6.924582865056223e-06,
+      "max": 1.0
+    },
+    "rho_tor": {
+      "min": 0.0026314602153664083,
+      "max": 1.0
+    },
+    "psi_n": {
+      "min": 6.690901191897854e-06,
+      "max": 1.0
+    },
+    "q": {
+      "min": 4.3698172519932,
+      "max": 19.265787418477476
+    },
+    "pressure": {
+      "min": 0.0,
+      "max": 207184.0744250547
+    },
+    "jdotb": {
+      "min": 6.171139093740329e-13,
+      "max": 1840744.7406455518
+    },
+    "poloidal_current": {
+      "min": 1.1294460773830054e-15,
+      "max": 162373.47167677263
+    },
+    "toroidal_current": {
+      "min": 1.1048374877494363e-13,
+      "max": 884001.9890243534
+    }
+  },
+  "plotter_sha256": "e5be3299bf5a95fa26a6c2680ec79a085adc1a3b6ee7d76c9de43ad32f135040"
+}
