@@ -1,19 +1,19 @@
-# 約 99% bootstrap current 的歷史研究輸入
+# Historical research inputs for about 99% bootstrap current
 
-**14 組已找到的平衡輸入：10 組 CHEASE、4 組 VMEC。** 2026-11-18 從 FIRST 原始研究目錄取回，保留輸入原始位元組、必要 restart、歷史結果與 SHA-256。本目錄保存歷史資料；後續只對 p80 配對及修改案例做了新實跑，**不是重新驗收全部14組或認證穩定性**，見[實跑證據](../../evidence/ACCEPTANCE.md)。
+**14 equilibrium inputs found: 10 CHEASE and 4 VMEC.** Retrieved on 2026-11-18 from the original FIRST research directory, keeping the original input bytes, the required restarts, the historical results, and SHA-256. This directory stores historical data. Later new runs were done only for the p80 pair and for edited cases, **not a re-acceptance of all 14 or a stability certificate**. See the [run evidence](../../evidence/ACCEPTANCE.md).
 
-[回交接首頁](../../README.md) · [完整來源與雜湊](manifest.json) · [執行條件及調參注意](RUNTIME.md)
+[Back to the handover home page](../../README.md) · [Full sources and hashes](manifest.json) · [Run conditions and parameter-adjustment notes](RUNTIME.md)
 
-**所有建立案例、修改 input、執行與看圖的步驟統一在[交接首頁](../../README.md)。** 本頁只保留研究案例、物理定義與歷史限制。
+**Every step for creating a case, editing an input, running, and viewing plots is on the [handover home page](../../README.md).** This page keeps only the research cases, the physical definitions, and the historical limits.
 
-## 先看這兩對
+## Start with these two pairs
 
-- **A=1.4／較低 β 分支**：[CHEASE p80](cases/freep80_high256/inputs) → [配對 VMEC513](cases/vmec_p80_513/inputs)，fBS 約 99.16%／99.17%。兩者各附歷史 n=1、2、3、壁面 b/a=1.2 的 DCON 設定、日誌及摘要。
-- **A=1.2／老師目標的候選**：[CHEASE exact320](cases/p6_s033_c050_fine_exact320/inputs) → [配對 VMEC2049](cases/vmec_p6_s033_c050_fine_exact320_2049/inputs)，fBS 約 99.29%，βN 約 5.60。VMEC→DCON 的近軸問題未解、有限 n=1–3 尚未完成，不是已證明的第二穩定區。
+- **A=1.4 / lower-β branch:** [CHEASE p80](cases/freep80_high256/inputs) → [paired VMEC513](cases/vmec_p80_513/inputs), fBS about 99.16% / 99.17%. Each includes historical DCON settings, logs, and summaries for n=1, 2, and 3 and wall b/a=1.2.
+- **A=1.2 / candidate for the advisor's goal:** [CHEASE exact320](cases/p6_s033_c050_fine_exact320/inputs) → [paired VMEC2049](cases/vmec_p6_s033_c050_fine_exact320_2049/inputs), fBS about 99.29%, βN about 5.60. The VMEC→DCON near-axis problem is unsolved, finite n=1–3 is not finished, and this is not a demonstrated second-stability region.
 
-## 案例索引
+## Case index
 
-| 案例（點選取得輸入） | Solver | A | fBS [%] | βvac [%] | NS |
+| Case (select for the inputs) | Solver | A | fBS [%] | βvac [%] | NS |
 |---|---|---:|---:|---:|---:|
 | [freep80_high256](cases/freep80_high256/inputs) | CHEASE | 1.4 | 99.160292 | 36.838307 | 256 |
 | [freep80_high320_phase9](cases/freep80_high320_phase9/inputs) | CHEASE | 1.4 | 99.160335 | 36.838270 | 320 |
@@ -30,54 +30,54 @@
 | [p6_s033_c050_fine_exact320](cases/p6_s033_c050_fine_exact320/inputs) | CHEASE | 1.2 | 99.288578 | 15.187458 | 320 |
 | [vmec_p6_s033_c050_fine_exact320_2049](cases/vmec_p6_s033_c050_fine_exact320_2049/inputs) | VMEC | 1.2 | 99.287075 | 15.187526 | 2049 |
 
-βvac 是以真空參考場定義的體積平均 β，不是 βN。NS 為各 solver 自身的徑向設定，不代表兩者有相同磁通座標。A=1.4 的幾何為 R0=1 m、B0=1 T、κ=3、δ=0.5；A=1.2 為 R0=0.45 m、a=0.375 m、B0=1 T、κ≈2.4、δ≈0.4795。不能只按 β 大小排名。
+βvac is the volume-averaged β defined with the vacuum reference field, not βN. NS is each solver's own radial setting and does not mean the two use the same flux coordinate. The A=1.4 geometry is R0=1 m, B0=1 T, κ=3, δ=0.5; A=1.2 is R0=0.45 m, a=0.375 m, B0=1 T, κ≈2.4, δ≈0.4795. They cannot be ranked by the size of β alone.
 
-## 檔案怎麼看
+## How to read the files
 
-- `cases/<案例>/inputs/`：CHEASE 的 `namelist + EXPEQ + NIN`；VMEC 的 `input.test`。**NIN 是原始 restart，不能漏掉或用其他案例任意替換。**
-- `cases/<案例>/historical/`：原始 `summary.json`、`run.log`，以及存在時的 bootstrap 稽核、電流剖面、幾何轉接與解析度設定。歷史摘要中的 `valid=true` 不是本次重跑成功，也不是完整穩定。
-- p80 兩個案例的 `historical/dcon_n*_w0.2_g512_s5_robust/`：三個 n 的 `equil.in / dcon.in / vac.in / run.log / summary.json`。原設定中的絕對路徑只作來源記錄，重跑必須指向自己的新平衡輸出。
-- `source-reports/`：歷史研究報告與獨立稽核快照；`.txt` 中的舊連結、執行指示、當時狀態不是本次任務或即時狀態。
-- `manifest.json`：逐檔來源、大小、雜湊及案例摘要。CHEASE 閉合殘差以 `closure_field` 標明來源；A=1.2 採符合該案例 seed 的 `closure_fixed_seed`，不得誤用 default-seed 診斷。
+- `cases/<case>/inputs/`: CHEASE `namelist + EXPEQ + NIN`; VMEC `input.test`. **NIN is the original restart. Do not omit it or replace it with another case at will.**
+- `cases/<case>/historical/`: the original `summary.json` and `run.log`, and, when present, the bootstrap audit, current profiles, geometry handoff, and resolution settings. `valid=true` in a historical summary is not a successful rerun for this handover, and it is not full stability.
+- `historical/dcon_n*_w0.2_g512_s5_robust/` for the two p80 cases: `equil.in / dcon.in / vac.in / run.log / summary.json` for three values of n. Absolute paths in the original settings are source records only. A rerun must point at that run's own new equilibrium output.
+- `source-reports/`: snapshots of the historical research reports and the independent audit. Old links, run instructions, and the status of that time in the `.txt` files are not this task and are not the live status.
+- `manifest.json`: source, size, hash, and case summary for each file. The CHEASE closure residual names its source with `closure_field`. A=1.2 uses `closure_fixed_seed`, which matches that case's seed; the default-seed diagnostic must not be used by mistake.
 
-這是**精選輸入＋關鍵歷史輸出**，不是所有大檔的完整備份；例如 `wout_test.nc` 與完整 mapping 留在 manifest 指向的 FIRST 原研究目錄。新跑時自行產生，不要假裝已隨 Git 收錄。
+This is a **selected set of inputs plus the key historical outputs**, not a complete backup of every large file. For example, `wout_test.nc` and the full mapping remain in the original FIRST research directory named by the manifest. A new run must produce them itself. Do not treat them as if Git already contained them.
 
-## 0.99 到底代表什麼
+## What 0.99 actually means
 
-本表取 `fbs_total_hirshman`，是 collisionless Hirshman 電流分解得到的**全域積分比例** `fBS = 1 − Iaux / Ip`；不是加權近似值 `fbs_weighted_hirshman`，也不是輸入裡把某個開關設成 0.99。
+This table uses `fbs_total_hirshman`, the **global integral fraction** from the collisionless Hirshman current decomposition, `fBS = 1 − Iaux / Ip`. It is not the weighted approximation `fbs_weighted_hirshman`, and it is not an input switch set to 0.99.
 
-CHEASE 這批使用 `NBSOPT=0`：bootstrap 自洽由外部迭代完成，存下來的是迭代後壓力／電流剖面。**單跑一次保存的平衡輸入不等於重新做 bootstrap 自洽。** 改壓力、seed、邊界後，必須重新迭代、重新算 fBS 與閉合殘差；原先的 99% 不會自動保留。`p80/p90/p98` 是原分支的壓力梯度幅度標記，不是 bootstrap 百分比。
+This CHEASE set uses `NBSOPT=0`: bootstrap self-consistency was finished by an external iteration, and what was stored is the pressure and current profiles after that iteration. **Running the saved equilibrium input once is not doing bootstrap self-consistency again.** After the pressure, seed, or boundary is changed, the iteration, fBS, and closure residual must be computed again; the original 99% is not kept automatically. `p80/p90/p98` labels the pressure-gradient amplitude of the original branch, not a bootstrap percentage.
 
-這套 fBS 診斷採 Zeff=2、pe=pi、Te=Ti 與指定梯度假設，依原方法處理 diamagnetic／Pfirsch–Schlüter 部分；不是通用輸運模型。CHEASE 從本次 `linliu_profiles.dat` 重新積分；VMEC 從本次 `wout_test.nc` 的 Fourier／Jacobian 重新計算。VMEC 的 `Iaux_A/Itotal_A` 是安培，CHEASE 原始 `itotal` 是正規化電流，不可直接標為安培。
+This fBS diagnostic uses Zeff=2, pe=pi, Te=Ti, and a specified gradient assumption, and it handles the diamagnetic and Pfirsch–Schlüter parts by the original method. It is not a general transport model. CHEASE integrates again from this run's `linliu_profiles.dat`; VMEC computes again from the Fourier and Jacobian content of this run's `wout_test.nc`. VMEC `Iaux_A/Itotal_A` is in amperes. The original CHEASE `itotal` is a normalized current and must not be labeled directly as amperes.
 
-讀新執行的 `summary.json`：`fbs_percent` 為百分比，`fbs_total_hirshman` 為比例；例如0.9916029189等於99.16029189%，不是0.9916%。自訂 input 的 `historical_fbs/fbs_difference` 為 null；VMEC 的 `closure_below_1e-3=null` 表示沒有固定 seed 閉合認證。CHEASE 自訂 seed 放在 input 同目錄的 `bootstrap-settings.json`，填入 `seed_axis`、`seed_center`、`seed_width`（width > 0）；未指定則不認證 seed 閉合。
+In a new run's `summary.json`, `fbs_percent` is a percentage and `fbs_total_hirshman` is a fraction; for example, 0.9916029189 equals 99.16029189%, not 0.9916%. For a custom input, `historical_fbs/fbs_difference` is null. VMEC `closure_below_1e-3=null` means there is no fixed-seed closure certificate. A custom CHEASE seed goes in `bootstrap-settings.json` in the same directory as the input, with `seed_axis`, `seed_center`, and `seed_width` (width > 0). If they are not given, seed closure is not certified.
 
-## 跨 solver 的來源配對
+## Source pairing across solvers
 
-| VMEC | 真正的 CHEASE parent |
+| VMEC | Actual CHEASE parent |
 |---|---|
 | `vmec_p80_513` | `freep80_high256` |
 | `vmec_p98_513` | `freep98_high256_phase9` |
-| `vmec_selfconsistent513` | **`free54_refined`**，不是 high256/high320 |
+| `vmec_selfconsistent513` | **`free54_refined`**, not high256/high320 |
 | `vmec_p6_s033_c050_fine_exact320_2049` | `p6_s033_c050_fine_exact320` |
 
-CHEASE 剖面使用 poloidal-flux 相關座標；VMEC 使用 normalized toroidal flux。重建剖面時必須沿用轉換，不能直接以相同橫軸索引替換。
+CHEASE profiles use a coordinate related to poloidal flux; VMEC uses normalized toroidal flux. Profile reconstruction must retain that conversion; matching radial indices alone does not identify the same flux surface.
 
-## 穩定性邊界：高 bootstrap ≠ 完整穩定
+## Stability boundary: high bootstrap ≠ full stability
 
-- **p80**：已有指定近壁 b/a=1.2、n=1–3 的 CHEASE／VMEC 有限正能量歷史結果；CHEASE 九相位局部加密對照較完整。但不能外推成全部 n、無壁或已消除 VMEC 近軸警訊。
-- **p90／p98**：壁面 b/a=1.3 有負能量或未通過品質篩選的模式；局部穩定也不能替代有限 n 的檢查。
-- **free54**：βvac≈53.77%、fBS≈99.62%，高 n 邊緣 ballooning 未通過；近壁 n=1–5 的正能量不是完整穩定證明，n=6 timeout 是未知。
-- **A=1.2**：CHEASE 局部檢查通過；VMEC→DCON 仍有近軸 Mercier 警訊與缺失磁面。第二穩定區及有限 n=1–3 尚未驗收。
+- **p80:** historical finite positive-energy results exist for CHEASE and VMEC at the specified near wall b/a=1.2 and n=1–3; the CHEASE local-stability refinement checks across nine phases are more complete. This cannot be extended to every n, to no wall, or to a claim that the VMEC near-axis warning has been removed.
+- **p90 / p98:** at wall b/a=1.3 there are modes with negative energy or modes that did not pass the quality filter. Local stability also cannot stand in for a finite-n check.
+- **free54:** βvac≈53.77% and fBS≈99.62%. High-n edge ballooning did not pass. Positive energy for near-wall n=1–5 is not proof of full stability, and the n=6 timeout is unknown.
+- **A=1.2:** the CHEASE local check passed. VMEC→DCON still has a near-axis Mercier warning and missing surfaces. The second-stability region and finite n=1–3 have not been accepted.
 
-詳見 [Lin–Liu 數值表](source-reports/linliu-numerical-tables.txt)、[研究結論](source-reports/linliu-results.txt)、[A=1.2 歷史報告](source-reports/aspect12-historical-readme.txt) 與 [獨立稽核](source-reports/aspect12-independent-audit.json)。
+See the [Lin–Liu numerical tables](source-reports/linliu-numerical-tables.txt), [research conclusions](source-reports/linliu-results.txt), [A=1.2 historical report](source-reports/aspect12-historical-readme.txt), and [independent audit](source-reports/aspect12-independent-audit.json).
 
-## 只檢查交接檔案完整性（不執行 solver）
+## Check handover-file integrity only (do not run a solver)
 
-在 repository 根目錄：
+From the repository root:
 
 ```sh
 python3 tools/check_research_inputs.py
 ```
 
-成功只代表輸入／歷史證據未損毀且索引與原始摘要一致；不是新的數值重現驗收。
+Success only means the inputs and historical evidence are undamaged and the index agrees with the original summaries. It is not a new numerical-reproduction acceptance.

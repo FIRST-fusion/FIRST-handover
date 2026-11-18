@@ -1,3 +1,3 @@
-# 六例新求解圖
+# Plots from six new equilibrium runs
 
-圖表、數值與收據已整合到 **[交接驗收紀錄](../ACCEPTANCE.md#fresh-profiles)**。本頁保留作舊連結入口；原始圖檔不變。
+The plots, numbers, and receipt are now in the **[handover acceptance record](../ACCEPTANCE.md#fresh-profiles)**. This page remains as the old link entry; the original image files are unchanged.

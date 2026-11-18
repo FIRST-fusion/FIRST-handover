@@ -1,3 +1,3 @@
-# 高 bootstrap 執行操作
+# High-bootstrap operating procedure
 
-內容已整合到 **[交接首頁](../../README.md)**，依序完成「選起點 → 改 input → 執行 → 看結果」。本頁僅保留舊連結，不再維護另一套操作說明。
+The content is now in the **[handover home page](../../README.md)**. Follow that page in order: choose a starting point → edit the input → run → view the results. This page only keeps the old link and no longer maintains a separate set of instructions.
